@@ -23,7 +23,7 @@ Create an Ecommerce Store where you can buy furniture and home decor items. It s
 
 We don’t want to limit you or bias your implementation by providing some demo application with a specific design, but instead, ask you to choose your own and build it from scratch. Here’s a link where you can find great ideas and inspiration for your UI design: https://dribbble.com/search/ecommerce
 
-## Deliverables
+# Deliverables
 
 We provide the delivery dates to plan accordingly; please take this project seriously and try to make progress constantly. If you are struggling with something or get stuck at some point, please schedule a mentoring session to get help on time. Feel free to use the slack channel available.
 
