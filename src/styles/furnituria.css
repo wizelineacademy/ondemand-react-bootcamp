@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+.wz-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wz-col {
+  display: inline-block;
+  padding: 8px;
+}
+
+.wz-quarters {
+  width: 25%;
+}
+
+.wz-thirds {
+  width: 33%;
+}
+
+.wz-halfs {
+  width: 50%;
+}
+
+.wz-center {
+  text-align: center;
+}
+
+.wz-header {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+}
+
+.wz-header > .nav-header {
+    display: inline;
+}
+
+.wz-header > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+}
+
+.wz-header > .nav-btn {
+    display: none;
+}
+
+.wz-header > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.wz-header > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.wz-header > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.wz-header > #nav-check {
+    display: none;
+}
+
+.wz-footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #4d4d4d;
+  color: #ffffff;
+}
+
+.wz-slider-item-image {
+  width: 100%;
+  height: 720px;
+  object-fit: cover;
+}
+
+.wz-title {
+  padding: 24px;
+  text-align: center;
+}
+
+.wz-slider-product-item-image {
+  width: 100%;
+  padding: 16px;
+}
+
+.wz-product img{
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+    .wz-header > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+
+    .wz-header > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+
+    .wz-header > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .wz-header > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+
+    .wz-header > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+      z-index: 100;
+    }
+
+    .wz-header > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+
+    .wz-header > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+
+    .wz-header > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+
+    .wz-slider-item-image {
+      width: 100%;
+      height: auto;
+  }
+} 
