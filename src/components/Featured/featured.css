@@ -1,0 +1,28 @@
+.featured {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 25vh;
+}
+
+.featured-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: 40px 40px ;
+}
+
+.featured-div {
+  margin: 20px;
+}
+
+.featured-button {
+  border-color: rgb(84, 219, 84);
+  background-color: white;
+}
