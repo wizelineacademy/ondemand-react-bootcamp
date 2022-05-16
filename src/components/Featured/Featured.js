@@ -3,14 +3,11 @@ import './featured.css';
 import Product from "../Product/Product";
 import Button from "../Button/Button";
 import {useProducts} from '../../utils/hooks/useProducts';
+import { NavLink } from 'react-router-dom';
 
 const Featured = () => {
-  //const [productQuery, setProductQuery] = useState();
   const productQuery=useRef({tags: ['Featured'], pageSize:16});
   const { data, isLoading } = useProducts(productQuery.current);
-  function handleOnclick(){
-    window.location = 'http://localhost:3000/productlist';
-  }
   return (
     <div className="featured">
       <h3>Featured Products</h3>
@@ -32,7 +29,7 @@ const Featured = () => {
         })}
       </div>
       <div className="featured-div">
-      <Button classname="featured-button" onclick={handleOnclick}>View all products</Button>
+      <NavLink to="/productlist"><Button classname="featured-button">View all products</Button></NavLink>
       </div>
     </div>
   );

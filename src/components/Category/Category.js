@@ -2,10 +2,13 @@ import React from "react";
 import "./category.css";
 import PropTypes from 'prop-types';
 
-const Category = ({ data }) => {
+const Category = ({ data, handlerEvent }) => {
   const { url, name, alt } = data;
+  const handlerOnClick = ()=>{
+    handlerEvent();
+  }
   return (
-    <div className="category">
+    <div className="category" onClick={handlerOnClick}>
       <div>
         <img src={url} alt={alt} className="category-img"/>
       </div>
