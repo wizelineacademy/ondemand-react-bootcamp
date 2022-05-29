@@ -4,7 +4,7 @@ import { useProductCategories } from "../../../utils/hooks/useProductCategories"
 
 import ToggleSwitch from "../../ToggleSwitch";
 
-const Navigation = ({ handlerEvent }) => {
+const Navigation = ({ handlerEvent, checkedItems }) => {
   const { data, isLoading } = useProductCategories();
   const handlerToggleSwitch = (e) => {
     return handlerEvent(e);
@@ -17,7 +17,13 @@ const Navigation = ({ handlerEvent }) => {
           <h2>Categories</h2>
           {data.results &&
             data.results.map((row) => {
-              return <ToggleSwitch key={row.id} value={row.id} label={row.data.name} handlerEvent={handlerToggleSwitch}/>;
+              let checked = checkedItems.includes(row.id);
+              return <ToggleSwitch
+              key={row.id}
+              value={row.id}
+              label={row.data.name}
+              handlerEvent={handlerToggleSwitch}
+              checked={checked}/>;
             })}
         </div>
       </div>

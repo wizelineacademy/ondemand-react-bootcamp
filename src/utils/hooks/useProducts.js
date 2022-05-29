@@ -14,7 +14,7 @@ export function useProducts(query) {
       return () => {};
     }
 
-    const {tags= [], categories= [], pageSize= 14} = query;
+    const {tags= [], categories= [], pageSize= 14, currentPage= 1} = query;
     const controller = new AbortController();
 
     async function getProducts() {
@@ -33,7 +33,7 @@ export function useProducts(query) {
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
             '[[at(document.type, "product")]]'
-          )}&lang=en-us&pageSize=${pageSize}${addTags}${addCategories}`,
+          )}&lang=en-us&page=${currentPage}&pageSize=${pageSize}${addTags}${addCategories}`,
           {
             signal: controller.signal,
           }

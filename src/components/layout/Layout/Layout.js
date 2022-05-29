@@ -6,7 +6,7 @@ import Navigation from '../Navigation';
 import Body from '../Body/Body';
 import PropTypes from 'prop-types';
 
-const Layout = ({ type, navHandlerEvent, contentData, contentIsLoading, children }) => {
+const Layout = ({ type, navHandlerEvent, contentData, contentIsLoading, navCheckedItems, children }) => {
   const handlerEvent = (e) => {
     return navHandlerEvent(e);
   }
@@ -14,7 +14,7 @@ const Layout = ({ type, navHandlerEvent, contentData, contentIsLoading, children
   <>
   <Header/>
   <Body>
-    {type === 'withNav'  &&  <Navigation handlerEvent={handlerEvent}/> }
+    {type === 'withNav'  &&  <Navigation handlerEvent={handlerEvent} checkedItems={navCheckedItems}/> }
     <Content>{children}</Content>
   </Body>
   <Footer/>
