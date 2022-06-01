@@ -39,10 +39,10 @@ We provide the delivery dates to plan accordingly; please take this project seri
 Once you’ve covered all the requirements and completed all the bullets on the Evaluation Criteria section:
 1. Push your changes to your branch.
 1. Open a **PR** that can be merged into your **main** branch of your **own** GitHub repository.
-1. Remember to add your mentor as a reviewer
+1. Any of the mentors will review it and leave feedback comments in your PR
 1. Deploy your app into a hosting service such as Netlify, Firebase, Heroku, GitHub Pages, among others.
-1. Share the links of both your PR and your application to your mentor
 1. Fill [the form](https://forms.gle/EsuF5syb744Ntypx6) to submit your project
+1. If you or the mentor needs further detail on the feedback feel free to book a 1:1 session, request it on the slack channel please.
 
 
 ## Deliverable 1
