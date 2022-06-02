@@ -23,6 +23,19 @@
 }
 
 .featured-button {
-  border-color: rgb(84, 219, 84);
-  background-color: white;
+  border-color: lightgray;
+  border-style: solid;
+  border-radius: 10px;
+  border-radius: 10px;
+  border-style: none;
+  min-height: 20px;
+  min-width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.featured-button:hover {
+   background-color:#EC1666;
+   transition: 0.3s;
+   color: white;
 }

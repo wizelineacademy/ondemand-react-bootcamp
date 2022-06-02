@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div className="header-right">
         <input type="text" placeholder="Search item"></input>
-        <img src={cart} alt="cart" />
+        <img src={cart} alt="cart" style={{height:50}}/>
       </div>
     </div>
   );

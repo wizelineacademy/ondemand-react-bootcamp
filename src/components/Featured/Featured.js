@@ -18,6 +18,7 @@ const Featured = () => {
             <Product
               key={row.id}
               data={{
+                id: row.id,
                 name: row.data.name,
                 alt: row.data.mainimage.alt,
                 url: row.data.mainimage.url,

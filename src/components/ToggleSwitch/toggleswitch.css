@@ -24,7 +24,7 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 0 solid #bbb;
+  border: 0 solid lightgray;
   border-radius: 20px;
   }
   .inner {
@@ -47,13 +47,13 @@
   .inner:before {
   content: "YES";
   padding-left: 10px;
-  background-color: #060;
+  background-color: #EC1666;
   color: #fff;
   }
   .inner:after {
   content: "NO";
   padding-right: 10px;
-  background-color: #bbb;
+  background-color: lightgray;
   color: #fff;
   text-align: right;
   }
