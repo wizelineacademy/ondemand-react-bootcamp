@@ -25,22 +25,26 @@ const ProductList = () =>{
   },[currentPage]);
 
   const handlerEvent = (e) => {
-    let checked = e.target.checked;
-    let category = e.target.value;
+
     let cats = [];
-    const categories=productQuery.categories;
-    if (!categories.includes(category)) {
-      if (checked)  {
-        cats = categories;
-        cats.push(category);
-      }
-    } else {
-      if (!checked)  {
-        cats = categories.filter(cat => cat !== category);
+    if(e.target.type === 'checkbox') {
+      let checked = e.target.checked;
+      let category = e.target.value;
+      const categories=productQuery.categories;
+      if (!categories.includes(category)) {
+        if (checked)  {
+          cats = categories;
+          cats.push(category);
+        }
       } else {
-        cats = categories;
+        if (!checked)  {
+          cats = categories.filter(cat => cat !== category);
+        } else {
+          cats = categories;
+        }
       }
     }
+
     setProductQuery(prevProductQuery => ({...prevProductQuery, categories: cats}));
     setCheckedItems(prevCheckedItems => (cats));
     setCurrentPage(prevCurrentPage => (1));

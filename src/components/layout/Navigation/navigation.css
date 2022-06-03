@@ -25,3 +25,29 @@
   border-right-style:solid;
   border-color: lightgray;
 }
+
+.navigation-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  background-color: white;
+}
+
+.navigation-button {
+  border-color: lightgray;
+  border-style: solid;
+  border-radius: 10px;
+  border-radius: 10px;
+  border-style: none;
+  min-height: 20px;
+  min-width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.navigation-button:hover {
+   background-color:#EC1666;
+   transition: 0.3s;
+   color: white;
+}

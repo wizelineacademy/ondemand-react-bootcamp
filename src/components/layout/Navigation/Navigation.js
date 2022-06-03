@@ -1,12 +1,15 @@
 import React from "react";
 import "./navigation.css";
 import { useProductCategories } from "../../../utils/hooks/useProductCategories";
-
+import Button from '../../Button';
 import ToggleSwitch from "../../ToggleSwitch";
 
 const Navigation = ({ handlerEvent, checkedItems }) => {
   const { data, isLoading } = useProductCategories();
   const handlerToggleSwitch = (e) => {
+    return handlerEvent(e);
+  }
+  const handlerOnclickButton = (e) => {
     return handlerEvent(e);
   }
   return (
@@ -25,6 +28,11 @@ const Navigation = ({ handlerEvent, checkedItems }) => {
               handlerEvent={handlerToggleSwitch}
               checked={checked}/>;
             })}
+        </div>
+        <div className="navigation-button-container">
+          { checkedItems.length > 0 &&
+          <Button classname="navigation-button" onclick={handlerOnclickButton}>Clear filters</Button>
+          }
         </div>
       </div>
       <div className="navigation-sep"></div>
