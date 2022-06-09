@@ -7,15 +7,15 @@ import Button from "../Button/Button";
 const Product = ({ data }) => {
   const { url, name, alt, category, price, id } = data;
   const navigate = useNavigate();
-  const goToCart = () =>
+  const addToCart = () =>
     navigate({
       pathname: "/cart",
-      search: "?product=" + id,
+      search: "?productId=" + id,
     });
   const goToProductDetail = () =>
   navigate({
-    pathname: "/productdetail",
-    search: "?product=" + id,
+    pathname: "/product",
+    search: "?productId=" + id,
   });
   return (
     <div className="product">
@@ -36,7 +36,7 @@ const Product = ({ data }) => {
         </ul>
       </div>
       <div className="product-button-container">
-        <Button classname="product-button" onclick={goToCart}>
+        <Button classname="product-button" onclick={addToCart}>
           Add to cart
         </Button>
       </div>

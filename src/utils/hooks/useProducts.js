@@ -14,7 +14,7 @@ export function useProducts(query) {
       return () => {};
     }
 
-    const {tags= [], categories= [], pageSize= 14, currentPage= 1} = query;
+    const {tags= [], categories= [], pageSize= 14, currentPage= 1, productId=null} = query;
     const controller = new AbortController();
 
     async function getProducts() {
@@ -30,10 +30,20 @@ export function useProducts(query) {
           addCategories = `&q=${encodeURIComponent(`[[any(my.product.category,${catsParam})]]`)}`;
         }
 
-        const response = await fetch(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+        let queryString ='';
+        if(productId === null){
+          queryString = `&q=${encodeURIComponent(
             '[[at(document.type, "product")]]'
-          )}&lang=en-us&page=${currentPage}&pageSize=${pageSize}${addTags}${addCategories}`,
+          )}&lang=en-us&page=${currentPage}&pageSize=${pageSize}${addTags}${addCategories}`
+        } else {
+          queryString = `&q=${encodeURIComponent(
+            `[[:d=at(document.id,"${productId}")]]`
+          )}`
+        }
+
+        const url = `${API_BASE_URL}/documents/search?ref=${apiRef}${queryString}`;
+
+        const response = await fetch(url,
           {
             signal: controller.signal,
           }
