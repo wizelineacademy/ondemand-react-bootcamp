@@ -10,7 +10,7 @@ const Product = ({ data }) => {
   const addToCart = () =>
     navigate({
       pathname: "/cart",
-      search: "?productId=" + id,
+      search: "?productId=" + id + "&numItems=1",
     });
   const goToProductDetail = () =>
   navigate({
