@@ -1,0 +1,11 @@
+.textfooter
+ {
+    /* Posicionar abajo */
+    position: relative;
+    bottom: 0;
+    /* Ocupar todo el ancho disponible */
+    width: 100%;
+    min-height: 20vh;
+    /* Solo para probar cómo se ve */
+    background: #ccc;
+  }
