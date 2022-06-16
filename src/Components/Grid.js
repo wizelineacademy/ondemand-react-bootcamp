@@ -6,13 +6,6 @@ function GridCategory() {
 
     return (
         <>
-        <h1 style={{textAlign:'center', 
-                textDecoration:'underline overline', 
-                color:'white',
-                fontSize:'100px', 
-                fontFamily:'"Lucida Console", "Courier New", monospace',
-                textShadow:'-3px -3px 0 #1E517B, 1px -1px 0 #1E517B, -1px 1px 0 #1E517B, 1px 1px 0 #1E517B'}}>
-            Categories</h1>
         <div className="grid-container">
             {Categories.results.map((item, itemIndex) => { 
                 return (    
