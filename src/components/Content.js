@@ -1,8 +1,50 @@
+import React from 'react';
+import Carousel from './Carousel';
 import styles from './Content.module.scss'
 import SellItem from './SellItem'
-export default function Content() {
+
+
+ 
+
+export default class Content extends React.Component
+ {
+    constructor(props) {
+        super(props)
+    
+       const element = {
+            id: 1,
+            count: 10,
+            src: 'https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705',
+            alt: 'media',
+            text: 'This is text'
+        
+        };
+        const element2 = {
+            id: 2,
+            count: 10,
+            src: 'https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705',
+            alt: 'media',
+            text: 'This is text'
+        
+        };
+        
+         const elements=[element,element2];
+
+        this.state = { elements: elements }
+
+      }
+
+
+8
+
+
+    render(){
     return (
         <div className={styles.textcontent} >
+            
+           <Carousel  index={0} elements={this.state.elements} />
+        
+
             <SellItem />
             <SellItem />
             <SellItem />
@@ -12,8 +54,8 @@ export default function Content() {
             <SellItem />
             <SellItem />
             <SellItem />
-<br/>
-<br/>
+            <br/>
+            <br/>
             <p>
                 ## Deliverable 1
 
@@ -68,7 +110,7 @@ export default function Content() {
         </div >
 
 
-    );
+    );}
 
 
 

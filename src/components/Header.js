@@ -23,10 +23,11 @@ const Header  =()=> {
     return (
         
         <table className={styles.table}>
+            
             <tr>
+                
                 <th>Authentic Authentic Authentic!</th>
                 <th><img src={logo} alt={'Authentic Authentic Authentic' }  width={100} height={100}/></th>
-              
                 <th><SearchEngine/ ></th>  
                 <th><img src={shoppingCart} alt={'check your purchase' }  width={50} height={50}/></th>
             </tr>
