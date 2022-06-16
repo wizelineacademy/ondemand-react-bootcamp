@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from './Carousel';
 import styles from './Content.module.scss'
 import SellItem from './SellItem'
-
+import Slider from './Slider'
 
  
 
@@ -22,7 +22,7 @@ export default class Content extends React.Component
         const element2 = {
             id: 2,
             count: 10,
-            src: 'https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705',
+            src: 'https://images.prismic.io/wizeline-academy/305e2781-5f25-4c00-bef7-1041b49def37_banner-1-2.jpeg?auto=compress,forma741t&rect=103,0,1226,600&w=1440&h=705',
             alt: 'media',
             text: 'This is text'
         
@@ -42,18 +42,12 @@ export default class Content extends React.Component
     return (
         <div className={styles.textcontent} >
             
-           <Carousel  index={0} elements={this.state.elements} />
-        
+           <Carousel  slideIndex={1} elements={this.state.elements} />
+           <Slider  rangeValue={1} elements={this.state.elements} />
+           
 
             <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
-            <SellItem />
+
             <br/>
             <br/>
             <p>
