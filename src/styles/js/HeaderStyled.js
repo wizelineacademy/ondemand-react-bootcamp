@@ -9,6 +9,7 @@ const HeaderStyle =  styled.header`
   align-items: center;
   position: fixed;
   text-align: center;
+  top: 0;
 
     .header-container {
         width: 100%;

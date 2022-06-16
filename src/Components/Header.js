@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderStyle from "../styles/HeaderStyled";
+import HeaderStyle from "../styles/js/HeaderStyled";
 import logo from "../images/logo-ecommerce.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
