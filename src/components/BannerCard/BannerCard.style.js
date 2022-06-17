@@ -9,6 +9,16 @@ export const Banner = styled.div`
 export const BannerImage = styled.img`
   border-radius: 8px;
   margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    width: 336px;
+    height: 264px;
+  }
+
+  @media (max-width: 425px) {
+    width: 288px;
+    height: 200px;
+  }
 `;
 
 export const Information = styled.div`

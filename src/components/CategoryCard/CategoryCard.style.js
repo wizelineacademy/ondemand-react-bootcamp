@@ -5,15 +5,20 @@ export const Category = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  padding: 16px;
-  margin: 16px;
   border-radius: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
   box-shadow: 0 0.8px 0.8px rgba(0, 0, 0, 0.19),
     0 0.8px 0.8px rgba(0, 0, 0, 0.23);
 `;
 
-export const ImageSection = styled.div`
+export const ImageSection = styled.img`
   padding: 8px;
+
+  @media (max-width: 425px) {
+    width: 288px;
+    height: 168px;
+  }
 `;
 
 export const Title = styled.div`
