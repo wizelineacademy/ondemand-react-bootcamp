@@ -1,11 +1,15 @@
 import React from "react";
 import {Categories} from '../mocks/product-categories'
 import '../styles/css/GridCategory.css'
+import '../App.css'
 
 function GridCategory() {
 
     return (
         <>
+        <div className="App-container-title">
+            <h1> CATEGORIES </h1>
+        </div>
         <div className="grid-container">
             {Categories.results.map((item, itemIndex) => { 
                 return (    

@@ -1,13 +1,16 @@
 import React from "react";
 import { Products } from "../mocks/featured-products";
-import '../styles/css/FeatureProduct.css'
+import '../styles/css/FeatureProduct.css';
+import '../App.css'
 
 function FeatureProducts() {
   return (
     <>
+      <div className="App-container-title">
+        <h1> PRODUCTS </h1>
+      </div>
       <div className="product-container">
         {Products.results.map((item, itemIndex) => {
-          console.log(itemIndex);
           return (
             <div key={item.id} className="product-card">
               <div className="product-card-img">
