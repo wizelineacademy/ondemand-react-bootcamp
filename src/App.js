@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Slider from "./Components/Slider";
 import Grid from "./Components/Grid";
+import FeatureProducts from "./Components/Feature-Product";
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -16,7 +17,10 @@ function App() {
       <Header></Header>
       <div className="container">
         <Slider></Slider>
+        <hr></hr>
         <Grid></Grid>
+        <hr></hr>
+        <FeatureProducts></FeatureProducts>
       </div>
       <Footer text="Ecommerce created during Wizeline's Academy React Bootcamp"></Footer>
     </div>
