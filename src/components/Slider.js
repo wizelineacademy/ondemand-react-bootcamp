@@ -10,7 +10,7 @@ class SliderElement extends React.Component {
 
 
     static propTypes = {
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         count: PropTypes.number.isRequired,
         src: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
@@ -27,9 +27,9 @@ class SliderElement extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props.id )
-            console.log( this.props.rangeValue)
-        console.log(this.props.id === this.props.rangeValue)
+        // console.log(this.props.id )
+        //     console.log( this.props.rangeValue)
+        // console.log(this.props.id === this.props.rangeValue)
         const state= (this.props.id === this.props.rangeValue)
         this.itemRef.current.style.display = state
             ? "block"
@@ -40,11 +40,11 @@ class SliderElement extends React.Component {
     render() {
         return (
             <div className={styles.CarrouselElementStyle} ref={this.itemRef} >
-                <div class="mySlides fade">
-                    
+                <div className="mySlides fade">
+                 {console.log(this.props.src)}
                     <img src={this.props.src} alt={this.props.alt} />
-                    <div class="numbertext">{this.props.id}/{this.props.count}</div>
-                    <div class="text">{this.props.text}</div>
+                    <div className="numbertext">{this.props.id}/{this.props.count}</div>
+                    <div className="text">{this.props.text}</div>
                 </div>
             </div>);
 
@@ -60,22 +60,21 @@ export default class Slider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            rangeValue: props.rangeValue
+            rangeValue: 1
         }
         this.itemRef = React.createRef()
         this.onChange = this.onChange.bind(this)
-        console.log(this.state.rangeValue)
+        // console.log(this.state.rangeValue)
     }
 
 
     static propTypes = {
         elements: PropTypes.array.isRequired,
-        index: PropTypes.number.isRequired,
     }
     onChange(event)
     {
-            console.log(event);
-            console.log(this.itemRef.current.value);
+            // console.log(event);
+            // console.log(this.itemRef.current.value);
             this.setState({ rangeValue: parseInt(this.itemRef.current.value) });
     }
     
@@ -84,9 +83,9 @@ export default class Slider extends React.Component {
         return (
             <div className={styles.styleCarrousel} >
 
-                <div class="slideshow-container">
-                    {this.props.elements.map((item) => (<SliderElement key={item.id} rangeValue={this.state.rangeValue} {...item} />))}
-                    <input type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} class="slider" />
+                <div className="slideshow-container">
+                    {this.props.elements.map((item) => (<SliderElement key={item.id} id={item.id} count={this.props.elements.length} rangeValue={this.state.rangeValue} {...item} />))}
+                    <input type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} className="slider" />
                 </div>
 
             </div >

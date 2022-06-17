@@ -10,12 +10,12 @@ class CarouselElement extends React.Component {
 
 
     static propTypes = {
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         count: PropTypes.number.isRequired,
         src: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
-        slideIndex: PropTypes.number.isRequired
+
     }
 
     componentDidMount() {
@@ -35,12 +35,12 @@ class CarouselElement extends React.Component {
 
     render() {
         return (
-            <div className={styles.CarrouselElementStyle} ref={this.itemRef} >
-                <div class="mySlides fade">
+            <div className={styles.Carrouseldatatyle} ref={this.itemRef} >
+                <div className="mySlides fade">
                     
-                    <img src={this.props.src} alt={this.props.alt} />
-                    <div class="numbertext">{this.props.id}/{this.props.count}</div>
-                    <div class="text">{this.props.text}</div>
+                    <img src={this.props.src} alt={this.props.alt} className={styles.styleCarrouselImage}/>
+                    <div className="numbertext">{this.props.id}/{this.props.count}</div>
+                    <div className="text">{this.props.text}</div>
                 </div>
             </div>);
 
@@ -59,21 +59,23 @@ export default class Carousel extends React.Component {
         }
         this.prevClick = this.prevClick.bind(this)
         this.nextClick = this.nextClick.bind(this)
-        console.log("slideIndex:" + props.slideIndex)
+        // console.log("slideIndex:" + props.slideIndex)
     }
-
+    
 
     static propTypes = {
-        elements: PropTypes.array.isRequired,
-        index: PropTypes.number.isRequired,
+        data: PropTypes.array.isRequired,
+        slideIndex: PropTypes.number,
+        carouselName:PropTypes.string.isRequired,
+        carouselIndex:PropTypes.number.isRequired
     }
 
 
     setIndex(nextIndex)
     {
-        if (nextIndex> this.props.elements.length) { this.setState({ slideIndex: 1 }) }
+        if (nextIndex> this.props.data.length) { this.setState({ slideIndex: 1 }) }
         else {
-            if (nextIndex < 1) { this.setState({ slideIndex: this.props.elements.length }) }
+            if (nextIndex < 1) { this.setState({ slideIndex: this.props.data.length }) }
             else{  this.setState({ slideIndex: nextIndex });}
         }
 
@@ -91,13 +93,12 @@ export default class Carousel extends React.Component {
     render() {
         return (
             <div className={styles.styleCarrousel} >
-
-                <div class="slideshow-container">
-                    {this.props.elements.map((item) => (<CarouselElement key={item.id} slideIndex={this.state.slideIndex} {...item} />))}
-                    <span class={styles.dot}></span>
-                    <button class={styles.prev} onClick={this.prevClick} >❮</button>
-                    <button class={styles.next} onClick={this.nextClick} >❯</button>
-                </div>
+                    {this.props.data.map((item,index) =>  (console.log(`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`))) }                        
+                    {this.props.data.map((item,index) =>  (<CarouselElement key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`} count={this.props.data.length} slideIndex={this.state.slideIndex} {...item} />))}
+                    <button className={styles.prev} onClick={this.prevClick} >❮</button>
+                    <span className={styles.dot}></span>
+                    <button className={styles.next} onClick={this.nextClick} >❯</button>
+            
 
             </div >
         );

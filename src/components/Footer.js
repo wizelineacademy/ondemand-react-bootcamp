@@ -5,8 +5,8 @@ export default function Footer()
 
     return (
 
-        <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
-
+        
+        <div className={styles.Footer}>Ecommerce created during Wizeline’s Academy React Bootcamp</div>
     );
 
 

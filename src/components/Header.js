@@ -1,7 +1,7 @@
 import styles from './Header.module.scss'
 import logo from '../media/logo.png'; 
 import shoppingCart from '../media/shopping-cart.png'; 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 
   
@@ -23,7 +23,7 @@ const Header  =()=> {
     return (
         
         <table className={styles.table}>
-            
+            <tbody>
             <tr>
                 
                 <th>Authentic Authentic Authentic!</th>
@@ -31,6 +31,7 @@ const Header  =()=> {
                 <th><SearchEngine/ ></th>  
                 <th><img src={shoppingCart} alt={'check your purchase' }  width={50} height={50}/></th>
             </tr>
+            </tbody>
         </table>
     ) ;
 

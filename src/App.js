@@ -1,19 +1,17 @@
 import './App.css';
-import Header from './components/Header.js'
-import Content from './components/Content.js'
-import Footer from './components/Footer.js'
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
 
   return (
-    <div className="App">
-     <Header/>
-      <Content/>
-      <Footer />
-    </div> 
+    <Router>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/home" element={<Home/>}/>
+        </Routes>
+    </Router>
   );
 } 
 
