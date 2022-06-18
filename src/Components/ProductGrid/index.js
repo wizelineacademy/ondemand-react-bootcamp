@@ -1,15 +1,19 @@
 import React from 'react';
 import ProductCard from '../ProductCard';
-import Products from '../../MockData/products.json';
+import Products from '../../MockData/featured-products.json';
 import './styles.scss';
 
 const ProductGrid = () => {
+  const products = Products.results;
   return (
-    <div className="ProductGrid">
-      {Products.results.map((product) => (
-        <ProductCard key={product.id} {...product.data} />
-      ))}
-    </div>
+    <>
+      <h1>Featured Products</h1>
+      <div className="ProductGrid">
+        {products.map((product) => (
+          <ProductCard key={product.id} {...product.data} />
+        ))}
+      </div>
+    </>
   );
 };
 

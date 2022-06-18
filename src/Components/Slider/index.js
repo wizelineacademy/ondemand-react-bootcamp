@@ -18,11 +18,11 @@ const Slider = () => {
 
   return (
     <div className="Slider__gallery">
-      <button onClick={prevSlide} className="Slider__buttons left-button">
-        Previous
+      <button type="button" onClick={prevSlide} className="Slider__buttons left-button">
+        &#60;
       </button>
-      <button onClick={nextSlide} className="Slider__buttons right-button">
-        Next
+      <button type="button" onClick={nextSlide} className="Slider__buttons right-button">
+        &#62;
       </button>
       {slides.map((slide, index) => (
         <div key={index} className={index === current ? 'slide-active' : 'slide'}>
