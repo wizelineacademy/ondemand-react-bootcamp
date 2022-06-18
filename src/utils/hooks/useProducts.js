@@ -14,7 +14,7 @@ export function useProducts(query) {
       return () => {};
     }
 
-    const {tags= [], categories= [], pageSize= 14, currentPage= 1, productId=null} = query;
+    const {tags= [], categories= [], pageSize= 14, currentPage= 1, productId=null, searchTerm=null} = query;
     const controller = new AbortController();
 
     async function getProducts() {
@@ -29,12 +29,16 @@ export function useProducts(query) {
           const catsParam = categories.length === 1 ? `["${categories[0]}"]` : `["${categories.join('","')}"]`;
           addCategories = `&q=${encodeURIComponent(`[[any(my.product.category,${catsParam})]]`)}`;
         }
+        let addSearchTerm = '';
+        if(searchTerm !== null){
+          addSearchTerm = `&q=${encodeURIComponent(`[[fulltext(document,"${searchTerm}")]]`)}`;
+        }
 
         let queryString ='';
         if(productId === null){
           queryString = `&q=${encodeURIComponent(
             '[[at(document.type, "product")]]'
-          )}&lang=en-us&page=${currentPage}&pageSize=${pageSize}${addTags}${addCategories}`
+          )}&lang=en-us&page=${currentPage}&pageSize=${pageSize}${addTags}${addCategories}${addSearchTerm}`
         } else {
           queryString = `&q=${encodeURIComponent(
             `[[:d=at(document.id,"${productId}")]]`

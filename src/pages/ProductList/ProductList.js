@@ -11,6 +11,8 @@ const ProductList = () =>{
   const [searchParams] = useSearchParams();
   const [checkedItems, setCheckedItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const searchTerm = searchParams.get("searchTerm");
+  const [isSearcResult, setIsSearcResult] = useState(false);
 
   useEffect(() => {
   const queryCategory = searchParams.get("category");
@@ -23,6 +25,16 @@ const ProductList = () =>{
   useEffect(() => {
     setProductQuery(prevProductQuery => ({...prevProductQuery, currentPage}));
   },[currentPage]);
+
+  useEffect(() => {
+    if(searchTerm == null || searchTerm === '') {
+      setProductQuery(prevProductQuery => ({...prevProductQuery, searchTerm:null, pageSize:12}));
+      setIsSearcResult(prevIsSearcResult => (false));
+    } else {
+      setProductQuery(prevProductQuery => ({...prevProductQuery, searchTerm, pageSize:20}));
+      setIsSearcResult(prevIsSearcResult => (true));
+    }
+  },[searchTerm]);
 
   const handlerEvent = (e) => {
 
@@ -51,7 +63,7 @@ const ProductList = () =>{
   }
 
   return <Layout type="withNav" navHandlerEvent={handlerEvent} navCheckedItems={checkedItems}>
-    <Products data={data} isLoading={isLoading}/>
+    <Products data={data} isLoading={isLoading} isSearcResult={isSearcResult}/>
     <Pagination
         className="pagination-bar"
         currentPage={currentPage}

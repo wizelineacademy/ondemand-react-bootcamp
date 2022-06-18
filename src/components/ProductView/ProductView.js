@@ -9,7 +9,6 @@ import Table from "../Table";
 import Counter from "../Counter";
 
 const ProductView = ({ data }) => {
-  console.log(data);
   const [numItems, setNumItems] = useState(0);
   const { images, price, sku, category, description, specs=[] } = data[0].data;
   const basics = [

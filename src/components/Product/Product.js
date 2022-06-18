@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 
-const Product = ({ data }) => {
-  const { url, name, alt, category, price, id } = data;
+const Product = ({ data, extendedCard }) => {
+  const { url, name, alt, category, price, id, short_description } = data;
   const navigate = useNavigate();
   const addToCart = () =>
     navigate({
@@ -13,12 +13,12 @@ const Product = ({ data }) => {
       search: "?productId=" + id + "&numItems=1",
     });
   const goToProductDetail = () =>
-  navigate({
-    pathname: "/product",
-    search: "?productId=" + id,
-  });
+    navigate({
+      pathname: "/product",
+      search: "?productId=" + id,
+    });
   return (
-    <div className="product">
+    <div className={`product ${extendedCard && "extended"}`}>
       <div>
         <img src={url} alt={alt} className="product-img" />
       </div>
@@ -33,6 +33,11 @@ const Product = ({ data }) => {
           <li>
             <b>Price:</b> ${price}
           </li>
+          {extendedCard && (
+            <li>
+              <b>Description:</b> {short_description.substring(0,150)} ...
+            </li>
+          )}
         </ul>
       </div>
       <div className="product-button-container">
