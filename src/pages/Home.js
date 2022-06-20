@@ -64,9 +64,9 @@ function Home() {
     <div className="App">
       <Header />
       {isLoading && <div>Loading...</div>}
-      {console.log("home bannerDataItems", bannerDataItems)}
-      {console.log("home featuredProducts", featuredProducts)}
-      {console.log("home productCategories", productCategories)}
+      {/* {console.log("home bannerDataItems", bannerDataItems)} */}
+      {/* {console.log("home featuredProducts", featuredProducts)} */}
+      {/* {console.log("home productCategories", productCategories)} */}
       {!isLoading && <Content bannerData={bannerDataItems} productCategories={productCategories} featuredProducts={featuredProducts} />}
 
       <Footer />

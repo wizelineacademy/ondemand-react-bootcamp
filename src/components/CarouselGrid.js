@@ -24,14 +24,17 @@ import Carousel from './Carousel'
           
         }
     
+      
+
         render() {
             return (
                 <div className={styles.styleCarrousel} >
-                        {console.log(this.props.gridData)}
+                        {/* {console.log(this.props.gridData)} */}
                         {this.props.gridData.map((item,index) => (
                             <Carousel 
+                            className={styles.styleCarrouselImage}
                             carouselName={this.props.gridName} 
-                            carouselIndex={index}
+                            carouselKeyIndex={index}
                             key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`} 
                             carouselCurrentSlideIndex={1} 
                             data={item}/>

@@ -56,9 +56,11 @@ export default class Carousel extends React.Component {
         super(props)
         this.state = {
             carouselCurrentSlideIndex: props.carouselCurrentSlideIndex
-        }
-        this.prevClick = this.prevClick.bind(this)
-        this.nextClick = this.nextClick.bind(this)
+        };
+        this.prevClick = this.prevClick.bind(this);
+        this.nextClick = this.nextClick.bind(this);
+        this.dotClick = this.dotClick.bind(this);
+  
         // console.log("currentSlideIndex:" + props.currentSlideIndex)
     }
     
@@ -88,6 +90,10 @@ export default class Carousel extends React.Component {
         this.setIndex(this.state.carouselCurrentSlideIndex+1);     
 
     }
+
+    dotClick(dot) {
+        this.setIndex(dot);     
+    }
     
 
     render() {
@@ -96,7 +102,7 @@ export default class Carousel extends React.Component {
                     {/* {this.props.data.map((item,index) =>  (console.log(`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`))) }                         */}
                     {this.props.data.map((item,index) =>  (<CarouselElement key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
                     <button className={styles.prev} onClick={this.prevClick} >❮</button>
-                    <span className={styles.dot}></span>
+                    {this.props.data.map((item,index) =>  ( <span   className={styles.dot} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}-dot`}  onClick={(() => this.dotClick(index+1))}  ></span>))}
                     <button className={styles.next} onClick={this.nextClick} >❯</button>
             
 

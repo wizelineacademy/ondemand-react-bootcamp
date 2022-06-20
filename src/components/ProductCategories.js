@@ -19,9 +19,9 @@ export default class ProductCategories extends React.Component {
         
         return (
             <div className={ styles.divCarrousell}>
-            {  console.log("productCategories constructor",this.state.productCategories)  }
+            {/* {  console.log("productCategories constructor",this.state.productCategories)  } */}
 
-             <Carousel  carouselIndex={1} carouselCurrentSlideIndex={1} carouselName={'productCategories'}  data={this.state.productCategories} />
+             <Carousel  carouselKeyIndex={1} carouselCurrentSlideIndex={1} carouselName={'productCategories'}  data={this.state.productCategories} />
 
             </div>
         );

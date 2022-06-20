@@ -9,7 +9,7 @@ export default class FeaturedProducts extends React.Component {
     constructor(props) {
         super(props)
 
-          console.log("FeaturedProducts constructor******************",this.props.featuredProducts)  
+        //   console.log("FeaturedProducts constructor******************",this.props.featuredProducts)  
         var featuredProducts= this.props.featuredProducts.map
         ((data)=>{ 
        
@@ -37,7 +37,7 @@ export default class FeaturedProducts extends React.Component {
         
         return (
             <div className={ styles.divCarrousell}>
-                {console.log("***+++++++++++++++++++++++",this.state.featuredProducts)}
+                {/* {console.log("***+++++++++++++++++++++++",this.state.featuredProducts)} */}
              <CarouselGrid  gridName={'FeaturedProducts'} gridData={this.state.featuredProducts} />)
             </div>
         );
