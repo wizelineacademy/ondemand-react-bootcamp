@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styles from './Carrousel.module.scss'
+import styles from './Slider.module.scss'
 
 class SliderElement extends React.Component {
     constructor(props) {
@@ -39,12 +39,10 @@ class SliderElement extends React.Component {
 
     render() {
         return (
-            <div className={styles.CarrouselElementStyle} ref={this.itemRef} >
-                <div className="mySlides fade">
-                 {/* {console.log(this.props.src)} */}
-                    <img src={this.props.src} alt={this.props.alt} />
-                    <div className="numbertext">{this.props.id}/{this.props.count}</div>
-                    <div className="text">{this.props.text}</div>
+            <div  ref={this.itemRef} >
+                <div >
+                    <img className={this.props.className} src={this.props.src} alt={this.props.alt} />
+                    <div className={styles.text}>{this.props.text} ({this.props.id}/{this.props.count})</div>
                 </div>
             </div>);
 
@@ -81,11 +79,12 @@ export default class Slider extends React.Component {
 
     render() {
         return (
-            <div className={styles.styleCarrousel} >
+            <div  className={styles.text} >
 
-                <div className="slideshow-container">
-                    {this.props.elements.map((item) => (<SliderElement key={item.id} id={item.id} count={this.props.elements.length} rangeValue={this.state.rangeValue} {...item} />))}
-                    <input type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} className="slider" />
+                <div >
+                 
+                    {this.props.elements.map((item) => (<SliderElement className={styles.slideShowContainer} key={item.id} id={item.id} count={this.props.elements.length} rangeValue={this.state.rangeValue} {...item} />))}
+                    <input  type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} className="slider" />
                 </div>
 
             </div >
