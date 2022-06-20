@@ -19,14 +19,14 @@ class CarouselElement extends React.Component {
     }
 
     componentDidMount() {
-        const state= (this.props.id === this.props.slideIndex)
+        const state= (this.props.id === this.props.carouselCurrentSlideIndex)
          this.itemRef.current.style.display = state
             ? "block"
             : "none"
     }
 
     componentDidUpdate() {
-        const state= (this.props.id === this.props.slideIndex)
+        const state= (this.props.id === this.props.carouselCurrentSlideIndex)
         this.itemRef.current.style.display = state
             ? "block"
             : "none"
@@ -55,37 +55,37 @@ export default class Carousel extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            slideIndex: props.slideIndex
+            carouselCurrentSlideIndex: props.carouselCurrentSlideIndex
         }
         this.prevClick = this.prevClick.bind(this)
         this.nextClick = this.nextClick.bind(this)
-        // console.log("slideIndex:" + props.slideIndex)
+        // console.log("currentSlideIndex:" + props.currentSlideIndex)
     }
     
 
     static propTypes = {
         data: PropTypes.array.isRequired,
-        slideIndex: PropTypes.number,
+        carouselCurrentSlideIndex: PropTypes.number,
         carouselName:PropTypes.string.isRequired,
-        carouselIndex:PropTypes.number.isRequired
+        carouselKeyIndex:PropTypes.number.isRequired
     }
 
 
     setIndex(nextIndex)
     {
-        if (nextIndex> this.props.data.length) { this.setState({ slideIndex: 1 }) }
+        if (nextIndex> this.props.data.length) { this.setState({ carouselCurrentSlideIndex: 1 }) }
         else {
-            if (nextIndex < 1) { this.setState({ slideIndex: this.props.data.length }) }
-            else{  this.setState({ slideIndex: nextIndex });}
+            if (nextIndex < 1) { this.setState({ carouselCurrentSlideIndex: this.props.data.length }) }
+            else{  this.setState({ carouselCurrentSlideIndex: nextIndex });}
         }
 
     }
 
     prevClick() {
-        this.setIndex(this.state.slideIndex-1);
+        this.setIndex(this.state.carouselCurrentSlideIndex-1);
     }
     nextClick() {
-        this.setIndex(this.state.slideIndex+1);     
+        this.setIndex(this.state.carouselCurrentSlideIndex+1);     
 
     }
     
@@ -93,8 +93,8 @@ export default class Carousel extends React.Component {
     render() {
         return (
             <div className={styles.styleCarrousel} >
-                    {this.props.data.map((item,index) =>  (console.log(`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`))) }                        
-                    {this.props.data.map((item,index) =>  (<CarouselElement key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`} count={this.props.data.length} slideIndex={this.state.slideIndex} {...item} />))}
+                    {/* {this.props.data.map((item,index) =>  (console.log(`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`))) }                         */}
+                    {this.props.data.map((item,index) =>  (<CarouselElement key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
                     <button className={styles.prev} onClick={this.prevClick} >❮</button>
                     <span className={styles.dot}></span>
                     <button className={styles.next} onClick={this.nextClick} >❯</button>

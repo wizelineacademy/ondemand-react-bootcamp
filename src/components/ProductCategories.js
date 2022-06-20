@@ -1,0 +1,29 @@
+import React from "react"
+import PropTypes from "prop-types"
+import styles from './ProductCategories.module.scss'
+import Carousel from './Carousel';
+
+export default class ProductCategories extends React.Component {
+    constructor(props) {
+        super(props)
+              
+        this.state= { productCategories:this.props.productCategories}
+    }
+
+    static propTypes = {
+        productCategories: PropTypes.array.isRequired,
+    }
+
+    render() {
+
+        
+        return (
+            <div className={ styles.divCarrousell}>
+            {  console.log("productCategories constructor",this.state.productCategories)  }
+
+             <Carousel  carouselIndex={1} carouselCurrentSlideIndex={1} carouselName={'productCategories'}  data={this.state.productCategories} />
+
+            </div>
+        );
+    }
+}

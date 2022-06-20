@@ -41,7 +41,7 @@ class SliderElement extends React.Component {
         return (
             <div className={styles.CarrouselElementStyle} ref={this.itemRef} >
                 <div className="mySlides fade">
-                 {console.log(this.props.src)}
+                 {/* {console.log(this.props.src)} */}
                     <img src={this.props.src} alt={this.props.alt} />
                     <div className="numbertext">{this.props.id}/{this.props.count}</div>
                     <div className="text">{this.props.text}</div>
