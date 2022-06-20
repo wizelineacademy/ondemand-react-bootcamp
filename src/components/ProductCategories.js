@@ -6,8 +6,8 @@ import Carousel from './Carousel';
 export default class ProductCategories extends React.Component {
     constructor(props) {
         super(props)
-              
-        this.state= { productCategories:this.props.productCategories}
+
+        this.state = { productCategories: this.props.productCategories }
     }
 
     static propTypes = {
@@ -16,13 +16,10 @@ export default class ProductCategories extends React.Component {
 
     render() {
 
-        
+
         return (
-            <div className={ styles.divCarrousell}>
-            {/* {  console.log("productCategories constructor",this.state.productCategories)  } */}
-
-             <Carousel  carouselKeyIndex={1} carouselCurrentSlideIndex={1} carouselName={'productCategories'}  data={this.state.productCategories} />
-
+            <div className={styles.divCarrousell}>
+                <Carousel className={styles.divCarrousell} carouselKeyIndex={1} carouselCurrentSlideIndex={1} carouselName={'productCategories'} data={this.state.productCategories} />
             </div>
         );
     }

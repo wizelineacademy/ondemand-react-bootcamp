@@ -35,12 +35,11 @@ class CarouselElement extends React.Component {
 
     render() {
         return (
-            <div className={styles.Carrouseldatatyle} ref={this.itemRef} >
-                <div className="mySlides fade">
+            <div  ref={this.itemRef}  >
+                <div className={`${styles.fade}`}>
                     
-                    <img src={this.props.src} alt={this.props.alt} className={styles.styleCarrouselImage}/>
-                    <div className="numbertext">{this.props.id}/{this.props.count}</div>
-                    <div className="text">{this.props.text}</div>
+                    <img src={this.props.src}  alt={this.props.alt} className={`${styles.styleCarrouselImage} ${this.props.className}` }/>
+                    <div className={styles.text}>{this.props.text} ({this.props.id}/{this.props.count})</div>
                 </div>
             </div>);
 
@@ -61,7 +60,6 @@ export default class Carousel extends React.Component {
         this.nextClick = this.nextClick.bind(this);
         this.dotClick = this.dotClick.bind(this);
   
-        // console.log("currentSlideIndex:" + props.currentSlideIndex)
     }
     
 
@@ -99,13 +97,12 @@ export default class Carousel extends React.Component {
     render() {
         return (
             <div className={styles.styleCarrousel} >
-                    {/* {this.props.data.map((item,index) =>  (console.log(`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`))) }                         */}
-                    {this.props.data.map((item,index) =>  (<CarouselElement key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
-                    <button className={styles.prev} onClick={this.prevClick} >❮</button>
-                    {this.props.data.map((item,index) =>  ( <span   className={styles.dot} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}-dot`}  onClick={(() => this.dotClick(index+1))}  ></span>))}
-                    <button className={styles.next} onClick={this.nextClick} >❯</button>
-            
-
+                    {this.props.data.map((item,index) =>  (<CarouselElement className={`${this.props.className}`} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
+                    <div className={`${styles.styleCarrouselDot} ${this.props.className}`}>
+                        <button className={styles.prev} onClick={this.prevClick} >❮</button>
+                        {this.props.data.map((item,index) =>  ( <span   className={styles.dot} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}-dot`}  onClick={(() => this.dotClick(index+1))}  ></span>))}
+                        <button className={styles.next} onClick={this.nextClick} >❯</button>
+                    </div>
             </div >
         );
 

@@ -2,9 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import styles from './CarouselGrid.module.scss'
 import Carousel from './Carousel'
+import styled from "styled-components"
 
- 
-    
+ const ImageSmall= styled.image`max-height: 1vh;`
+
     export default class CarouselGrid extends React.Component {
     
     
@@ -28,19 +29,24 @@ import Carousel from './Carousel'
 
         render() {
             return (
-                <div className={styles.styleCarrousel} >
+                
+                <div  className={styles.styleCarrousel} >
                         {/* {console.log(this.props.gridData)} */}
                         {this.props.gridData.map((item,index) => (
-                            <Carousel 
-                            className={styles.styleCarrouselImage}
-                            carouselName={this.props.gridName} 
-                            carouselKeyIndex={index}
-                            key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`} 
-                            carouselCurrentSlideIndex={1} 
-                            data={item}/>
+                               
+                                    <Carousel   
+                                    className={styles.imageSmall}                               
+                                    carouselName={this.props.gridName} 
+                                    carouselKeyIndex={index}
+                                    key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`} 
+                                    carouselCurrentSlideIndex={1} 
+                                    data={item}/>
+                           
                             ))
+                            
                         }         
                 </div >
+              
             );
     
         };
