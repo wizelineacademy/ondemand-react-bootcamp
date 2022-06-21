@@ -1,11 +1,13 @@
 import React from 'react';
 import { Pagination } from 'swiper';
-import { SwiperSlide } from 'swiper/react/swiper-react';
+import { SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
-import 'swiper/modules/pagination/pagination.min.css';
 import { BannerCard } from '../BannerCard/BannerCard.component';
 import { StyledSwiper } from './Slider.style';
 import { filterBanners } from '../../utils/selectors/filterBanners';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+
 export const Slider = () => {
   const banners = filterBanners();
   return (

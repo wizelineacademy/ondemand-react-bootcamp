@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Furnitures } from './Furnitures';
+import { ProductsProvider } from './providers/Products.provider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Furnitures />
-    <img />
+    <ProductsProvider>
+      <Furnitures />
+    </ProductsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

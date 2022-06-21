@@ -8,10 +8,14 @@ import {
   Search,
 } from './Header.style';
 
-export const Header = () => {
+export const Header = ({ setProducts }) => {
+  const isHome = true;
+  const handleHome = () => {
+    setProducts(!isHome);
+  };
   return (
     <HeaderMain>
-      <Logo data-testid="logo" src={logo} alt="logo" />
+      <Logo onClick={handleHome} data-testid="logo" src={logo} alt="logo" />
       <HeaderItems>
         <Search placeholder="Search" />
         <CartSection>

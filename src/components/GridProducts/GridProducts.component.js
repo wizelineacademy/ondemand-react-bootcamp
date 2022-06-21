@@ -3,8 +3,7 @@ import { ProductCard } from '../ProductCard/ProductCard.component';
 import { ProductsContent } from './GridProducts.style';
 import { filterProducts } from '../../utils/selectors/filterProducts';
 
-export const GridProducts = () => {
-  const products = filterProducts();
+export const GridProducts = ({ products = filterProducts() }) => {
   return (
     <ProductsContent>
       {products.map((product) => (
