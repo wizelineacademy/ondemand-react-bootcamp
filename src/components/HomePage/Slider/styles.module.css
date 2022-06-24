@@ -1,0 +1,23 @@
+.container-slider {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container-slider img {
+    width: 400px;
+}
+
+.container {
+    align-items: center;
+}
+
+.buttons {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+
