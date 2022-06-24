@@ -10,7 +10,6 @@ export default function Slider (props) {
     let url = props.banners[page].data.main_image.url ? props.banners[page].data.main_image.url : ''
 
     const nextBanner = () => {
-        console.log(page)
         if(page < maxPage) {
             setPage(page + 1)
         } 
@@ -25,23 +24,28 @@ export default function Slider (props) {
 
     return (
         
-        <div className={styles.container}>
+        <div className={styles["main-container"]}>
 
-            <div className={styles["container-slider"]}>
-                <div> 
-                    <h5>{title}</h5>
-                    <p>{description}</p>    
-                </div>
+            <div>
+                <div className={styles["container-slider"]}>
+                    <div> 
+                        <h5>{title}</h5>
+                        <p>{description}</p>    
+                    </div>
+                    
+                    <img src={url}/>
                 
-                <img src={url}/>
+                </div>
+            </div>
             
+            <div className={styles["buttons-container"]}>
+                <div className={styles.buttons}>
+                    <input type="button" value="<" onClick={prevBanner}/>
+                    {(page + 1) + '/' + (maxPage + 1)}
+                    <input type="button" value=">" onClick={nextBanner}/>
+                </div>
             </div>
-
-            <div className={styles.buttons}>
-                <input type="button" value="<" onClick={prevBanner}/>
-                {(page + 1) + '/' + (maxPage + 1)}
-                <input type="button" value=">" onClick={nextBanner}/>
-            </div>
+            
         
         </div>
         
