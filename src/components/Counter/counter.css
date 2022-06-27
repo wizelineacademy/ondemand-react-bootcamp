@@ -1,0 +1,31 @@
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.counter-text {
+  font-size: 3vh;
+  padding: '20px';
+  vertical-align: 'Middle';
+  color: #EC1666;
+}
+
+.counter-button {
+  border-color: lightgray;
+  border-style: solid;
+  border-radius: 10px;
+  border-style: none;
+  min-height: 20px;
+  min-width: auto;
+  padding: 10px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.counter-button:hover {
+  background-color:#EC1666;
+  transition: 0.3s;
+  color: white;
+}
