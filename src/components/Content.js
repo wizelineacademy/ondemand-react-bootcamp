@@ -17,10 +17,6 @@ export default class Content extends React.Component {
     render() {
         return (
             <div className={styles.textcontent} >
-                {/* {console.log("bannerData",this.props.bannerData)} */}
-                {/* {console.log("productCategories",this.props.productCategories) } */}
-                {/* {console.log("featuredProducts",this.props.featuredProducts)} */}
-
                 {(this.state.bannerData!==null && this.state.bannerData.length>0) && <Slider  index={1} elements={this.props.bannerData} />}
                 <br />
                 {(this.state.productCategories!==null && this.state.productCategories.length>0) && <ProductCategories productCategories={this.props.productCategories} />}

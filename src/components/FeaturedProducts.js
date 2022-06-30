@@ -19,8 +19,8 @@ export default class FeaturedProducts extends React.Component {
                     return {
                         id: index + 1,
                         src: image.image.url,
-                        alt: 'Ultimate products!',
-                        text: 'Ultimate products!'
+                        alt: data.alt ,
+                        text: data.text 
                     };
                 })
             });

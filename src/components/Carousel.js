@@ -14,7 +14,7 @@ class CarouselElement extends React.Component {
         count: PropTypes.number.isRequired,
         src: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
+        text: PropTypes.array.isRequired,
 
     }
 
@@ -32,14 +32,19 @@ class CarouselElement extends React.Component {
             : "none"
     }
 
-
+    
     render() {
+
         return (
             <div  ref={this.itemRef}  >
                 <div className={`${styles.fade}`}>
                     
                     <img src={this.props.src}  alt={this.props.alt} className={`${styles.styleCarrouselImage} ${this.props.className}` }/>
-                    <div className={styles.text}>{this.props.text} ({this.props.id}/{this.props.count})</div>
+                    {this.props.text.map((element, index) => {
+                      return   <div key={`${element.id} ${index}`} className={styles.text}>{element} </div>
+                    })}
+                        
+                    <div className={styles.text}>  ({this.props.id}/{this.props.count})</div>
                 </div>
             </div>);
 

@@ -2,9 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import styles from './CarouselGrid.module.scss'
 import Carousel from './Carousel'
-import styled from "styled-components"
 
- const ImageSmall= styled.image`max-height: 1vh;`
+
 
     export default class CarouselGrid extends React.Component {
     
