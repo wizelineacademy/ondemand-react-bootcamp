@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styles from './CarouselGrid.module.scss'
-import Carousel from './Carousel'
+import Carousel from '../Carousel/Carousel'
 
 
 

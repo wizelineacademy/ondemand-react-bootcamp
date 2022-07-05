@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styles from './FeaturedProducts.module.scss'
-import CarouselGrid from './CarouselGrid';
+import CarouselGrid from '../CarouselGrid/CarouselGrid';
 
 export default class FeaturedProducts extends React.Component {
 

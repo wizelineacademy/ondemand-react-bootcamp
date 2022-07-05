@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
-import logo from '../media/logo.png'; 
-import shoppingCart from '../media/shopping-cart.png'; 
+import logo from '../../media/logo.png'; 
+import shoppingCart from '../../media/shopping-cart.png'; 
 // import styled from 'styled-components';
 
 

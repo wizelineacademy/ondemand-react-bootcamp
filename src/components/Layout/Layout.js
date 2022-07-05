@@ -1,6 +1,6 @@
 import './Layout.scss';
-import Header from '../components/Header.js'
-import Footer from '../components/Footer.js'
+import Header from '../Header/Header.js'
+import Footer from '../Footer/Footer.js'
 
 
 
