@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Home.module.scss'
 
-import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
-import useFeaturedProducts from '../utils/hooks/useFeaturedProducts';
-import useProductCategories from  '../utils/hooks/useProductCategories';
+// import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
+// import useFeaturedProducts from '../utils/hooks/useFeaturedProducts';
+// import useProductCategories from  '../utils/hooks/useProductCategories';
+
+import {useFeaturedBanners}  from '../mocks/en-us/featured-banners.js';
+import useFeaturedProducts from '../mocks/en-us/featured-products.js';
+import useProductCategories from  '../mocks/en-us/product-categories.js';
 
 import FeaturedProducts from '../components/FeaturedProducts'
 import Slider from '../components/Slider'
