@@ -1,12 +1,16 @@
-import './Home.css';
-import Content from '../components/Content.js'
-import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners';
-import useFeaturedProducts from '../mocks/en-us/featured-products.json';
-import useProductcategories from '../mocks/en-us/product-categories.json';
+import React from 'react';
+import styles from './Home.module.scss'
 
+import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
+import useFeaturedProducts from '../utils/hooks/useFeaturedProducts';
+import useProductCategories from  '../utils/hooks/useProductCategories';
+
+import FeaturedProducts from '../components/FeaturedProducts'
+import Slider from '../components/Slider'
+import ProductCategories from '../components/ProductCategories'
 
 export default function Home() {
-  const { data: bannerData, isLoading } = useFeaturedBanners();
+  const { data: bannerData, isLoading: isBannerLoading } = useFeaturedBanners();
 
   let bannerDataItems = [];
   if (bannerData.results !== undefined) {
@@ -22,12 +26,13 @@ export default function Home() {
     });
   }
 
+  const { data: productsData, isLoading: isProductsLoading } = useFeaturedProducts();
   //  console.log(useFeaturedData.results);
   let featuredProducts = [];
-  if (useFeaturedProducts.results !== undefined) {
+  if (productsData.results !== undefined) {
 
     // console.log(useFeaturedData.results)
-    featuredProducts = useFeaturedProducts.results.map((row, index) => {
+    featuredProducts = productsData.results.map((row, index) => {
       // console.log("data",row.data);
       return {
         id: index + 1,
@@ -38,12 +43,12 @@ export default function Home() {
     });
   }
 
-
+  const { data: ProductCategoriesData, isLoading: isProductCategoriesLoading } = useProductCategories();
   //  console.log(useFeaturedData.results);
   let productCategories = [];
-  if (useProductcategories.results !== undefined) {
+  if (ProductCategoriesData.results !== undefined) {
     // console.log(useFeaturedData.results)
-    productCategories = useProductcategories.results.map((row, index) => {
+    productCategories = ProductCategoriesData.results.map((row, index) => {
       // console.log("data",row.data);
       return {
         id: index + 1,
@@ -61,13 +66,15 @@ export default function Home() {
   return (
 
 
-    <div className="App">
-
-      {isLoading && <div>Loading...</div>}
-
-      {!isLoading && <Content bannerData={bannerDataItems} productCategories={productCategories} featuredProducts={featuredProducts} />}
-
-
+    <div className={styles.textcontent}>
+      {isBannerLoading && <div>Loading...</div>}
+      {(!isBannerLoading && bannerDataItems!==null && bannerDataItems.length>0) && <Slider  index={1} elements={bannerDataItems} />}
+      <br />
+      {isProductCategoriesLoading && <div>Loading...</div>}
+      {(!isProductCategoriesLoading && productCategories!==null && productCategories.length>0) && <ProductCategories productCategories={productCategories} />}
+      <br />
+      {isProductsLoading && <div>Loading...</div>}
+      {(!isProductsLoading && featuredProducts!==null && featuredProducts.length>0) && <FeaturedProducts featuredProducts={featuredProducts}/> }
     </div>
   );
 }
