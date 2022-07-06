@@ -36,8 +36,13 @@ export default class FeaturedProducts extends React.Component {
     render() {
 
         return (
-            <div className={styles.divCarrousell}>
-                <CarouselGrid gridName={'FeaturedProducts'} gridData={this.state.featuredProducts} />)
+            <div className={styles.featuredProducts}>
+                <CarouselGrid gridName={'FeaturedProducts'} gridData={this.state.featuredProducts} />
+                <br/>
+                <div className={styles.featuredProducts}>
+                    <button className={styles.viewProductsButton} >View all products</button>
+                </div>
+                <br/>
             </div>
         );
     }
