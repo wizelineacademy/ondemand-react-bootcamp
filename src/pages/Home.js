@@ -6,7 +6,6 @@ import styles from './Home.module.scss'
 //import useProductCategories from  '../utils/hooks/useProductCategories';
 
 
-
 import useFeaturedBanners  from '../utils/hooks-mooks/useFeaturedBanners';
 import useFeaturedProducts from '../utils/hooks-mooks/useFeaturedProducts';
 import useProductCategories from  '../utils/hooks-mooks/useProductCategories';
