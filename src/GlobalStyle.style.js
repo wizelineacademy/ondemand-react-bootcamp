@@ -20,3 +20,12 @@ export const FurnituresMain = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+export const Loading = styled.div`
+  display: flex;
+  background-color: #ff385c;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bolder;
+`;

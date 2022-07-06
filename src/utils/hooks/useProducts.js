@@ -1,48 +1,49 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setPage, setTotalPages } from '../../actions/page';
+import { setFeaturedProducts } from '../../actions/products';
+import { finishLoadingProducts, startLoadingProducts } from '../../actions/ui';
 import { API_BASE_URL } from '../constants';
+import { filterProducts } from '../selectors/filterProducts';
 import { useLatestAPI } from './useLatestAPI';
 
-export function useProducts() {
+export function useProducts(page) {
+  const dispatch = useDispatch();
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
-  const [featuredBanners, setFeaturedBanners] = useState(() => ({
-    data: {},
-    isLoading: true,
-  }));
 
   useEffect(() => {
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
 
+    dispatch(startLoadingProducts());
     const controller = new AbortController();
 
-    async function getFeaturedBanners() {
+    async function getproducts() {
       try {
-        setFeaturedBanners({ data: {}, isLoading: true });
-
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            '[[at(document.type, "banner")]]'
-          )}&lang=en-us&pageSize=5`,
+            '[[at(document.type, "product")]]'
+          )}&lang=en-us&page=${page}&pageSize=12`,
           {
             signal: controller.signal,
           }
         );
         const data = await response.json();
-
-        setFeaturedBanners({ data, isLoading: false });
+        const products = filterProducts(data.results);
+        dispatch(setPage(data.page));
+        dispatch(setTotalPages(data.total_pages));
+        dispatch(finishLoadingProducts());
+        dispatch(setFeaturedProducts(products));
       } catch (err) {
-        setFeaturedBanners({ data: {}, isLoading: false });
         console.error(err);
       }
     }
 
-    getFeaturedBanners();
+    getproducts();
 
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
-
-  return featuredBanners;
+  }, [apiRef, isApiMetadataLoading, page]);
 }

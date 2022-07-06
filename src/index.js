@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Furnitures } from './Furnitures';
-import { ProductsProvider } from './providers/Products.provider';
+import { Provider } from 'react-redux';
+import Furnitures from './Furnitures';
+import { store } from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductsProvider>
+    <Provider store={store}>
       <Furnitures />
-    </ProductsProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

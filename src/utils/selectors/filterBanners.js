@@ -1,7 +1,5 @@
-import { results } from '../../mocks/en-us/featuredBanners.json';
-
-export const filterBanners = () => {
-  return results.map((banner) => {
+export const filterBanners = (banners) => {
+  return banners.map((banner) => {
     return {
       id: banner.id,
       text: banner.data.description[0].text,

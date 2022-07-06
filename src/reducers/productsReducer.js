@@ -1,19 +1,48 @@
 import { types } from '../types/types';
 
-export const productsReducer = (state = {}, action) => {
+const initialState = {
+  featuredProducts: [],
+  filteredProducts: {},
+  searchTerm: '',
+};
+export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.addCategory:
+    case types.setFeaturedProducts:
       return {
         ...state,
-        [action.payload.id]: action.payload.products.filter(
-          (product) => product.categoryId === action.payload.id
-        ),
+        featuredProducts: action.payload.products,
       };
-    case types.removeCategory:
-      delete state[action.payload.id];
-      return { ...state };
-    default:
+
+    case types.setProductsByCategory:
       console.log(state);
+      return {
+        ...state,
+        filteredProducts: {
+          ...state.filteredProducts,
+          [action.payload.id]: state.featuredProducts.filter(
+            (product) => product.categoryId === action.payload.id
+          ),
+        },
+      };
+
+    case types.removeProductsByCategory:
+      console.log(action);
+      delete state.filteredProducts[action.payload.id];
+      return { ...state };
+
+    case types.clearFilteredProducts:
+      return {
+        ...state,
+        filteredProducts: {},
+      };
+
+    case types.setSearchWord:
+      return {
+        ...state,
+        searchTerm: action.payload.word,
+      };
+
+    default:
       return state;
   }
 };

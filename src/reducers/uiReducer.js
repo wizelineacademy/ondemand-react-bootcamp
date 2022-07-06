@@ -1,18 +1,64 @@
 import { types } from '../types/types';
 
-export const uiReducer = (state, action) => {
+const initialState = {
+  loadingSlider: false,
+  loadingCategories: false,
+  loadingProducts: false,
+  loadingProduct: false,
+};
+
+export const uiReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.uiStartLoading:
+    case types.uiStartLoadingSlider:
       return {
         ...state,
-        loading: true,
+        loadingSlider: true,
       };
 
-    case types.uiFinishLoading:
+    case types.uiFinishLoadingSlider:
       return {
         ...state,
-        loading: false,
+        loadingSlider: false,
       };
+
+    case types.uiStartLoadingCategories:
+      console.log(state);
+      return {
+        ...state,
+        loadingCategories: true,
+      };
+
+    case types.uiFinishLoadingCategories:
+      console.log(state);
+      return {
+        ...state,
+        loadingCategories: false,
+      };
+
+    case types.uiStartLoadingProducts:
+      return {
+        ...state,
+        loadingProducts: true,
+      };
+
+    case types.uiFinishLoadingProducts:
+      return {
+        ...state,
+        loadingProducts: false,
+      };
+
+    case types.uiStartLoadingProduct:
+      return {
+        ...state,
+        loadingProducts: true,
+      };
+
+    case types.uiFinishLoadingProduct:
+      return {
+        ...state,
+        loadingProducts: false,
+      };
+
     default:
       return state;
   }

@@ -37,6 +37,21 @@ export const Search = styled.input`
   }
 `;
 
+export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: #ff385c;
+  justify-content: center;
+  padding: 16px;
+  height: 8px;
+  border-radius: 8px;
+  border-width: 0.16px;
+  font-size: 16px;
+  color: white;
+  margin-right: 8px;
+  cursor: pointer;
+`;
+
 export const CartSection = styled.div`
   background-color: #ff385c;
   color: white;

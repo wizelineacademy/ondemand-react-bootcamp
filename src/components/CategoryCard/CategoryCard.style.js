@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Category = styled.div`
+export const Category = styled(Link)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  text-decoration: none;
   border-radius: 8px;
   margin-right: 8px;
   margin-left: 8px;

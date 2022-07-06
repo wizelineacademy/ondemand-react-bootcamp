@@ -1,13 +1,16 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ProductSection = styled.div`
+export const ProductSection = styled(Link)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   margin: 16px;
   width: 320px;
-  cursor: pointer;
+  color: black;
+  text-decoration: none;
   border-radius: 8px;
+  cursor: pointer;
   box-shadow: 0 0.8px 0.8px rgba(0, 0, 0, 0.19),
     0 0.8px 0.8px rgba(0, 0, 0, 0.23);
 `;
@@ -50,4 +53,14 @@ export const PriceSection = styled.div`
   padding: 8px;
   border-radius: 16px;
   align-self: flex-end;
+`;
+
+export const AddToCart = styled.div`
+  background-color: #ff385c;
+  margin-top: 16px;
+  color: white;
+  text-align: center;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
 `;

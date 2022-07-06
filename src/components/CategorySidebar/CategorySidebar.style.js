@@ -26,3 +26,12 @@ export const CategoryNotActive = styled.div`
   cursor: pointer;
   border-radius: 16px;
 `;
+
+export const Filter = styled.div`
+  background-color: #ff385c;
+  margin-top: 8px;
+  cursor: pointer;
+  color: white;
+  border-radius: 16px;
+  font-size: 20px;
+`;

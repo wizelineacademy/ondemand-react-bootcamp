@@ -1,6 +1,4 @@
-import { results } from '../../mocks/en-us/productCategories.json';
-
-export const filterCategories = () => {
+export const filterCategories = (results) => {
   return results.map((category) => {
     return {
       id: category.id,
@@ -10,6 +8,7 @@ export const filterCategories = () => {
       imageWidth: category.data.main_image.dimensions.width,
       imageUrl: category.data.main_image.url,
       imageAlt: category.data.main_image.alt,
+      isActive: false,
     };
   });
 };

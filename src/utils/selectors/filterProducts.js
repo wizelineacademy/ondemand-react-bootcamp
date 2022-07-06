@@ -1,7 +1,5 @@
-import { results } from '../../mocks/en-us/featuredProducts.json';
-
-export const filterProducts = () => {
-  return results.map((product) => {
+export const filterProducts = (products = []) => {
+  return products.map((product) => {
     return {
       id: product.id,
       categoryId: product.data.category.id,
