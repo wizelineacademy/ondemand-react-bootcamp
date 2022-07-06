@@ -20,8 +20,8 @@ class SliderElement extends React.Component {
 
     componentDidMount() {
 
-        const state= (this.props.id === this.props.rangeValue)
-         this.itemRef.current.style.display = state
+        const state = (this.props.id === this.props.rangeValue)
+        this.itemRef.current.style.display = state
             ? "block"
             : "none"
     }
@@ -30,7 +30,7 @@ class SliderElement extends React.Component {
         // console.log(this.props.id )
         //     console.log( this.props.rangeValue)
         // console.log(this.props.id === this.props.rangeValue)
-        const state= (this.props.id === this.props.rangeValue)
+        const state = (this.props.id === this.props.rangeValue)
         this.itemRef.current.style.display = state
             ? "block"
             : "none"
@@ -39,7 +39,7 @@ class SliderElement extends React.Component {
 
     render() {
         return (
-            <div  ref={this.itemRef} >
+            <div ref={this.itemRef} >
                 <div >
                     <img className={this.props.className} src={this.props.src} alt={this.props.alt} />
                     <div className={styles.text}>{this.props.text} ({this.props.id}/{this.props.count})</div>
@@ -69,22 +69,21 @@ export default class Slider extends React.Component {
     static propTypes = {
         elements: PropTypes.array.isRequired,
     }
-    onChange(event)
-    {
-            // console.log(event);
-            // console.log(this.itemRef.current.value);
-            this.setState({ rangeValue: parseInt(this.itemRef.current.value) });
+    onChange(event) {
+        // console.log(event);
+        // console.log(this.itemRef.current.value);
+        this.setState({ rangeValue: parseInt(this.itemRef.current.value) });
     }
-    
+
 
     render() {
         return (
-            <div  className={styles.text} >
+            <div className={styles.text} >
 
                 <div >
-                 
+
                     {this.props.elements.map((item) => (<SliderElement className={styles.slideShowContainer} key={item.id} id={item.id} count={this.props.elements.length} rangeValue={this.state.rangeValue} {...item} />))}
-                    <input  type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} className="slider" />
+                    <input type="range" min="1" max={this.props.elements.length} value={this.state.rangeValue} ref={this.itemRef} onChange={this.onChange} className="slider" />
                 </div>
 
             </div >

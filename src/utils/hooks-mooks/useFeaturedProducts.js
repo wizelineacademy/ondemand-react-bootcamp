@@ -12,14 +12,14 @@ export default function useFeaturedProducts() {
   }));
 
   useEffect(() => {
- 
+
     const controller = new AbortController();
 
     async function getFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
 
-        const data = useFeaturedProductsMock ;
+        const data = useFeaturedProductsMock;
 
         setFeaturedProducts({ data, isLoading: false });
       } catch (err) {

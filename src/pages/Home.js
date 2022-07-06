@@ -6,9 +6,9 @@ import styles from './Home.module.scss'
 //import useProductCategories from  '../utils/hooks/useProductCategories';
 
 
-import useFeaturedBanners  from '../utils/hooks-mooks/useFeaturedBanners';
+import useFeaturedBanners from '../utils/hooks-mooks/useFeaturedBanners';
 import useFeaturedProducts from '../utils/hooks-mooks/useFeaturedProducts';
-import useProductCategories from  '../utils/hooks-mooks/useProductCategories';
+import useProductCategories from '../utils/hooks-mooks/useProductCategories';
 
 
 import FeaturedProducts from '../components/FeaturedProducts/FeaturedProducts'
@@ -43,9 +43,9 @@ export default function Home() {
       return {
         id: index + 1,
         srcs: row.data.images,
-        alt:   row.data.mainimage.alt,
-        text:  [row.data.name ,  row.data.price ,row.data.category.slug]
-            };
+        alt: row.data.mainimage.alt,
+        text: [row.data.name, row.data.price, row.data.category.slug]
+      };
     });
   }
 
@@ -74,13 +74,13 @@ export default function Home() {
 
     <div className={styles.textcontent}>
       {isBannerLoading && <div>Loading...</div>}
-      {(!isBannerLoading && bannerDataItems!==null && bannerDataItems.length>0) && <Slider  index={1} elements={bannerDataItems} />}
+      {(!isBannerLoading && bannerDataItems !== null && bannerDataItems.length > 0) && <Slider index={1} elements={bannerDataItems} />}
       <br />
       {isProductCategoriesLoading && <div>Loading...</div>}
-      {(!isProductCategoriesLoading && productCategories!==null && productCategories.length>0) && <ProductCategories productCategories={productCategories} />}
+      {(!isProductCategoriesLoading && productCategories !== null && productCategories.length > 0) && <ProductCategories productCategories={productCategories} />}
       <br />
       {isProductsLoading && <div>Loading...</div>}
-      {(!isProductsLoading && featuredProducts!==null && featuredProducts.length>0) && <FeaturedProducts featuredProducts={featuredProducts}/> }
+      {(!isProductsLoading && featuredProducts !== null && featuredProducts.length > 0) && <FeaturedProducts featuredProducts={featuredProducts} />}
     </div>
   );
 }

@@ -9,14 +9,14 @@ export default function useProductCategories() {
   }));
 
   useEffect(() => {
- 
+
     const controller = new AbortController();
 
     async function getProductCategories() {
       try {
         setProductCategories({ data: {}, isLoading: true });
 
-        const data = useProductCategoriesMock ;
+        const data = useProductCategoriesMock;
 
         setProductCategories({ data, isLoading: false });
       } catch (err) {
