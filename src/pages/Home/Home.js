@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './Home.module.scss'
 
-//import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
-//import useFeaturedProducts from '../utils/hooks/useFeaturedProducts';
-//import useProductCategories from  '../utils/hooks/useProductCategories';
-
-
-//import useFeaturedBanners from '../../utils/hooks-mooks/useFeaturedBanners';
 import useWrappedFeaturedProducts from '../../utils/wrappers/useWrappedFeaturedProducts';
-import useProductCategories from '../../utils/hooks-mooks/useProductCategories';
+import useWrappedProductCategories from '../../utils/wrappers/useWrappedProductCategories';
 import useWrappedFeaturedBanners from '../../utils/wrappers/useWrappedFeaturedBanners.js'
 
 import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts'
@@ -20,29 +14,8 @@ export default function Home() {
 
   const { bannerDataItems, isBannerLoading } = useWrappedFeaturedBanners();
   const { featuredProducts, isProductsLoading } = useWrappedFeaturedProducts();
-  console.log(featuredProducts, isBannerLoading);
-
-
-  const { data: ProductCategoriesData, isLoading: isProductCategoriesLoading } = useProductCategories();
-  //  console.log(useFeaturedData.results);
-  let productCategories = [];
-  if (ProductCategoriesData.results !== undefined) {
-    // console.log(useFeaturedData.results)
-    productCategories = ProductCategoriesData.results.map((row, index) => {
-      // console.log("data",row.data);
-      return {
-        id: index + 1,
-        src: row.data.main_image.url,
-        alt: row.data.main_image.alt,
-        text: [row.data.name],
-      };
-    });
-  }
-  // ${row.data.category.slug}
-
-
-
-  // console.log("featuredItems", featuredDataItems);
+  const {  productCategories, isProductCategoriesLoading } = useWrappedProductCategories();
+  // console.log(featuredProducts, isBannerLoading);
   return (
 
 
