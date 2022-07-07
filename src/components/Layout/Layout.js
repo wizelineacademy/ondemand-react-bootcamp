@@ -13,15 +13,15 @@ export default function Layout({ children }) {
             <div>
             <p> ### Requirements</p>
 
-            <p>The following is the list of requirements for your deliverable: </p>
-<p>1. Add a button with the text “View all products” below your Featured Products Grid on the Home Page.</p>
-<p>2. Create a new component for your Product List that returns this React element for now: `<h1>This is the Product List Page</h1></p>
-<p>3. Modify your App component to implement a conditional rendering logic to navigate through your pages. In this case, you will only need to be able to navigate from Home Page to Product List Page and from Product List Page to Home Page.</p>
-<p>4. Add an event handler to your “View all products” button so you can navigate to your Product List Page when you click on it.</p>
-<p>5. Test your conditional rendering logic to navigate to the Product List Page. After clicking on the “View all products” button, you should see the following message “This is the Product List Page” replacing the Home Page.</p>
-<p>6. Add an event handler to your Ecommerce logo in the header so you can navigate to your Home Page when you click on it.</p>
-<p>7. Test your conditional rendering logic to navigate to the Home Page. After clicking on the Ecommerce logo in the header, you should see your Home Page content, replacing the Product List Page.</p>
-<p>8. Modify your Product List Page component to contain the following blocks:</p>
+            <del>     <p>The following is the list of requirements for your deliverable: </p></del>
+<del><p>1. Add a button with the text “View all products” below your Featured Products Grid on the Home Page.</p></del>
+<del><p>2. Create a new component for your Product List that returns this React element for now: `<h1>This is the Product List Page</h1></p></del>
+<del><p>3. Modify your App component to implement a conditional rendering logic to navigate through your pages. In this case, you will only need to be able to navigate from Home Page to Product List Page and from Product List Page to Home Page.</p></del>
+<del><p>4. Add an event handler to your “View all products” button so you can navigate to your Product List Page when you click on it.</p></del>
+<del><p>5. Test your conditional rendering logic to navigate to the Product List Page. After clicking on the “View all products” button, you should see the following message “This is the Product List Page” replacing the Home Page.</p></del>
+<del><p>6. Add an event handler to your Ecommerce logo in the header so you can navigate to your Home Page when you click on it.</p></del>
+<del><p>7. Test your conditional rendering logic to navigate to the Home Page. After clicking on the Ecommerce logo in the header, you should see your Home Page content, replacing the Product List Page.</p></del>
+<del><p>8. Modify your Product List Page component to contain the following blocks:</p></del>
 <p>- 8.1. A **Sidebar** (left or right side, is up to you), it should contain a list of categories from [this mock file](/mocks/en-us/product-categories.json). The elements in this list will work as filters for your products, so, you should render the name of each category and attach to it an empty handler for the onClick event.</p>
 <p>- 8.2. A **Grid** of Products from [this mock file](/mocks/en-us/products.json). For each element on this grid, you should show at least the main image of the product, its name, category, and price.</p>
 <p>9. Add an event handler to the categories in your sidebar, so when you click on each of them, the products in the grid are filtered. <b>The <span id="filtering-behavior">behavior</span> of this filters should be the following</b>:</p>
