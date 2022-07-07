@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Home.module.scss'
 
 //import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
@@ -6,17 +6,18 @@ import styles from './Home.module.scss'
 //import useProductCategories from  '../utils/hooks/useProductCategories';
 
 
-import useFeaturedBanners from '../utils/hooks-mooks/useFeaturedBanners';
-import useFeaturedProducts from '../utils/hooks-mooks/useFeaturedProducts';
-import useProductCategories from '../utils/hooks-mooks/useProductCategories';
+//import useFeaturedBanners from '../../utils/hooks-mooks/useFeaturedBanners';
+import useWrappedFeaturedBanners from './useWrappedFeaturedBanners'
+import useFeaturedProducts from '../../utils/hooks-mooks/useFeaturedProducts';
+import useProductCategories from '../../utils/hooks-mooks/useProductCategories';
 
 
-import FeaturedProducts from '../components/FeaturedProducts/FeaturedProducts'
-import Slider from '../components/Slider/Slider'
-import ProductCategories from '../components/ProductCategories/ProductCategories'
+import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts'
+import Slider from '../../components/Slider/Slider'
+import ProductCategories from '../../components/ProductCategories/ProductCategories'
 
 export default function Home() {
-  const { data: bannerData, isLoading: isBannerLoading } = useFeaturedBanners();
+  const { data: bannerData, isLoading: isBannerLoading } = useWrappedFeaturedBanners();
 
   let bannerDataItems = [];
   if (bannerData.results !== undefined) {
@@ -31,6 +32,7 @@ export default function Home() {
       };
     });
   }
+  // const { data: bannerDataItems, isLoading: isBannerLoading } = useWrappedFeaturedBanners();
 
   const { data: productsData, isLoading: isProductsLoading } = useFeaturedProducts();
   //  console.log(useFeaturedData.results);
@@ -49,7 +51,7 @@ export default function Home() {
     });
   }
 
-  const { data: ProductCategoriesData, isLoading: isProductCategoriesLoading } = useProductCategories();
+  const {  ProductCategoriesData,  isProductCategoriesLoading } = useProductCategories();
   //  console.log(useFeaturedData.results);
   let productCategories = [];
   if (ProductCategoriesData.results !== undefined) {
@@ -65,8 +67,6 @@ export default function Home() {
     });
   }
   // ${row.data.category.slug}
-
-
 
   // console.log("featuredItems", featuredDataItems);
   return (
