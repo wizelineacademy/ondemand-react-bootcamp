@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Home.module.scss'
 
 //import useFeaturedBanners  from '../utils/hooks/useFeaturedBanners';
@@ -7,51 +7,23 @@ import styles from './Home.module.scss'
 
 
 //import useFeaturedBanners from '../../utils/hooks-mooks/useFeaturedBanners';
-import useWrappedFeaturedBanners from './useWrappedFeaturedBanners'
-import useFeaturedProducts from '../../utils/hooks-mooks/useFeaturedProducts';
+import useWrappedFeaturedProducts from '../../utils/wrappers/useWrappedFeaturedProducts';
 import useProductCategories from '../../utils/hooks-mooks/useProductCategories';
-
+import useWrappedFeaturedBanners from '../../utils/wrappers/useWrappedFeaturedBanners.js'
 
 import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts'
 import Slider from '../../components/Slider/Slider'
 import ProductCategories from '../../components/ProductCategories/ProductCategories'
 
 export default function Home() {
-  const { data: bannerData, isLoading: isBannerLoading } = useWrappedFeaturedBanners();
 
-  let bannerDataItems = [];
-  if (bannerData.results !== undefined) {
 
-    // console.log(bannerData.results)
-    bannerDataItems = bannerData.results.map((row, index) => {
-      return {
-        id: index + 1,
-        src: row.data.main_image.url,
-        alt: 'banner products!',
-        text: 'banner products!'
-      };
-    });
-  }
-  // const { data: bannerDataItems, isLoading: isBannerLoading } = useWrappedFeaturedBanners();
+  const { bannerDataItems, isBannerLoading } = useWrappedFeaturedBanners();
+  const { featuredProducts, isProductsLoading } = useWrappedFeaturedProducts();
+  console.log(featuredProducts, isBannerLoading);
 
-  const { data: productsData, isLoading: isProductsLoading } = useFeaturedProducts();
-  //  console.log(useFeaturedData.results);
-  let featuredProducts = [];
-  if (productsData.results !== undefined) {
 
-    // console.log(useFeaturedData.results)
-    featuredProducts = productsData.results.map((row, index) => {
-      // console.log("data",row.data);
-      return {
-        id: index + 1,
-        srcs: row.data.images,
-        alt: row.data.mainimage.alt,
-        text: [row.data.name, row.data.price, row.data.category.slug]
-      };
-    });
-  }
-
-  const {  ProductCategoriesData,  isProductCategoriesLoading } = useProductCategories();
+  const { data: ProductCategoriesData, isLoading: isProductCategoriesLoading } = useProductCategories();
   //  console.log(useFeaturedData.results);
   let productCategories = [];
   if (ProductCategoriesData.results !== undefined) {
@@ -67,6 +39,8 @@ export default function Home() {
     });
   }
   // ${row.data.category.slug}
+
+
 
   // console.log("featuredItems", featuredDataItems);
   return (
