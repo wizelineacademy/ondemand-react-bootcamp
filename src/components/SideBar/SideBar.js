@@ -1,18 +1,13 @@
 
 
  import   './SideBar.css'
-export default function SideBar() {
-    
+export default function SideBar({menuListItems}) {
+     console.log(menuListItems )
     return (
         
 
         <div className="sidebar">
- 
-         <a class="active" href="#home" >sss</a>
-         <a href="#home">sss</a>
-         <a href="#home">sss</a>
-         <a href="#home">sss</a>
-         <a href="#home">sss</a>
+            {menuListItems.map( (optionItem, index ) => (<a key={index}  >{optionItem.alt}</a>)) }
     
       </div>
     );

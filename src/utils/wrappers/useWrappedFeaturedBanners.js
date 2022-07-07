@@ -7,7 +7,7 @@ export default function useWrappedFeaturedBanners() {
 
     const [wrappedData, setWrappedData] = useState(() => ({
         bannerDataItems: {},
-        isBannerLoading: false,
+        isBannerLoading: true,
     }));
     const { data: bannerData, isLoading } = useFeaturedBanners();
 

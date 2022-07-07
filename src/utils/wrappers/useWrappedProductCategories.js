@@ -8,17 +8,17 @@ export default function useWrappedProductCategories() {
 
   const [wrappedData, setWrappedData] = useState(() => ({
     productCategories: {},
-    isProductCategoriesLoading: false
+    isProductCategoriesLoading: true
   }));
-  const { data: ProductCategoriesData, isLoading } = useProductCategories();
+  const { data: ProductCategories, isLoading } = useProductCategories();
 
   useEffect(() => {
 
 
     let productCategories = [];
-    if (ProductCategoriesData.results !== undefined) {
+    if (ProductCategories.results !== undefined) {
 
-      productCategories = ProductCategoriesData.results.map((row, index) => {
+      productCategories = ProductCategories.results.map((row, index) => {
 
         return {
           id: index + 1,
@@ -37,7 +37,8 @@ export default function useWrappedProductCategories() {
 
     }
 
-  }, [ProductCategoriesData, isLoading]);
+
+  }, [ProductCategories, isLoading]);
 
   return wrappedData;
 

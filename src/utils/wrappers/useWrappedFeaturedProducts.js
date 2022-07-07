@@ -8,7 +8,7 @@ export default function useWrappedFeaturedProducts() {
 
   const [wrappedData, setWrappedData] = useState(() => ({
     featuredProducts: {},
-    isProductsLoading: false
+    isProductsLoading: true
   }));
   const { data: productsData, isLoading } = useFeaturedProducts();
 
