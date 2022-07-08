@@ -36,12 +36,12 @@ class CarouselElement extends React.Component {
     render() {
 
         return (
-            <div ref={this.itemRef}  >
+            <div ref={this.itemRef} className={styles.carrouselMainStyle} >
                 <div className={`${styles.fade}`}>
 
-                    <img src={this.props.src} alt={this.props.alt} className={`${styles.styleCarrouselImage} ${this.props.className}`} />
+                    <img src={this.props.src} alt={this.props.alt} className={`${styles.styleCarrouselImage} ${this.props.className}`}  />
                     {this.props.text.map((element, index) => {
-                        return <div key={`${element.id} ${index}`} className={styles.text}>{element} </div>
+                        return <div key={`${this.props.id} ${index}`} className={styles.text} >{element} </div>
                     })}
 
                     <div className={styles.text}>  ({this.props.id}/{this.props.count})</div>
