@@ -22,7 +22,7 @@ export default function ProductInfo( {products})
                         id: index + 1,
                         src: image,
                         alt: data.alt,
-                        text: data.text.split('.'),
+                        text: data.text,
                         categoryId:data.categoryId
                     };
                 })
