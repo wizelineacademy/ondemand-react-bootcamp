@@ -2,7 +2,9 @@
 
  import   './SideBar.css'
 export default function SideBar({menuListItems}) {
-     console.log(menuListItems )
+
+
+     //console.log(menuListItems )
     return (
         
 
