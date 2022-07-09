@@ -30,7 +30,6 @@ export function useProducts(page) {
           }
         );
         const data = await response.json();
-        console.log(data);
         const products = filterProducts(data.results);
         dispatch(setPage(data.page));
         dispatch(setTotalPages(data.total_pages));

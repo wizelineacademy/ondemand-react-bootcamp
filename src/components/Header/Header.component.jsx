@@ -20,8 +20,6 @@ const Header = () => {
   const handleMenu = () => {
     setMenuSearch((menuSearch) => !menuSearch);
   };
-  console.log(menuSearch);
-  console.log(handleMenu);
 
   useEffect(() => {
     function handleWindowResize() {
@@ -55,7 +53,6 @@ const Header = () => {
       </CloseButton>
     </SearchMenuContainer>
   );
-  console.log(SearchMenu);
 
   return (
     <HeaderMain>
