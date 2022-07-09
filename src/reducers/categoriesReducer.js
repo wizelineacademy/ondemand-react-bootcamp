@@ -26,7 +26,6 @@ export const categoriesReducer = (state = initialState, action) => {
       };
 
     case types.deactiveCategory:
-      console.log(state);
       return {
         ...state,
         categories: state.categories.map((category) => {

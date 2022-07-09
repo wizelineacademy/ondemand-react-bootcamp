@@ -11,6 +11,7 @@ import {
   ProductText,
 } from './ProductCard.style';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({
   categoryId,
@@ -21,9 +22,15 @@ const ProductCard = ({
   price,
   productId,
 }) => {
+  const navigate = useNavigate();
   const category = filterByCategory(categoryId);
+
+  const handleProductDetails = () => {
+    navigate(`/productDetails/${productId}`, { replace: true });
+  };
+
   return (
-    <ProductSection to={`productDetails/${productId}`}>
+    <ProductSection onClick={handleProductDetails}>
       <ProductImage src={imageUrl} width={208} height={308} alt={imageAlt} />
       <ProductInfo>
         <ProductName>{name}</ProductName>

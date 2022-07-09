@@ -7,7 +7,6 @@ import { filterProducts } from '../selectors/filterProducts';
 import { useLatestAPI } from './useLatestAPI';
 
 export function useSearchProducts(searchTerm, page) {
-  console.log(searchTerm);
   const dispatch = useDispatch();
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
 
@@ -29,7 +28,6 @@ export function useSearchProducts(searchTerm, page) {
           }
         );
         const data = await response.json();
-        console.log(data.results);
         const products = filterProducts(data.results);
         dispatch(setPage(data.page));
         dispatch(setTotalPages(data.total_pages));

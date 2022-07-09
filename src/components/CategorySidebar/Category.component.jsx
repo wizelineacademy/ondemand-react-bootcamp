@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { activeCategory, deactiveCategory } from '../../actions/categories';
 import {
   removeProductsByCategory,
@@ -14,8 +14,6 @@ import PropTypes from 'prop-types';
 
 const Category = ({ id, category, isActive }) => {
   const dispatch = useDispatch();
-  const { loadingCategories } = useSelector((state) => state.ui);
-  console.log(loadingCategories);
   const handleAdd = () => {
     dispatch(startLoadingCategories());
     setTimeout(() => {

@@ -22,14 +22,12 @@ export const uiReducer = (state = initialState, action) => {
       };
 
     case types.uiStartLoadingCategories:
-      console.log(state);
       return {
         ...state,
         loadingCategories: true,
       };
 
     case types.uiFinishLoadingCategories:
-      console.log(state);
       return {
         ...state,
         loadingCategories: false,

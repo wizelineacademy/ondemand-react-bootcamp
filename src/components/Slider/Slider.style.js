@@ -5,13 +5,16 @@ export const StyledSwiper = styled(Swiper)`
   display: flex;
   align-items: flex-end;
 
-  @media (max-width: 820px) {
+  @media (max-width: 1007px) {
+    width: 640px;
+    height: 384px;
     margin-top: 64px;
     margin-bottom: 64px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 640px) {
+    width: 304px;
+    height: 192px;
     margin-top: 64px;
-    width: 320px;
   }
 `;

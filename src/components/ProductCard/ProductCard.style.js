@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ProductSection = styled(Link)`
+export const ProductSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: 16px;
-  width: 320px;
+  margin: 8px;
+  width: 272px;
   color: black;
   text-decoration: none;
   border-radius: 8px;

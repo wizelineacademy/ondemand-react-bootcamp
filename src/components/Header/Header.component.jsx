@@ -1,57 +1,93 @@
-import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.jpeg';
-import { useForm } from '../../utils/hooks/useForm/useForm';
-import queryString from 'query-string';
+import { Search } from '../Search/Search.component';
 import {
   CartSection,
+  CloseButton,
   HeaderItems,
   HeaderMain,
   Logo,
-  Search,
-  SubmitButton,
+  SearchIcon,
+  SearchMenuContainer,
 } from './Header.style';
-import { useDispatch } from 'react-redux';
-import { setSearchWord } from '../../actions/products';
 
 const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dispatch = useDispatch();
-  const { q = '' } = queryString.parse(location.search);
-  const [{ product }, handleInputChange] = useForm({
-    product: q,
-  });
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log(product);
-    if (product.trim().length <= 1) {
-      return;
-    }
-    dispatch(setSearchWord(product));
-    navigate(`/search?q=${product}`, { replace: true });
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [menuSearch, setMenuSearch] = useState(false);
+  const { innerWidth: width } = windowSize;
+
+  const handleMenu = () => {
+    setMenuSearch((menuSearch) => !menuSearch);
   };
+  console.log(menuSearch);
+  console.log(handleMenu);
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  const MiniMenu = (
+    <>
+      <SearchIcon onClick={handleMenu}>
+        <i className="fas fa-search"></i>
+      </SearchIcon>
+      <CartSection>
+        <div>0</div>
+        <i className="fas fa-shopping-cart"></i>
+      </CartSection>
+    </>
+  );
+
+  const SearchMenu = (
+    <SearchMenuContainer>
+      <Search />
+      <CloseButton onClick={handleMenu}>
+        <i className="fas fa-close"></i>
+      </CloseButton>
+    </SearchMenuContainer>
+  );
+  console.log(SearchMenu);
 
   return (
     <HeaderMain>
-      <Link to="/">
-        <Logo data-testid="logo" src={logo} alt="logo" />
-      </Link>
-      <HeaderItems>
-        <Search
-          type="text"
-          name="product"
-          placeholder="Search"
-          onChange={handleInputChange}
-        />
-        <SubmitButton onClick={handleSearch}>Search</SubmitButton>
-        <CartSection>
-          <div>0</div>
-          <i className="fas fa-shopping-cart"></i>
-        </CartSection>
-      </HeaderItems>
+      {menuSearch ? (
+        SearchMenu
+      ) : (
+        <>
+          <Link to="/">
+            <Logo data-testid="logo" src={logo} alt="logo" />
+          </Link>
+          <HeaderItems>
+            {width <= 1007 ? (
+              MiniMenu
+            ) : (
+              <>
+                <Search />
+                <CartSection>
+                  <div>0</div>
+                  <i className="fas fa-shopping-cart"></i>
+                </CartSection>
+              </>
+            )}
+          </HeaderItems>
+        </>
+      )}
     </HeaderMain>
   );
 };
 
 export default Header;
+
+function getWindowSize() {
+  const { innerWidth } = window;
+  return { innerWidth };
+}

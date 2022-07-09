@@ -10,13 +10,13 @@ export const MainImage = styled.img`
   box-shadow: 0 0.8px 0.8px rgba(0, 0, 0, 0.19),
     0 0.8px 0.8px rgba(0, 0, 0, 0.23);
 
-  @media (max-width: 820px) {
+  @media (max-width: 1007px) {
     width: 640px;
     height: 384px;
   }
 
-  @media (max-width: 425px) {
-    width: 320px;
+  @media (max-width: 640px) {
+    width: 304px;
     height: 192px;
   }
 `;

@@ -14,7 +14,6 @@ export const productsReducer = (state = initialState, action) => {
       };
 
     case types.setProductsByCategory:
-      console.log(state);
       return {
         ...state,
         filteredProducts: {
@@ -26,7 +25,6 @@ export const productsReducer = (state = initialState, action) => {
       };
 
     case types.removeProductsByCategory:
-      console.log(action);
       delete state.filteredProducts[action.payload.id];
       return { ...state };
 

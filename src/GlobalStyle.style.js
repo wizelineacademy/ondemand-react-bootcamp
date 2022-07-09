@@ -13,6 +13,10 @@ export const GlobalStyle = createGlobalStyle`
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   }
+
+  html {
+    height: 100%;
+  }
 `;
 
 export const FurnituresMain = styled.div`

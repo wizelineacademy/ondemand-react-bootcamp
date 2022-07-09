@@ -5,6 +5,5 @@ export const filterByCategory = (id) => {
   return category.length > 0 ? category[0].data.name : 'Generic';
 };*/
 export const filterProductByCategory = (id) => {
-  console.log(id);
   return filterProducts().filter((product) => product.categoryId === id);
 };

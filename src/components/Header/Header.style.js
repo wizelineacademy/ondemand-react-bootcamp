@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const HeaderMain = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 0 0.8px 0.8px rgba(0, 0, 0, 0.19),
-    0 0.8px 0.8px rgba(0, 0, 0, 0.23);
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 `;
 
 export const HeaderItems = styled.div`
   display: flex;
-  margin-right: 24px;
+  margin-right: 8px;
   align-items: center;
   border-color: black;
 `;
@@ -18,38 +18,16 @@ export const HeaderItems = styled.div`
 export const Logo = styled.img`
   cursor: pointer;
   width: 88px;
-  height: 80px;
-`;
 
-export const Search = styled.input`
-  outline: none;
-  border: solid;
-  border-color: gray;
-  border-radius: 8px;
-  margin-right: 8px;
-  width: 256px;
-  height: 32px;
-  font-size: 16px;
-  padding: 0 12px;
-
-  @media (max-width: 425px) {
-    width: 160px;
+  @media (max-width: 1007px) {
+    justify-self: flex-start;
   }
-`;
 
-export const SubmitButton = styled.button`
-  display: flex;
-  align-items: center;
-  background-color: #ff385c;
-  justify-content: center;
-  padding: 16px;
-  height: 8px;
-  border-radius: 8px;
-  border-width: 0.16px;
-  font-size: 16px;
-  color: white;
-  margin-right: 8px;
-  cursor: pointer;
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+  }
 `;
 
 export const CartSection = styled.div`
@@ -60,5 +38,17 @@ export const CartSection = styled.div`
   align-items: center;
   padding: 16px;
   height: 8px;
+  cursor: pointer;
   border-radius: 8px;
+  margin-right: 8px;
 `;
+
+export const SearchMenuContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  justify-content: center;
+`;
+
+export const SearchIcon = CartSection;
+export const CloseButton = CartSection;

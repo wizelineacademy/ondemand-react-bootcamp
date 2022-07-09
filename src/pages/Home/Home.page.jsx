@@ -11,8 +11,6 @@ const Home = () => {
   const { page } = useSelector((state) => state.pages);
   useProducts(page);
   useFeaturedProducts();
-  const state = useSelector((state) => state);
-  console.log(state);
   return (
     <>
       <CentralImage />
