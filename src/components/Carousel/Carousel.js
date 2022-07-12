@@ -99,6 +99,7 @@ export default class Carousel extends React.Component {
 
 
     render() {
+        if(this.props.data===undefined || this.props.data?.length===0) return (null);
         return (
             <div className={styles.styleCarrousel} >
                 {this.props.data.map((item, index) => (<CarouselElement className={`${this.props.className}`} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}

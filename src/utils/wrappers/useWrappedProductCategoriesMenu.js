@@ -22,7 +22,8 @@ export default function useWrappedProductCategoriesMenu() {
 
         return {
           id: index + 1,
-          src: row.data.main_image.url,
+          categoryId: row.id,
+          // src: row.data.main_image.url,
           alt: row.data.main_image.alt,
           text: [row.data.name],
         };
