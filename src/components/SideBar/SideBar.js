@@ -1,6 +1,6 @@
 
 
-import {  useState } from 'react';
+import { useState } from 'react';
 import './SideBar.css'
 export default function SideBar({ menuListItems, categoriesParentList, updateParentSelectedCategories }) {
 
@@ -11,7 +11,7 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
     function handleClick(categoryId) {
         let newArray;
         if (selectedCategories.includes(categoryId)) {
-            newArray = selectedCategories.filter((d)=>d!==categoryId);
+            newArray = selectedCategories.filter((d) => d !== categoryId);
         }
         else {
             newArray = [...selectedCategories, categoryId];
@@ -26,7 +26,10 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
         <div className="sidebar">
             {
                 menuListItems.map((optionItem, index) => (
-                    <a key={index} href={'#filtered'} onClick={() => handleClick(optionItem.categoryId)} >
+                    <a key={index}
+                        class={selectedCategories.some(d => d === optionItem.categoryId) ? 'active' : ''}
+                        href={'#filtered'}
+                        onClick={() => handleClick(optionItem.categoryId)} >
                         {optionItem.alt}
                     </a>))
             }
