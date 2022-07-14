@@ -27,7 +27,7 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
             {
                 menuListItems.map((optionItem, index) => (
                     <a key={index}
-                        class={selectedCategories.some(d => d === optionItem.categoryId) ? 'active' : ''}
+                        className={selectedCategories.some(d => d === optionItem.categoryId) ? 'active' : ''}
                         href={'#filtered'}
                         onClick={() => handleClick(optionItem.categoryId)} >
                         {optionItem.alt}
