@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-// import useFeaturedProducts from '../hooks/useFeaturedProducts';
-import useFeaturedProducts from '../hooks-mooks/useFeaturedProducts';
+ import useFeaturedProducts from '../hooks/useFeaturedProducts';
+//import useFeaturedProducts from '../hooks-mooks/useFeaturedProducts';
 
 export default function useWrappedFeaturedProducts() {
 

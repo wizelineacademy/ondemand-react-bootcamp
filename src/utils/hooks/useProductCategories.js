@@ -19,8 +19,8 @@ export default function useProductCategories() {
     async function getProductCategories() {
       try {
         setProductCategories({ data: {}, isLoading: true });
-        const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "category")]]')}&lang=en-us&pageSize=5`;
-        console.log("test:", url);
+        const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "category")]]')}&lang=en-us&pageSize=30`;
+        // console.log("test:", url);
 
         const response = await fetch(
           url,

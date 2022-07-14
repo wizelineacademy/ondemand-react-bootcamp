@@ -1,56 +1,40 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import styles from './Carrousel.module.scss'
+import { useNavigate } from 'react-router-dom'
 
-class CarouselElement extends React.Component {
-    constructor(props) {
-        super(props)
-        this.itemRef = React.createRef()
-    }
+function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt, text, id }) {
 
 
-    static propTypes = {
-        id: PropTypes.number.isRequired,
-        count: PropTypes.number.isRequired,
-        src: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-        text: PropTypes.array.isRequired,
+    let itemRef = React.createRef()
 
-    }
+    useEffect(() => {
 
-    componentDidMount() {
-        const state = (this.props.id === this.props.carouselCurrentSlideIndex)
-        this.itemRef.current.style.display = state
-            ? "block"
-            : "none"
-    }
-
-    componentDidUpdate() {
-        const state = (this.props.id === this.props.carouselCurrentSlideIndex)
-        this.itemRef.current.style.display = state
-            ? "block"
-            : "none"
-    }
+        itemRef.current.style.display = (id === carouselCurrentSlideIndex) ? 'block' : 'none';
+    }, [id, carouselCurrentSlideIndex, itemRef])
 
 
-    render() {
+    return (
+        <div ref={itemRef} className={styles.carrouselMainStyle} >
+            <div className={`${styles.fade}`}>
 
-        return (
-            <div ref={this.itemRef} className={styles.carrouselMainStyle} >
-                <div className={`${styles.fade}`}>
+                <img src={src}
+                    alt={alt}
+                    //  onClick={navi}
+                    className={`${styles.styleCarrouselImage} ${className}`} />
 
-                    <img src={this.props.src} alt={this.props.alt} className={`${styles.styleCarrouselImage} ${this.props.className}`}  />
-                    {this.props.text.map((element, index) => {
-                        return <div key={`${this.props.id} ${index}`} className={styles.text} >{element} </div>
-                    })}
+                {text.map((element, index) => {
+                    return <div key={`${text} ${index}`} className={styles.text} >{element} </div>
+                })}
 
-                    <div className={styles.text}>  ({this.props.id}/{this.props.count})</div>
-                </div>
-            </div>);
+                <div className={styles.text}>  ({id}/{count})</div>
 
-    }
+            </div>
+        </div>);
 
-};
+
+
+}
 
 
 export default class Carousel extends React.Component {
@@ -99,7 +83,7 @@ export default class Carousel extends React.Component {
 
 
     render() {
-        if(this.props.data===undefined || this.props.data?.length===0) return (null);
+        if (this.props.data === undefined || this.props.data?.length === 0) return (null);
         return (
             <div className={styles.styleCarrousel} >
                 {this.props.data.map((item, index) => (<CarouselElement className={`${this.props.className}`} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
