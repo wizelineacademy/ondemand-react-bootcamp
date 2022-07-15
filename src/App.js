@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home';
 import Layout from './components/Layout/Layout';
 import ProductList from './pages/ProductList/ProductList';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" element={<Layout ><Home /></Layout>} />
         <Route exact path="/home" element={<Layout ><Home /></Layout>} />
         <Route exact path="/products" element={<Layout > <ProductList/></Layout>} />
+        <Route exact path="/detail" element={<Layout > <ProductDetails/></Layout>} />
        
         <Route path="*" element={<NotFound />} />
       </Routes>

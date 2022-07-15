@@ -15,7 +15,6 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
 
         const categorySelected = searchParams.get("category");
         if (categorySelected === undefined || categorySelected === null|| categorySelected === '') return;
-        console.log("reas",categorySelected)
         handleClick(categorySelected);
     }, []);
 

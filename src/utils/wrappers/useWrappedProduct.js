@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import useProducts from '../hooks-mooks/useProducts.js';
 
 
-export default function useWrappedProducts({ filterCategories, page, pageSize }) {
+export default function useWrappedProduct({ filterCategories, page, pageSize }) {
 
   const [productsData, setProducts] = useState(() => ({
     products: {},
