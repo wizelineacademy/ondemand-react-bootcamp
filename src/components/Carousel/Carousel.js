@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import styles from './Carrousel.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt, text, id }) {
+function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt, text, id,navigationLink }) {
 
 
     let itemRef = React.createRef()
+    const navigate= useNavigate();
 
     useEffect(() => {
 
@@ -20,7 +21,7 @@ function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt
 
                 <img src={src}
                     alt={alt}
-                    //  onClick={navi}
+                    onClick={()=>{if(navigationLink!== undefined)navigate(navigationLink)}}
                     className={`${styles.styleCarrouselImage} ${className}`} />
 
                 {text.map((element, index) => {

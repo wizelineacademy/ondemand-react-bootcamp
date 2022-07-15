@@ -1,7 +1,7 @@
 import React from "react"
 import styles from './FeaturedProducts.module.scss'
 import CarouselGrid from '../CarouselGrid/CarouselGrid';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function FeaturedProducts(props) 
   {
@@ -9,7 +9,7 @@ export default function FeaturedProducts(props)
 
     const  navigate=useNavigate();
 
-        //   console.log("FeaturedProducts constructor******************",this.props.featuredProducts)  
+      // console.log("FeaturedProducts constructor******************",props.featuredProducts)  
         var featuredProducts = props.featuredProducts.map
             ((data) => {
 
@@ -20,11 +20,12 @@ export default function FeaturedProducts(props)
                         id: index + 1,
                         src: image.image.url,
                         alt: data.alt,
-                        text: data.text
+                        text: data.text,
+                        link:data.link
                     };
                 })
             });
-
+            console.log(featuredProducts)  
 
         return (
             <div className={styles.featuredProducts}>

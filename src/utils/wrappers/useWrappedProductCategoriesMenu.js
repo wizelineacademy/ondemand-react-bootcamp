@@ -26,6 +26,7 @@ export default function useWrappedProductCategoriesMenu() {
           // src: row.data.main_image.url,
           alt: row.data.main_image.alt,
           text: [row.data.name],
+          link: row.data.id
         };
       });
 
