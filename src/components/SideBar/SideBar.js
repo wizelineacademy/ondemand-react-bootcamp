@@ -1,12 +1,21 @@
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SideBar.css'
+import { useSearchParams } from "react-router-dom";
+
 export default function SideBar({ menuListItems, categoriesParentList, updateParentSelectedCategories }) {
 
 
     const [selectedCategories, updateSelectedCategories] = useState(categoriesParentList);
 
+    const [searchParams] = useSearchParams();
+
+    useEffect(()=>{
+
+    const  categorySelected=searchParams.get("category");
+    handleClick(categorySelected)
+    },[]);
 
     function handleClick(categoryId) {
         let newArray;

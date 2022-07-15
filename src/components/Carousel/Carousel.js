@@ -22,7 +22,7 @@ function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt
                 <img src={src}
                     alt={alt}
                     onClick={() => {
-                        console.log(navigationLink);
+                      //  console.log(navigationLink);
                         if (navigationLink !== undefined) {
                             navigate(navigationLink);
 
