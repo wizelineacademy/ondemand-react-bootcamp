@@ -11,11 +11,13 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
 
     const [searchParams] = useSearchParams();
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    const  categorySelected=searchParams.get("category");
-    handleClick(categorySelected)
-    },[]);
+        const categorySelected = searchParams.get("category");
+        if (categorySelected === undefined || categorySelected === null|| categorySelected === '') return;
+        console.log("reas",categorySelected)
+        handleClick(categorySelected);
+    }, []);
 
     function handleClick(categoryId) {
         let newArray;
@@ -37,7 +39,7 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
                 menuListItems.map((optionItem, index) => (
                     <a key={index}
                         className={selectedCategories.some(d => d === optionItem.categoryId) ? 'active' : ''}
-                        href={'#'+encodeURIComponent(optionItem.categoryId)}
+                        href={'#' + encodeURIComponent(optionItem.categoryId)}
                         onClick={() => handleClick(optionItem.categoryId)} >
                         {optionItem.alt}
                     </a>))
