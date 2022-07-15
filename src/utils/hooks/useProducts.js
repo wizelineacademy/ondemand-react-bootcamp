@@ -12,6 +12,9 @@ export default function useProducts() {
     isLoading: true,
   }));
 
+
+
+
   useEffect(() => {
 
     const controller = new AbortController();

@@ -17,7 +17,7 @@ export default function useWrappedProductCategories() {
 
     let productCategories = [];
     if (ProductCategories.results !== undefined) {
-      //console.log(ProductCategories);
+      console.log(ProductCategories);
       productCategories = ProductCategories.results.map((row, index) => {
 
         return {
@@ -25,10 +25,10 @@ export default function useWrappedProductCategories() {
           src: row.data.main_image.url,
           alt: row.data.main_image.alt,
           text: [row.data.name],
-          link: row.data.id
+          navigationLink: `/products?category=${row.id}`
         };
       });
-      //console.log(productCategories);
+      console.log(productCategories);
 
       setWrappedData({
         productCategories: productCategories,

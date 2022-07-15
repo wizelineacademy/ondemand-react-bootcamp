@@ -27,7 +27,7 @@ export default function useWrappedProducts({ filterCategories, page, pageSize })
           srcs: item.data.images.map((image, index) => { return image.image.url }),
           alt: item.data.mainimage.alt,
           text: [item.data.name, item.data.price, item.data.category.slug],
-          link: item.data.category.id,
+          navigationLink: `/products?category=${item.data.category.id}`,
         };
       })
       // console.log(products);

@@ -17,7 +17,8 @@ export default function useWrappedProductCategoriesMenu() {
 
     let productCategories = [];
     if (ProductCategories.results !== undefined) {
-
+      
+     // console.log(ProductCategories);
       productCategories = ProductCategories.results.map((row, index) => {
 
         return {
@@ -26,10 +27,10 @@ export default function useWrappedProductCategoriesMenu() {
           // src: row.data.main_image.url,
           alt: row.data.main_image.alt,
           text: [row.data.name],
-          link: row.data.id
+      
         };
       });
-
+      //console.log(productCategories);
 
       setWrappedData({
         productCategories: productCategories,

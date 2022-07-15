@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CarouselGrid from "../CarouselGrid/CarouselGrid";
 import './ProductInfo.css'
 import Pagination from "../Pagination/Pagination";
-import { Link } from "react-router-dom";
+
 
 export default function ProductInfo({ products }) {
 
@@ -25,7 +25,7 @@ export default function ProductInfo({ products }) {
                             alt: data.alt,
                             text: data.text,
                             categoryId: data.categoryId,
-                            link:data.link
+                            navigationLink:data.navigationLink
                         };
                     })
                 }))

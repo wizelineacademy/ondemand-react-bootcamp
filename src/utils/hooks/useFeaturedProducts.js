@@ -20,7 +20,7 @@ export default function useFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
         const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "product")]]')}&lang=en-us&pageSize=30`;
-         console.log("test:", apiRef);
+        // console.log("test:", apiRef);
 
         const response = await fetch(
           url,

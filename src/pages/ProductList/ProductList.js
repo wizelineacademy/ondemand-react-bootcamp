@@ -3,7 +3,7 @@ import ProductInfo from "../../components/ProductInfo/ProductInfo"
 import useWrappedProductCategoriesMenu from '../../utils/wrappers/useWrappedProductCategoriesMenu'
 import useWrappedProducts from "../../utils/wrappers/useWrappedProducts";
 import { useEffect, useState } from "react";
-
+import { useSearchParams } from "react-router-dom";
 
 
 const ProductList = () => {
@@ -13,7 +13,11 @@ const ProductList = () => {
 
     const { productCategories, isProductCategoriesLoading } = useWrappedProductCategoriesMenu();
     const { products, isProductsLoading } = useWrappedProducts({}, 0, 0);
-
+    
+    const [searchParams] = useSearchParams();
+    console.log(searchParams)
+    console.log(searchParams.get("category"));
+    
     useEffect(() => {
 
         if (isProductsLoading || isProductCategoriesLoading || selectedCategories=== undefined  ) {

@@ -1,7 +1,7 @@
 import React from "react"
 import styles from './FeaturedProducts.module.scss'
 import CarouselGrid from '../CarouselGrid/CarouselGrid';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export default function FeaturedProducts(props) 
   {
@@ -21,11 +21,11 @@ export default function FeaturedProducts(props)
                         src: image.image.url,
                         alt: data.alt,
                         text: data.text,
-                        link:data.link
+                        navigationLink:data.navigationLink
                     };
                 })
             });
-            console.log(featuredProducts)  
+            // console.log(featuredProducts)  
 
         return (
             <div className={styles.featuredProducts}>
