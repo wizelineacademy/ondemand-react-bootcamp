@@ -19,7 +19,8 @@ export default function useFeaturedProducts() {
     async function getFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
-        const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "product")]]')}&lang=en-us&pageSize=30`;
+        const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "product")]]')}&q=${encodeURIComponent('[[at(document.tags, ["Featured"])]]')}&lang=en-us&pageSize=16`;
+       
         // console.log("test:", apiRef);
 
         const response = await fetch(

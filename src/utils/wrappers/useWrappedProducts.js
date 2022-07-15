@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 
 
-import useProducts from '../hooks-mooks/useProducts.js';
+//import useProducts from '../hooks-mooks/useProducts.js';
+import useProducts from '../hooks/useProducts.js';
 
 
 export default function useWrappedProducts({ filterCategories, page, pageSize }) {

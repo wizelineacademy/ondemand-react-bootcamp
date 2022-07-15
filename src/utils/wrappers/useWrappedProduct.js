@@ -5,14 +5,14 @@ import { useState, useEffect } from 'react';
 import useProducts from '../hooks-mooks/useProducts.js';
 
 
-export default function useWrappedProduct({ filterCategories, page, pageSize }) {
+export default function useWrappedProduct({ productId }) {
 
   const [productsData, setProducts] = useState(() => ({
     products: {},
     isProductsLoading: true,
   }));
 
-  const { data: productsDataFiltered, isLoading } = useProducts(filterCategories, page, pageSize);
+  const { data: productsDataFiltered, isLoading } = useProducts(productId);
 
   useEffect(() => {
 
