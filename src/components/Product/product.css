@@ -64,7 +64,7 @@
   font-weight: bold;
 }
 
-.product-button:hover {
+.product-button:hover:enabled {
    background-color:#EC1666;
    transition: 0.3s;
    color: white;

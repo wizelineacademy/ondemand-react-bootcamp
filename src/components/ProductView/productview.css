@@ -77,8 +77,12 @@
   font-weight: bold;
 }
 
-.productview-button:hover {
+.productview-button:hover:enabled {
   background-color:#EC1666;
   transition: 0.3s;
   color: white;
+}
+
+.productview-button-container span {
+  color: #EC1666;;
 }

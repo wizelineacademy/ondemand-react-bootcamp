@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from "../Button/Button";
 import "./counter.css";
 
-
-function Counter({ handler }) {
+function Counter({ handler, numItems }) {
   const [counter, setCounter] = useState(0);
 
   function handleIncrement() {
@@ -17,6 +16,10 @@ function Counter({ handler }) {
   useEffect(() => {
     handler(counter);
   }, [counter]);
+
+  useEffect(() => {
+    setCounter(prevCounter => (numItems));
+  }, [numItems]);
 
   return (
     <div className="counter">

@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import Layout from "../../components/layout/Layout";
-import { useSearchParams } from "react-router-dom";
+import Store from "../../contexts/Store";
+
+
 const Cart = () => {
-  const [searchParams] = useSearchParams();
-  const [product, setProduct] = useState();
-  const [numItems, setNumItems] = useState(0);
-  useEffect(() => {
-    setProduct(prevProduct => (searchParams.get("productId")));
-    setNumItems(prevNumItems => (searchParams.get("numItems")));
-  }, []);
   return (
-    <Layout type="withoutNav">
-      <div>{`Product ${product} Number of items ${numItems}`}</div>
-    </Layout>
+    <Store.Consumer>
+      {({ cart,updateCart }) => {
+        return (
+          <Layout type="withoutNav">
+            {cart && <div>Cart</div>}
+          </Layout>
+        );
+      }}
+    </Store.Consumer>
   );
 };
 

@@ -1,0 +1,21 @@
+.carticon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.carticon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #EC1666 !important;
+  background-color: #EC1666;
+  color: white;
+  font-size: 1vh;
+  padding: 3px;
+  min-height: 10px;
+  min-width: 10px;
+  font-weight: bold;
+}
