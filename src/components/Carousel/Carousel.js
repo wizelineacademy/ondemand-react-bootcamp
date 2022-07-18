@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState,  useEffect } from "react"
 
 import styles from './Carrousel.module.scss'
 import { useNavigate } from 'react-router-dom'
@@ -56,8 +56,7 @@ export default function Carousel({
     buttonFunction }) {
 
     const [carouselCurrentSlideIndex, setCarouselCurrentSlideIndex] = useState(carouselInitialSlideIndex);
-    const CartContext = React.createContext([]);
-    const Cart = useContext(CartContext)
+
 
     function setIndex(nextIndex) {
         if (nextIndex > data.length) { setCarouselCurrentSlideIndex(1) }
@@ -88,7 +87,7 @@ export default function Carousel({
                 <button className={styles.prev} onClick={prevClick} >❮</button>
                 {data.map((item, index) => (<span className={styles.dot} key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}-dot`} onClick={(() => dotClick(index + 1))}  ></span>))}
                 <button className={styles.next} onClick={nextClick} >❯</button>
-                {(buttonText !== undefined) && <button className={styles.next} onClick={() =>{console.log(Cart);Cart.push(itemId);}} >{buttonText}</button>}
+                {(buttonText !== undefined) && <button className={styles.next} onClick={buttonFunction} >{buttonText}</button>}
             </div>
         </div >
    
