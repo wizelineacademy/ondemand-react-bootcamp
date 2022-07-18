@@ -3,6 +3,7 @@ import ProductInfo from "../../components/ProductInfo/ProductInfo"
 import useWrappedProductCategoriesMenu from '../../utils/wrappers/useWrappedProductCategoriesMenu'
 import useWrappedProducts from "../../utils/wrappers/useWrappedProducts";
 import { useEffect, useState } from "react";
+import { Button } from "bootstrap";
 
 
 
@@ -52,7 +53,8 @@ const ProductList = () => {
                     updateParentSelectedCategories={updateSelectedCategories} />
                  }
             <h1 style={{ display: 'inline-block' }} >This is the Product List Page </h1>
-
+           
+            {(selectedCategories?.length>0)&&<button onClick={()=> updateSelectedCategories([])}>clear filters</button>}
             {!readyForRender ? <div>Loading</div>:<ProductInfo products={filteredProducts} />  }
 
         </div>

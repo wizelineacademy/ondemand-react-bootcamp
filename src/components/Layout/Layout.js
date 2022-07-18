@@ -40,20 +40,20 @@ export default function Layout({ children }) {
 <del><p>- 2.3.1. Fetch data from this endpoint:</p></del>
 <del><p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22category%22)%5D%5D&lang=en-us&pageSize=30</p></del>
 <del><p>  **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p></del>
-<p>- 2.3.2. Each category should have a link to the **Product List Page** including a query param in the URL to filter the products by that category.</p>
-<p>- 2.4. Refactor your **Featured Products Grid** according to the following requirements:</p>
-<p>- 2.4.1. Fetch data from this endpoint:</p>
-<p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&q=%5B%5Bat(document.tags%2C%20%5B%22Featured%22%5D)%5D%5D&lang=en-us&pageSize=16</p>
-<p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p>
-<p>- 2.4.2. Each element on this grid should have at least the main image of the product, its name, category, price, “Add to cart” button, and a link to its detail page.</p>
-<p>- 2.4.3. You should show 16 products maximum on this grid and it is not necessary to implement pagination controls.</p>
-<p>3. Update your **Product List Page** according to the following requirements:</p>
-<p>- 3.1. The route for this page should be **/products** and **/products?category=categorySlug**</p>
-<p>- 3.2. Refactor your Product Categories Sidebar according to the following requirements:</p>
-<p>- 3.2.1. Fetch data from this endpoint:</p>
-<p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22category%22)%5D%5D&lang=en-us&pageSize=30</p>
-<p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p>
-<p>- 3.2.2. You should be able to filter your products by category according to the category [filtering behavior from the previous deliverable](#filtering-behavior).</p>
+<del><p>- 2.3.2. Each category should have a link to the **Product List Page** including a query param in the URL to filter the products by that category.</p></del>
+<del><p>- 2.4. Refactor your **Featured Products Grid** according to the following requirements:</p></del>
+<del><p>- 2.4.1. Fetch data from this endpoint:</p></del>
+<del><p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&q=%5B%5Bat(document.tags%2C%20%5B%22Featured%22%5D)%5D%5D&lang=en-us&pageSize=16</p></del>
+<del><p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p></del>
+<del><p>- 2.4.2. Each element on this grid should have at least the main image of the product, its name, category, price, “Add to cart” button, and a link to its detail page.</p></del>
+<del><p>- 2.4.3. You should show 16 products maximum on this grid and it is not necessary to implement pagination controls.</p></del>
+<del><p>3. Update your **Product List Page** according to the following requirements:</p></del>
+<del><p>- 3.1. The route for this page should be **/products** and **/products?category=categorySlug**</p></del>
+<del><p>- 3.2. Refactor your Product Categories Sidebar according to the following requirements:</p></del>
+<del><p>- 3.2.1. Fetch data from this endpoint:</p></del>
+<del><p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22category%22)%5D%5D&lang=en-us&pageSize=30</p></del>
+<del><p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p></del>
+<del><p>- 3.2.2. You should be able to filter your products by category according to the category [filtering behavior from the previous deliverable](#filtering-behavior).</p></del>
 <p>- 3.2.3. If there is a filter applied, you should show a “Clear filters” button that will remove all the active filters and update the grid to show all the products.</p>
 <p>- 3.3. Refactor your **Products Grid** according to the following requirements:</p>
 <p>- 3.3.1. Fetch data from this endpoint:</p>
