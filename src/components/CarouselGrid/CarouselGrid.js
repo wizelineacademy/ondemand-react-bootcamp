@@ -41,7 +41,7 @@ export default class CarouselGrid extends React.Component {
                         carouselName={this.props.gridName}
                         carouselKeyIndex={index}
                         key={`${this.props.carouselName}-${this.props.carouselIndex}-${index}-${item.id}`}
-                        carouselCurrentSlideIndex={1}
+                        carouselInitialSlideIndex={1}
                         data={item} />
 
                 ))

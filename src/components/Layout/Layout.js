@@ -54,11 +54,11 @@ export default function Layout({ children }) {
 <del><p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22category%22)%5D%5D&lang=en-us&pageSize=30</p></del>
 <del><p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p></del>
 <del><p>- 3.2.2. You should be able to filter your products by category according to the category [filtering behavior from the previous deliverable](#filtering-behavior).</p></del>
-<p>- 3.2.3. If there is a filter applied, you should show a “Clear filters” button that will remove all the active filters and update the grid to show all the products.</p>
-<p>- 3.3. Refactor your **Products Grid** according to the following requirements:</p>
-<p>- 3.3.1. Fetch data from this endpoint:</p>
-<p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&lang=en-us&pageSize=12</p>
-<p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p>
+<del><p>- 3.2.3. If there is a filter applied, you should show a “Clear filters” button that will remove all the active filters and update the grid to show all the products.</p></del>
+<del><p>- 3.3. Refactor your **Products Grid** according to the following requirements:</p></del>
+<del><p>- 3.3.1. Fetch data from this endpoint:</p></del>
+<del><p>  https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=apiRef&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&lang=en-us&pageSize=12</p></del>
+<del><p> **IMPORTANT:** You have to replace the **apiRef** on the query params of the URL with the latest value for this particular API. Please check [the sample custom hook](https://github.com/wizelineacademy/ondemand-react-bootcamp/blob/main/src/utils/hooks/useFeaturedBanners.js) so you can implement something similar to fetch from this endpoint.</p></del>
 <p>- 3.3.2. Each element on this grid should have at least the main image of the product, its name, category, price, “Add to cart” button, and a link to its detail page.</p>
 <p>- 3.3.3. Create the Pagination Controls dynamically, you should show 12 products maximum per page.</p>
 <p>4. Create the **Product Detail Page** according to the following requirements:</p>

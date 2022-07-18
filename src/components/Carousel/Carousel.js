@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import PropTypes from "prop-types"
+import React, { useState, useContext, useEffect } from "react"
+
 import styles from './Carrousel.module.scss'
 import { useNavigate } from 'react-router-dom'
 
@@ -22,7 +22,7 @@ function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt
                 <img src={src}
                     alt={alt}
                     onClick={() => {
-                      //  console.log(navigationLink);
+                        //  console.log(navigationLink);
                         if (navigationLink !== undefined) {
                             navigate(navigationLink);
 
@@ -45,65 +45,56 @@ function CarouselElement({ className, count, carouselCurrentSlideIndex, src, alt
 }
 
 
-export default class Carousel extends React.Component {
+export default function Carousel({
+    className,
+    carouselName,
+    carouselKeyIndex,
+    carouselInitialSlideIndex,
+    data,
+    itemId='0',
+    buttonText='add to cart',
+    buttonFunction }) {
 
+    const [carouselCurrentSlideIndex, setCarouselCurrentSlideIndex] = useState(carouselInitialSlideIndex);
+    const CartContext = React.createContext([]);
+    const Cart = useContext(CartContext)
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            carouselCurrentSlideIndex: props.carouselCurrentSlideIndex
-        };
-        this.prevClick = this.prevClick.bind(this);
-        this.nextClick = this.nextClick.bind(this);
-        this.dotClick = this.dotClick.bind(this);
-
-    }
-
-
-    static propTypes = {
-        data: PropTypes.array.isRequired,
-        carouselCurrentSlideIndex: PropTypes.number,
-        carouselName: PropTypes.string.isRequired,
-        carouselKeyIndex: PropTypes.number.isRequired
-    }
-
-
-    setIndex(nextIndex) {
-        if (nextIndex > this.props.data.length) { this.setState({ carouselCurrentSlideIndex: 1 }) }
+    function setIndex(nextIndex) {
+        if (nextIndex > data.length) { setCarouselCurrentSlideIndex(1) }
         else {
-            if (nextIndex < 1) { this.setState({ carouselCurrentSlideIndex: this.props.data.length }) }
-            else { this.setState({ carouselCurrentSlideIndex: nextIndex }); }
+            if (nextIndex < 1) { setCarouselCurrentSlideIndex(setCarouselCurrentSlideIndex(data.length)) }
+            else { setCarouselCurrentSlideIndex(nextIndex); }
         }
 
     }
 
-    prevClick() {
-        this.setIndex(this.state.carouselCurrentSlideIndex - 1);
+    function prevClick() {
+        setIndex(carouselCurrentSlideIndex - 1);
     }
-    nextClick() {
-        this.setIndex(this.state.carouselCurrentSlideIndex + 1);
+    function nextClick() {
+        setIndex(carouselCurrentSlideIndex + 1);
 
-    }
-
-    dotClick(dot) {
-        this.setIndex(dot);
     }
 
+    function dotClick(dot) {
+        setIndex(dot);
+    }
+    if (data === undefined || data?.length === 0) return (null);
+    return (
 
-    render() {
-        if (this.props.data === undefined || this.props.data?.length === 0) return (null);
-        return (
-            <div className={styles.styleCarrousel} >
-                {this.props.data.map((item, index) => (<CarouselElement className={`${this.props.className}`} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}`} count={this.props.data.length} carouselCurrentSlideIndex={this.state.carouselCurrentSlideIndex} {...item} />))}
-                <div className={`${styles.styleCarrouselDot} ${this.props.className}`}>
-                    <button className={styles.prev} onClick={this.prevClick} >❮</button>
-                    {this.props.data.map((item, index) => (<span className={styles.dot} key={`${this.props.carouselName}-${this.props.carouselKeyIndex}-${index}-${item.id}-dot`} onClick={(() => this.dotClick(index + 1))}  ></span>))}
-                    <button className={styles.next} onClick={this.nextClick} >❯</button>
-                </div>
-            </div >
-        );
+        <div className={styles.styleCarrousel} >
+            {data.map((item, index) => (<CarouselElement className={`${className}`} key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}`} count={data.length} carouselCurrentSlideIndex={carouselCurrentSlideIndex} {...item} />))}
+            <div className={`${styles.styleCarrouselDot} ${className}`}>
+                <button className={styles.prev} onClick={prevClick} >❮</button>
+                {data.map((item, index) => (<span className={styles.dot} key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}-dot`} onClick={(() => dotClick(index + 1))}  ></span>))}
+                <button className={styles.next} onClick={nextClick} >❯</button>
+                {(buttonText !== undefined) && <button className={styles.next} onClick={() =>{console.log(Cart);Cart.push(itemId);}} >{buttonText}</button>}
+            </div>
+        </div >
+   
+    );
 
-    };
+
 
 
 
