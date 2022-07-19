@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export default function useProduct() {
+export default function useProducts({ productId ,pageSize=12}) {
+  console.log('useProducts', productId)
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [products, setProducts] = useState(() => ({
     data: {},
@@ -11,16 +12,26 @@ export default function useProduct() {
 
   useEffect(() => {
     if (!apiRef || isApiMetadataLoading) {
-      return () => {};
+      return () => { };
     }
 
     const controller = new AbortController();
 
-    async function getProducts() {
+    async function getProducts({productId,pageSize}) {
       try {
+        let searchByID = ''
+        if (productId !== undefined) {
+          searchByID = `&q=${encodeURIComponent('[[at(document.id,"' + productId + '")]]')}`
+        }
+        else {
+
+          searchByID = `&q=${encodeURIComponent('[[at(document.type, "product")]]')}`
+        }
+
+        console.log('searchByID', searchByID)
         setProducts({ data: {}, isLoading: true });
-        const url =`${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent('[[at(document.type, "product")]]')}&lang=en-us&pageSize=12`;
-        // console.log("test:", apiRef);
+        const url = `${API_BASE_URL}/documents/search?ref=${apiRef}${searchByID}&lang=en-us&pageSize=${pageSize}`;
+        console.log("test:", apiRef);
 
         const response = await fetch(
           url,
@@ -37,12 +48,12 @@ export default function useProduct() {
       }
     }
 
-    getProducts();
+    getProducts({productId,pageSize});
 
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  }, [apiRef, isApiMetadataLoading, pageSize, productId]);
 
   return products;
 }

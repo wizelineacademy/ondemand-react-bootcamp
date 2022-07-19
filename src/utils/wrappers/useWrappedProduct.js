@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 
 
-import useProducts from '../hooks-mooks/useProducts.js';
+//import useProducts from '../hooks-mooks/useProducts.js';
+import useProducts from '../hooks/useProducts.js';
 
 
 export default function useWrappedProduct({ productId }) {
@@ -12,9 +13,11 @@ export default function useWrappedProduct({ productId }) {
     isProductsLoading: true,
   }));
 
-  const { data: productsDataFiltered, isLoading } = useProducts(productId);
+  const { data: productsDataFiltered, isLoading } = useProducts({productId});
+
 
   useEffect(() => {
+
 
     let products = [];
     if (productsDataFiltered.results !== undefined) {
