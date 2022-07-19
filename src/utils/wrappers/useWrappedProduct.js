@@ -13,7 +13,7 @@ export default function useWrappedProduct({ productId }) {
     isProductsLoading: true,
   }));
 
-  const { data: productsDataFiltered, isLoading } = useProducts({productId});
+  const { data: productsDataFiltered, isLoading } = useProducts({ productId });
 
 
   useEffect(() => {
@@ -22,19 +22,22 @@ export default function useWrappedProduct({ productId }) {
     let products = [];
     if (productsDataFiltered.results !== undefined) {
 
-      products = productsDataFiltered.results.map((item, index) => {
-        return {
 
-          id: index + 1,
-          categoryId: item.data.category.id,
-          srcs: item.data.images.map((image, index) => { return image.image.url }),
-          alt: item.data.mainimage.alt,
-          text: [item.data.name, item.data.price, item.data.category.slug],
-          navigationLink: `/detail?productId=${item.data.category.id}`,
-          UniqueId:item.id
-        };
-      })
-      // console.log(products);
+      products = productsDataFiltered.results.map((item, index) => {
+        return item.data.images.map((image, indexImage) => {
+          return ({
+            id: index + 1,
+            src: image.image.url,
+            alt: item.data.mainimage.alt,
+            text: [item.data.name, item.data.price, item.data.category.slug],
+            categoryId: item.data.category.id,
+            navigationLink: `/detail?productId=${item.data.category.id}`,
+            uniqueId: item.id
+          })
+        })
+      })[0];
+
+    //  console.log('useWrappedProduct', 'products', products);
 
       setProducts({ products, isProductsLoading: isLoading });
     }

@@ -6,26 +6,21 @@ import useWrappedProduct from '../../utils/wrappers/useWrappedProduct';
 export default function ProductDetails() {
     const [searchParams] = useSearchParams();
     const [productId, setproductId] = useState('');
-    const {productsDataFiltered, isLoading} = useWrappedProduct({ productId });
+    const { products, isProductsLoading } =  useWrappedProduct({ productId });
+    
     useEffect(() => {
 
         const productSelected = searchParams.get("productId");
         if (productSelected === undefined || productSelected === null || productSelected === '') return;
-        console.log("reas", productSelected)
+       // console.log("reas", productSelected)
         setproductId(productSelected)
     }, [searchParams]);
 
-// console.log(productsDataFiltered)
-
+//console.log('productsDataFiltered',products)
+ 
     return (
         <div>
-            <br/>
-            {productId}
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            {isLoading && <Galery data={productsDataFiltered} />}
+            {!isProductsLoading && <Galery data={products} />}
         </div>
 
     )

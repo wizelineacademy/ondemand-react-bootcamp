@@ -17,7 +17,7 @@ export default function useWrappedProductCategories() {
 
     let productCategories = [];
     if (ProductCategories.results !== undefined) {
-      console.log(ProductCategories);
+    //  console.log(ProductCategories);
       productCategories = ProductCategories.results.map((row, index) => {
 
         return {
