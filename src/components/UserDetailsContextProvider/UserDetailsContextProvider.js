@@ -1,18 +1,27 @@
-import { createContext, useState } from 'react';
+import { createContext, useState,useMemo } from 'react';
 
 //create a context, with createContext api
-export const UserDetailsContext = createContext();
+const UserDetailsContext = createContext();
 
 const UserDetailsContextProvider = (props) => {
         // this state will be shared with all components 
-    const [userDetails, setUserDetails] = useState();
+    const [userDetails, setUserDetails] = useState([]);
 
-    return (
-                // this is the provider providing state
-        <UserDetailsContext.Provider value={[userDetails, setUserDetails]}>
-            {props.children}
-        </UserDetailsContext.Provider>
-    );
-};
+    // return (
+    //             // this is the provider providing state
+    //     <UserDetailsContext.Provider value={[userDetails, setUserDetails]}>
+    //         {props.children}
+    //     </UserDetailsContext.Provider>
+    // );
 
-export default UserDetailsContextProvider;
+    const value = useMemo(() => ({userDetails, setUserDetails}),[userDetails]);
+     
+     
+         return (
+             <UserDetailsContext.Provider value={value}>
+                 {props.children}
+             </UserDetailsContext.Provider>
+         );
+     };
+
+export { UserDetailsContext, UserDetailsContextProvider };

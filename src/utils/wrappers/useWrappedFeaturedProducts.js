@@ -26,7 +26,8 @@ export default function useWrappedFeaturedProducts() {
           srcs: row.data.images,
           alt: row.data.mainimage.alt,
           text: [row.data.name, row.data.price, row.data.category.slug],
-          navigationLink:`/detail?productId=${row.id}`
+          navigationLink:`/detail?productId=${row.id}`,
+          uniqueId:row.id
         };
       });
      // console.log(featuredProducts);

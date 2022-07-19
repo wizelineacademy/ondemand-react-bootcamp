@@ -3,7 +3,7 @@ import ProductInfo from "../../components/ProductInfo/ProductInfo"
 import useWrappedProductCategoriesMenu from '../../utils/wrappers/useWrappedProductCategoriesMenu'
 import useWrappedProducts from "../../utils/wrappers/useWrappedProducts";
 import { useEffect, useState } from "react";
-import { Button } from "bootstrap";
+// import { Button } from "bootstrap";
 
 
 

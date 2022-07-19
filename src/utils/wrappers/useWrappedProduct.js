@@ -28,6 +28,7 @@ export default function useWrappedProduct({ productId }) {
           alt: item.data.mainimage.alt,
           text: [item.data.name, item.data.price, item.data.category.slug],
           navigationLink: `/detail?productId=${item.data.category.id}`,
+          UniqueId:item.id
         };
       })
       // console.log(products);

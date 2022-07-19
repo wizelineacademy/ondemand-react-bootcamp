@@ -28,10 +28,11 @@ export default function useWrappedProducts({ filterCategories, page, pageSize })
           srcs: item.data.images.map((image, index) => { return image.image.url }),
           alt: item.data.mainimage.alt,
           text: [item.data.name, item.data.price, item.data.category.slug],
-          navigationLink: `/detail?productId=${item.data.category.id}`,
+          navigationLink: `/detail?productId=${item.id}`,
+          uniqueId:item.id
         };
       })
-      // console.log(products);
+      //  console.log('products',products);
 
       setProducts({ products, isProductsLoading: isLoading });
     }

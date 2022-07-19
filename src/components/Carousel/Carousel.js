@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 import styles from './Carrousel.module.scss'
 import { useNavigate } from 'react-router-dom'
@@ -51,8 +51,8 @@ export default function Carousel({
     carouselKeyIndex,
     carouselInitialSlideIndex,
     data,
-    itemId='0',
-    buttonText='add to cart',
+    uniqueId,
+    buttonText,
     buttonFunction }) {
 
     const [carouselCurrentSlideIndex, setCarouselCurrentSlideIndex] = useState(carouselInitialSlideIndex);
@@ -82,15 +82,33 @@ export default function Carousel({
     return (
 
         <div className={styles.styleCarrousel} >
-            {data.map((item, index) => (<CarouselElement className={`${className}`} key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}`} count={data.length} carouselCurrentSlideIndex={carouselCurrentSlideIndex} {...item} />))}
+            {
+                data.map((item, index) => (
+                    <CarouselElement
+                        className={`${className}`}
+                        key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}`}
+                        count={data.length}
+                        carouselCurrentSlideIndex={carouselCurrentSlideIndex} {...item} />))
+            }
             <div className={`${styles.styleCarrouselDot} ${className}`}>
                 <button className={styles.prev} onClick={prevClick} >❮</button>
-                {data.map((item, index) => (<span className={styles.dot} key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}-dot`} onClick={(() => dotClick(index + 1))}  ></span>))}
+                {data.map((item, index) => (
+                    <span
+                        className={styles.dot}
+                        key={`${carouselName}-${carouselKeyIndex}-${index}-${item.id}-dot`}
+                        onClick={(() => dotClick(index + 1))}  ></span>))}
+
                 <button className={styles.next} onClick={nextClick} >❯</button>
-                {(buttonText !== undefined) && <button className={styles.next} onClick={buttonFunction} >{buttonText}</button>}
             </div>
+            <br/>
+            {(buttonText !== undefined) &&
+                <button
+                    className={styles.next}
+                    onClick={buttonFunction}>
+                    {buttonText}
+                </button>}
         </div >
-   
+
     );
 
 
