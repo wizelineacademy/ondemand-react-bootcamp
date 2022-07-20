@@ -93,7 +93,7 @@ const ProductView = ({ data, disabledItem }) => {
             <Table data={specifications} cells={2} title="SPECS" />
             <div className="productview-button-container">
               {errorMessage && <div><span>{errorMessage}</span></div>}
-              <Counter handler={handler} numItems={numItems} productId={data.results[0].id}/>
+              <Counter handler={handler} numItems={numItems}/>
               <Button classname="productview-button" onclick={addToCart} disabled={disabled}>
                 Add to cart
               </Button>

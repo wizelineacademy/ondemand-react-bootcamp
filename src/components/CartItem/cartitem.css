@@ -1,0 +1,21 @@
+.cart-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom-style: solid;
+  border-color: lightgray;
+}
+
+.background {
+  background-color: lightgray;
+}
+
+.cart-detail-items {
+  width: 10%;
+}
+
+.cart-detail-items span {
+  color: #EC1666;
+}

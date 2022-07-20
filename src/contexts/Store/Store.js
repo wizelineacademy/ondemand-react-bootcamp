@@ -5,6 +5,8 @@ const Store = createContext({
   updateCart: () => {},
   getCartItem: () => {},
   getNumOfItems: () => {},
+  setNumberOfItems: () =>{},
+  removeCartItem: ()=>{},
 });
 
 export default Store;

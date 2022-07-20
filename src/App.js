@@ -52,8 +52,26 @@ const App = () => {
     }
     return numItems;
   };
+  const setNumberOfItems = (cart, product_id, numItems) => {
+    let newCart = JSON.parse(JSON.stringify(cart));
+    newCart = newCart.map((cartItem) => {
+      if (cartItem.id === product_id) {
+        cartItem.numItems = Number(numItems);
+        cartItem.balance = Number(cartItem.stock) - Number(cartItem.numItems);
+      }
+      return cartItem;
+    });
+    setCart((prevCart) => newCart);
+  };
+  const removeCartItem = (cart, product_id) => {
+    let newCart = JSON.parse(JSON.stringify(cart));
+    newCart = newCart.filter(cartItem => cartItem.id !== product_id);
+    setCart((prevCart) => newCart);
+  };
   return (
-    <Store.Provider value={{ cart, updateCart, getCartItem, getNumOfItems }}>
+    <Store.Provider
+      value={{ cart, updateCart, getCartItem, getNumOfItems, setNumberOfItems, removeCartItem }}
+    >
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
