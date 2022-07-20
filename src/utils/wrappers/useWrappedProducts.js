@@ -32,7 +32,7 @@ export default function useWrappedProducts({ productId }) {
           uniqueId:item.id
         };
       })
-      //  console.log('products',products);
+        console.log('products',products);
 
       setProducts({ products, isProductsLoading: isLoading });
     }

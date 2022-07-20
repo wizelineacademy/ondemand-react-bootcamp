@@ -30,7 +30,7 @@ export default function useWrappedProductCategoriesMenu() {
       
         };
       });
-      //console.log(productCategories);
+      console.log(productCategories);
 
       setWrappedData({
         productCategories: productCategories,

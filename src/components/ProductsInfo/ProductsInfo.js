@@ -6,7 +6,6 @@ import './ProductsInfo.css'
 
 export default function ProductsInfo({ products }) {
 
-
     const { userDetails, setUserDetails } = useContext(UserDetailsContext);
     // console.log(userDetails)
     // console.log(setUserDetails)
@@ -43,11 +42,11 @@ export default function ProductsInfo({ products }) {
                 <CarouselGrid
                     gridData={gridData}
                     gridName={'Products'}
-                    buttonFunction={(id) => { /*console.log("id", id);*/ setUserDetails([...userDetails,id]) }}
+                    buttonFunction={(id) => { /*console.log("id", id);*/ setUserDetails([...userDetails, id]) }}
                     buttonText='Add to cart' />
                 : <div>No items Found</div>
             }
-            
+
             <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
