@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from "react";
+import { UserDetailsContext } from '../UserDetailsContextProvider/UserDetailsContextProvider'
 import CarouselGrid from "../CarouselGrid/CarouselGrid";
-import './ProductInfo.css'
 import Pagination from "../Pagination/Pagination";
-import { UserDetailsContext } from '../../components/UserDetailsContextProvider/UserDetailsContextProvider'
+import './ProductsInfo.css'
 
-export default function ProductInfo({ products }) {
+export default function ProductsInfo({ products }) {
 
 
     const { userDetails, setUserDetails } = useContext(UserDetailsContext);

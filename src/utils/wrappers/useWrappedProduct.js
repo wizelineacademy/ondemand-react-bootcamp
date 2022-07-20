@@ -8,42 +8,59 @@ import useProducts from '../hooks/useProducts.js';
 
 export default function useWrappedProduct({ productId }) {
 
-  const [productsData, setProducts] = useState(() => ({
-    products: {},
-    isProductsLoading: true,
+  const [productData, setProduct] = useState(() => ({
+    product: {},
+    isProductLoading: true,
   }));
 
-  const { data: productsDataFiltered, isLoading } = useProducts({ productId });
+  const { data: productDataFiltered, isLoading } = useProducts({ productId });
 
 
   useEffect(() => {
 
 
-    let products = [];
-    if (productsDataFiltered.results !== undefined) {
+    let product = [];
+    if (productDataFiltered.results !== undefined) {
 
 
-      products = productsDataFiltered.results.map((item, index) => {
-        return item.data.images.map((image, indexImage) => {
-          return ({
-            id: index + 1,
-            src: image.image.url,
-            alt: item.data.mainimage.alt,
-            text: [item.data.name, item.data.price, item.data.category.slug],
-            categoryId: item.data.category.id,
-            navigationLink: `/detail?productId=${item.data.category.id}`,
-            uniqueId: item.id
+      product = productDataFiltered.results.map((item, index) => {
+
+
+        return {
+          properties: {
+            uniqueId: item.id,
+            name: item.data.name,
+            price: item.data.price,
+            categoryName: item.data.category.slug,
+            tags: item.tags,
+            sku: item.data.sku,
+            description: item.data.description[0].text,
+            specs: item.data.specs
+          },
+          galery: item.data.images.map((image, indexImage) => {
+            return ({
+              id: index + 1,
+              src: image.image.url,
+              alt: item.data.mainimage.alt,
+              categoryId: item.data.category.id,
+              navigationLink: `/detail?productId=${item.data.category.id}`,
+
+            })
+
           })
-        })
+        }
+
+
       })[0];
 
-    //  console.log('useWrappedProduct', 'products', products);
 
-      setProducts({ products, isProductsLoading: isLoading });
+      //  console.log('useWrappedProduct', 'product', product);
+
+      setProduct({ product, isProductLoading: isLoading });
     }
     // console.log(products)
 
-  }, [productsDataFiltered, isLoading]);
+  }, [productDataFiltered, isLoading]);
 
-  return productsData;
+  return productData;
 }

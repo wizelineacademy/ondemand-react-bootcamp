@@ -1,5 +1,5 @@
 import SideBar from "../../components/SideBar/SideBar";
-import ProductInfo from "../../components/ProductInfo/ProductInfo"
+import ProductsInfo from "../../components/ProductsInfo/ProductsInfo"
 import useWrappedProductCategoriesMenu from '../../utils/wrappers/useWrappedProductCategoriesMenu'
 import useWrappedProducts from "../../utils/wrappers/useWrappedProducts";
 import { useEffect, useState } from "react";
@@ -55,7 +55,7 @@ const ProductList = () => {
             <h1 style={{ display: 'inline-block' }} >This is the Product List Page </h1>
            
             {(selectedCategories?.length>0)&&<button onClick={()=> updateSelectedCategories([])}>clear filters</button>}
-            {!readyForRender ? <div>Loading</div>:<ProductInfo products={filteredProducts} />  }
+            {!readyForRender ? <div>Loading</div>:<ProductsInfo products={filteredProducts} />  }
 
         </div>
     );
