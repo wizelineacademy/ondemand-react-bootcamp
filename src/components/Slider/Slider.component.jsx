@@ -4,7 +4,6 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import BannerCard from '../BannerCard/BannerCard.component';
-//import { StyledSwiper } from './Slider.style';
 import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
 
 const Slider = () => {

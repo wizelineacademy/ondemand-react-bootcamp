@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const AddCartContainer = styled.div`
+export const ChangeButtonContainer = styled.div`
   display: flex;
-  margin-bottom: 8px;
+  justify-content: flex-end;
+  margin-right: 200px;
 `;
 
 export const NumberProducts = styled.input`
-  outline: none;
   border-radius: 8px;
   border-color: rgb(209, 209, 209);
   border-style: solid;
@@ -17,18 +17,16 @@ export const NumberProducts = styled.input`
   font-size: 24px;
 `;
 
-export const AddButton = styled.button`
-  display: flex;
-  align-items: center;
+export const Change = styled.button`
   background-color: #ff385c;
-  justify-content: center;
-  align-self: center;
-  padding: 16px;
-  height: 32px;
-  border-radius: 8px;
-  border-width: 0.16px;
-  font-size: 16px;
   color: white;
-  margin-right: 8px;
+  align-self: center;
   cursor: pointer;
+  padding-left: 8px;
+  border-radius: 8px;
+  border-width: 0.8px;
+  height: 32px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
 `;

@@ -17,7 +17,7 @@ export function useProduct(productId) {
     }
     dispatch(startLoadingProduct());
     const controller = new AbortController();
-    async function getproduct() {
+    async function getProduct() {
       try {
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${productId}%22%29+%5D%5D`,
@@ -29,6 +29,7 @@ export function useProduct(productId) {
         const { results } = data;
         const product = filterProduct(results[0]);
         const images = filterImages(product.images);
+        product.images = images;
         dispatch(finishLoadingProduct());
         dispatch(setImagesProduct(images));
         dispatch(setProduct(product));
@@ -37,7 +38,7 @@ export function useProduct(productId) {
       }
     }
 
-    getproduct();
+    getProduct();
 
     return () => {
       controller.abort();

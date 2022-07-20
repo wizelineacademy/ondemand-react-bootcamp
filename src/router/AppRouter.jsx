@@ -5,6 +5,8 @@ import Home from '../pages/Home/Home.page';
 import ProductDetails from '../pages/ProductDetails/ProductDetails.page';
 import ProductList from '../pages/ProductList/ProductList.page';
 import SearchResults from '../pages/SearchResults/SearchResults.page';
+import ShoppingCart from '../pages/ShoppingCart/ShoppingCart.page';
+import CheckoutPage from '../pages/CheckoutPage/CheckoutPage.page';
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -21,6 +23,8 @@ const AppRouter = () => {
           path="/search/productDetails/:productId"
           element={<ProductDetails />}
         />
+        <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   );

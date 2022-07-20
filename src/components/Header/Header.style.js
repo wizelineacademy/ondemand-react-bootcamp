@@ -30,7 +30,14 @@ export const Logo = styled.img`
   }
 `;
 
-export const CartSection = styled.div`
+export const SearchMenuContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  justify-content: center;
+`;
+
+export const SearchIcon = styled.div`
   background-color: #ff385c;
   color: white;
   display: flex;
@@ -43,12 +50,4 @@ export const CartSection = styled.div`
   margin-right: 8px;
 `;
 
-export const SearchMenuContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-  justify-content: center;
-`;
-
-export const SearchIcon = CartSection;
-export const CloseButton = CartSection;
+export const CloseButton = SearchIcon;

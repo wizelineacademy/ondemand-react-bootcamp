@@ -10,7 +10,6 @@ const Content = () => {
   const { loadingSlider, loadingCategories, loadingProducts } = useSelector(
     (state) => state.ui
   );
-
   return (
     <ContentMain>
       {loadingSlider && <Loading>Loading</Loading>}

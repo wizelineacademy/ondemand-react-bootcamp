@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.jpeg';
+import Cart from '../Cart/Cart.component';
 import { Search } from '../Search/Search.component';
 import {
-  CartSection,
   CloseButton,
   HeaderItems,
   HeaderMain,
@@ -38,10 +38,7 @@ const Header = () => {
       <SearchIcon onClick={handleMenu}>
         <i className="fas fa-search"></i>
       </SearchIcon>
-      <CartSection>
-        <div>0</div>
-        <i className="fas fa-shopping-cart"></i>
-      </CartSection>
+      <Cart />
     </>
   );
 
@@ -69,10 +66,7 @@ const Header = () => {
             ) : (
               <>
                 <Search />
-                <CartSection>
-                  <div>0</div>
-                  <i className="fas fa-shopping-cart"></i>
-                </CartSection>
+                <Cart />
               </>
             )}
           </HeaderItems>

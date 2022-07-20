@@ -5,11 +5,9 @@ import Furnitures from './Furnitures';
 import { store } from './store/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Furnitures />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Furnitures />
+  </Provider>,
   document.getElementById('root')
 );
 
