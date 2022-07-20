@@ -6,6 +6,7 @@ import Layout from './components/Layout/Layout';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import {UserDetailsContextProvider} from './components/UserDetailsContextProvider/UserDetailsContextProvider.js';
+import Search from './pages/Search/Search';
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/products" element={<ProductList />} />
             <Route exact path="/detail" element={<ProductDetails />} />
+            <Route exact path="/search" element={<Search />} />
             <Route path="*" element={<NotFound />} />
 
           </Routes>
