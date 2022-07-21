@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export default function useProducts({ productId ,pageSize=12}) {
+export default function useProducts({ productId ,pageSize=12, pageNumber=1}) {
  //console.log('useProducts', productId)
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [products, setProducts] = useState(() => ({
@@ -17,7 +17,7 @@ export default function useProducts({ productId ,pageSize=12}) {
 
     const controller = new AbortController();
 
-    async function getProducts({productId,pageSize}) {
+    async function getProducts({productId,pageSize,pageNumber}) {
       try {
         let searchByID = ''
         if (productId !== undefined) {
@@ -30,7 +30,7 @@ export default function useProducts({ productId ,pageSize=12}) {
 
        // console.log('searchByID', searchByID)
         setProducts({ data: {}, isLoading: true });
-        const url = `${API_BASE_URL}/documents/search?ref=${apiRef}${searchByID}&lang=en-us&pageSize=${pageSize}`;
+        const url = `${API_BASE_URL}/documents/search?ref=${apiRef}${searchByID}&lang=en-us&pageSize=${pageSize}&page=${pageNumber}`;
        // console.log("test:", apiRef);
 
         const response = await fetch(
@@ -48,12 +48,12 @@ export default function useProducts({ productId ,pageSize=12}) {
       }
     }
 
-    getProducts({productId,pageSize});
+    getProducts({productId,pageSize,pageNumber});
 
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading, pageSize, productId]);
+  }, [apiRef, isApiMetadataLoading, pageSize, productId,pageNumber]);
 
   return products;
 }

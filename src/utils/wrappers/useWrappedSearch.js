@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 import useSearch from '../hooks/useSearch';
 
-export default function useWrappedSearch({ searchTerm }) {
+export default function useWrappedSearch({ searchTerm ,pageNumber=1 }) {
 
   const [wrappedData, setWrappedData] = useState(() => ({
     data: {},
     isLoading: true,
   }));
 
-  const { data, isLoading } = useSearch(searchTerm);
+  const { data, isLoading } = useSearch(searchTerm, pageNumber );
 
   useEffect(() => {
     

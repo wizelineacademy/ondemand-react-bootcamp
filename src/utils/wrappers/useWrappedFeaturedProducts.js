@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
  import useFeaturedProducts from '../hooks/useFeaturedProducts';
 //import useFeaturedProducts from '../hooks-mooks/useFeaturedProducts';
 
-export default function useWrappedFeaturedProducts() {
+export default function useWrappedFeaturedProducts({pageNumber=1}) {
 
 
 
@@ -10,7 +10,7 @@ export default function useWrappedFeaturedProducts() {
     featuredProducts: {},
     isProductsLoading: true
   }));
-  const { data: productsData, isLoading } = useFeaturedProducts();
+  const { data: productsData, isLoading } = useFeaturedProducts({pageNumber});
 
   useEffect(() => {
 

@@ -6,14 +6,14 @@ import { useState, useEffect } from 'react';
 import useProducts from '../hooks/useProducts.js';
 
 
-export default function useWrappedProduct({ productId }) {
+export default function useWrappedProduct({ productId ,pageNumber=1}) {
 
   const [productData, setProduct] = useState(() => ({
     product: {},
     isProductLoading: true,
   }));
 
-  const { data: productDataFiltered, isLoading } = useProducts({ productId });
+  const { data: productDataFiltered, isLoading } = useProducts({ productId ,pageNumber});
 
 
   useEffect(() => {

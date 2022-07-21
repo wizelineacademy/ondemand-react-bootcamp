@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import useProductCategories from '../hooks/useProductCategories'
 //import useProductCategories from '../hooks-mooks/useProductCategories'
 
-export default function useWrappedProductCategories() {
+export default function useWrappedProductCategories({pageNumber=1}) {
 
 
 
@@ -10,7 +10,7 @@ export default function useWrappedProductCategories() {
     productCategories: {},
     isProductCategoriesLoading: true
   }));
-  const { data: ProductCategories, isLoading } = useProductCategories();
+  const { data: ProductCategories, isLoading } = useProductCategories({pageNumber});
 
   useEffect(() => {
 

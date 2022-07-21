@@ -12,8 +12,8 @@ const ProductList = () => {
     const [selectedCategories, updateSelectedCategories] = useState([]);
     const [readyForRender, setReadyForRender] = useState(false);
 
-    const { productCategories, isProductCategoriesLoading } = useWrappedProductCategoriesMenu();
-    const { products, isProductsLoading } = useWrappedProducts({}, 0, 0);
+    const { productCategories, isProductCategoriesLoading } = useWrappedProductCategoriesMenu({pageNumber:1});
+    const { products, isProductsLoading } = useWrappedProducts({pageNumber:1});
     
 
     

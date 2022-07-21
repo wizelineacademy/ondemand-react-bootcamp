@@ -7,7 +7,7 @@ import useWrappedProduct from '../../utils/wrappers/useWrappedProduct';
 export default function ProductDetails() {
     const [searchParams] = useSearchParams();
     const [productId, setproductId] = useState('');
-    const { product, isProductLoading } = useWrappedProduct({ productId });
+    const { product, isProductLoading } = useWrappedProduct({ productId ,pageNumber:1});
 
     useEffect(() => {
 
