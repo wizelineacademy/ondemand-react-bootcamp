@@ -12,8 +12,11 @@ const ProductList = () => {
     const [selectedCategories, updateSelectedCategories] = useState([]);
     const [readyForRender, setReadyForRender] = useState(false);
 
+   
+    const [currentPage, setCurrentPage] = useState(1);
+    const { products, isProductsLoading,totalPages } = useWrappedProducts({pageNumber:currentPage});
     const { productCategories, isProductCategoriesLoading } = useWrappedProductCategoriesMenu({pageNumber:1});
-    const { products, isProductsLoading } = useWrappedProducts({pageNumber:1});
+
     
 
     
@@ -55,7 +58,7 @@ const ProductList = () => {
             <h1 style={{ display: 'inline-block' }} >This is the Product List Page </h1>
            
             {(selectedCategories?.length>0)&&<button onClick={()=> updateSelectedCategories([])}>clear filters</button>}
-            {!readyForRender ? <div>Loading</div>:<ProductsInfo products={filteredProducts} />  }
+            {!readyForRender ? <div>Loading</div>:<ProductsInfo products={filteredProducts} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>  }
 
         </div>
     );

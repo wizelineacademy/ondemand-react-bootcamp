@@ -5,17 +5,21 @@ import useSearch from '../hooks/useSearch';
 export default function useWrappedSearch({ searchTerm ,pageNumber=1 }) {
 
   const [wrappedData, setWrappedData] = useState(() => ({
+    totalPages:1,
     data: {},
     isLoading: true,
   }));
 
-  const { data, isLoading } = useSearch(searchTerm, pageNumber );
+  const { data, isLoading } = useSearch({searchTerm, pageNumber });
 
   useEffect(() => {
     
     let dataFiltered = [];
+    let totalPages=1;
     if (data.results !== undefined) {
 
+      totalPages=data.total_pages;
+      console.log('totalPages',totalPages)
       dataFiltered = data.results.map((item, index) => {
         return {
 
@@ -28,11 +32,11 @@ export default function useWrappedSearch({ searchTerm ,pageNumber=1 }) {
           uniqueId:item.id
         };
       })
-        setWrappedData({ dataFiltered,  isLoading });
+        setWrappedData({ totalPages,data:dataFiltered,  isLoading });
     }
      //console.log(dataFiltered)
 
-  }, [data, isLoading,searchTerm]);
+  }, [data, isLoading,searchTerm,pageNumber]);
 
   return wrappedData;
 }

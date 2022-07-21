@@ -9,6 +9,8 @@ import useProducts from '../hooks/useProducts.js';
 export default function useWrappedProducts({ productId, pageNumber =1}) {
 
   const [productsData, setProducts] = useState(() => ({
+    
+    totalPages:1,
     products: {},
     isProductsLoading: true,
   }));
@@ -17,9 +19,11 @@ export default function useWrappedProducts({ productId, pageNumber =1}) {
 
   useEffect(() => {
 
-    let products = [];
+    let products = []; 
+    let totalPages=1;
     if (productsDataFiltered.results !== undefined) {
-
+    console.log(productsDataFiltered);
+      totalPages=productsDataFiltered.total_pages;
       products = productsDataFiltered.results.map((item, index) => {
         return {
 
@@ -34,7 +38,7 @@ export default function useWrappedProducts({ productId, pageNumber =1}) {
       })
         console.log('products',products);
 
-      setProducts({ products, isProductsLoading: isLoading });
+      setProducts({ totalPages,products, isProductsLoading: isLoading });
     }
     // console.log(products)
 

@@ -10,7 +10,7 @@ export default function useSearch({searchTerm,pageNumber=1}) {
     }));
 
     useEffect(() => {
-        console.log('useSearch,getsearchResults')
+      //  console.log('useSearch,getsearchResults')
         if (!apiRef || isApiMetadataLoading) {
             return () => { };
         }
@@ -18,7 +18,7 @@ export default function useSearch({searchTerm,pageNumber=1}) {
         const controller = new AbortController();
 
         async function getsearchResults({ searchTerm }) {
-            console.log('async function getsearchResults')
+            //console.log('async function getsearchResults')
             try {
                 if (searchTerm === undefined || searchTerm === null || searchTerm === '') {
                     setsearchResults({ data: {}, isLoading: false });

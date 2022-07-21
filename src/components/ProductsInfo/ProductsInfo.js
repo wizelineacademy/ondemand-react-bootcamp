@@ -4,15 +4,14 @@ import CarouselGrid from "../CarouselGrid/CarouselGrid";
 import Pagination from "../Pagination/Pagination";
 import './ProductsInfo.css'
 
-export default function ProductsInfo({ products }) {
+export default function ProductsInfo({ products ,totalPages,currentPage, setCurrentPage}) {
 
     const { userDetails, setUserDetails } = useContext(UserDetailsContext);
     // console.log(userDetails)
     // console.log(setUserDetails)
 
     const [gridData, setGridData] = useState([]);
-    const [totalPages, setTotalPages] = useState(10);
-    const [currentPage, setCurrentPage] = useState(1);
+
     useEffect(() => {
         if (products === undefined || products?.length === 0) {
             setGridData({});
@@ -46,11 +45,10 @@ export default function ProductsInfo({ products }) {
                     buttonText='Add to cart' />
                 : <div>No items Found</div>
             }
-
+{console.log('totalPages', totalPages, 'currentPage', currentPage, 'setCurrentPage',    setCurrentPage )}
             <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
-                setTotalPages={setTotalPages}
                 setCurrentPage={setCurrentPage} />
         </div>
 
