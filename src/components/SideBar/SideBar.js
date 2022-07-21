@@ -1,13 +1,11 @@
 
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './SideBar.css'
 import { useSearchParams } from "react-router-dom";
 
 export default function SideBar({ menuListItems, selectedCategories, updateParentSelectedCategories }) {
 
-
-    // const [selectedCategories, updateSelectedCategories] = useState(categoriesParentList);
 
     const [searchParams] = useSearchParams();
 
@@ -19,7 +17,7 @@ export default function SideBar({ menuListItems, selectedCategories, updateParen
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-//    console.log(selectedCategories)
+
     function handleClick(categoryId) {
         let newArray;
         if (selectedCategories.includes(categoryId)) {
