@@ -52,7 +52,7 @@ const ProductList = () => {
             
             {!readyForRender ?<div>Loading</div>:
                 <SideBar menuListItems={productCategories}
-                    categoriesParentList={selectedCategories}
+                    selectedCategories={selectedCategories}
                     updateParentSelectedCategories={updateSelectedCategories} />
                  }
             <h1 style={{ display: 'inline-block' }} >This is the Product List Page </h1>

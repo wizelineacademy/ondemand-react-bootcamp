@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import './SideBar.css'
 import { useSearchParams } from "react-router-dom";
 
-export default function SideBar({ menuListItems, categoriesParentList, updateParentSelectedCategories }) {
+export default function SideBar({ menuListItems, selectedCategories, updateParentSelectedCategories }) {
 
 
-    const [selectedCategories, updateSelectedCategories] = useState(categoriesParentList);
+    // const [selectedCategories, updateSelectedCategories] = useState(categoriesParentList);
 
     const [searchParams] = useSearchParams();
 
@@ -16,8 +16,10 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
         const categorySelected = searchParams.get("category");
         if (categorySelected === undefined || categorySelected === null|| categorySelected === '') return;
         handleClick(categorySelected);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    console.log(selectedCategories)
     function handleClick(categoryId) {
         let newArray;
         if (selectedCategories.includes(categoryId)) {
@@ -26,7 +28,7 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
         else {
             newArray = [...selectedCategories, categoryId];
         }
-        updateSelectedCategories(newArray);
+        // updateSelectedCategories(newArray);
         updateParentSelectedCategories(newArray);
     }
 
@@ -34,6 +36,7 @@ export default function SideBar({ menuListItems, categoriesParentList, updatePar
 
 
         <div className="sidebar">
+            {console.log(selectedCategories)}
             {
                 menuListItems.map((optionItem, index) => (
                     <a key={index}

@@ -15,7 +15,7 @@ export default function CarouselGrid({ gridData, gridName, carouselName, carouse
     return (
 
         <div className={styles.styleCarrousel} >
-            {/* {console.log(props.gridData)} */}
+             {console.log(gridData)} 
             {/* {gridData.map((item, index) => (console.log(item) ))} */}
             {gridData.map((carouselData, index) => (
             
@@ -23,7 +23,7 @@ export default function CarouselGrid({ gridData, gridName, carouselName, carouse
                     className={styles.imageSmall}
                     carouselName={gridName}
                     carouselKeyIndex={index}
-                    key={`${carouselName}-${carouselIndex}-${index}-${carouselData.id}`}
+                    key={`${carouselData[0].uniqueId}-${carouselName}-${carouselIndex}-${index}-${carouselData.id}`}
                     carouselInitialSlideIndex={1}
                     data={carouselData}
                     uniqueId={carouselData[0].uniqueId}

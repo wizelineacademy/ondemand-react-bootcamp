@@ -19,35 +19,7 @@ export default function Search() {
         setSearchTerm(searchString);
         setCurrentPage(1);
     }, [searchParams])
-    // const [wrappedData, setWrappedData] = useState(() => ({
-    //     data: {},
-    //     isLoading: true,
-    //   }));
-
-    //   useEffect(() => {
-
-    //     let dataFiltered = [];
-    //     if (data.results !== undefined) {
-
-    //       dataFiltered = data.results.map((item, index) => {
-    //         return {
-
-    //           id: index + 1,
-    //           categoryId: item.data.category.id,
-    //           srcs: item.data.images.map((image, index) => { return image.image.url }),
-    //           alt: item.data.mainimage.alt,
-    //           text: [item.data.name, item.data.price, item.data.category.slug],
-    //           navigationLink: `/detail?productId=${item.id}`,
-    //           uniqueId:item.id
-    //         };
-    //       })    
-    //         setWrappedData({ data:dataFiltered,  isLoading });
-    //     }
-    //      console.log(dataFiltered)
-
-    //   }, [data, isLoading,searchTerm]);
-
-
+ 
 
    console.log('test', data, isLoading, totalPages)
 
