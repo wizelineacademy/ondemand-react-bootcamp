@@ -58,7 +58,7 @@ export default function useWrappedProduct({ productId ,pageNumber=1}) {
 
       setProduct({ product, isProductLoading: isLoading });
     }
-     console.log(product)
+    // console.log(product)
 
   }, [productDataFiltered, isLoading]);
 

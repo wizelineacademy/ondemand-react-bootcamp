@@ -45,7 +45,7 @@ export default function ProductsInfo({ products ,totalPages,currentPage, setCurr
                     buttonText='Add to cart' />
                 : <div>No items Found</div>
             }
-{console.log('totalPages', totalPages, 'currentPage', currentPage, 'setCurrentPage',    setCurrentPage )}
+
             <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}

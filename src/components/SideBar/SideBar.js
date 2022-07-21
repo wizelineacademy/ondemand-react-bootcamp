@@ -19,7 +19,7 @@ export default function SideBar({ menuListItems, selectedCategories, updateParen
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    console.log(selectedCategories)
+//    console.log(selectedCategories)
     function handleClick(categoryId) {
         let newArray;
         if (selectedCategories.includes(categoryId)) {
@@ -28,7 +28,7 @@ export default function SideBar({ menuListItems, selectedCategories, updateParen
         else {
             newArray = [...selectedCategories, categoryId];
         }
-        // updateSelectedCategories(newArray);
+ 
         updateParentSelectedCategories(newArray);
     }
 
@@ -36,7 +36,6 @@ export default function SideBar({ menuListItems, selectedCategories, updateParen
 
 
         <div className="sidebar">
-            {console.log(selectedCategories)}
             {
                 menuListItems.map((optionItem, index) => (
                     <a key={index}

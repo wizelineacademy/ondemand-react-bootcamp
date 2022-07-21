@@ -30,7 +30,7 @@ export default function useWrappedProductCategoriesMenu({pageNumber=1}) {
       
         };
       });
-      console.log(productCategories);
+      //console.log(productCategories);
 
       setWrappedData({
         productCategories: productCategories,

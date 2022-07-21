@@ -30,7 +30,7 @@ export default function useWrappedFeaturedProducts({pageNumber=1}) {
           uniqueId:row.id
         };
       });
-      console.log(featuredProducts);
+      //console.log(featuredProducts);
       setWrappedData({
         featuredProducts: featuredProducts,
         isProductsLoading: isLoading

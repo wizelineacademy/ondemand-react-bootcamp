@@ -15,7 +15,7 @@ export default function CarouselGrid({ gridData, gridName, carouselName, carouse
     return (
 
         <div className={styles.styleCarrousel} >
-             {console.log(gridData)} 
+             
             {/* {gridData.map((item, index) => (console.log(item) ))} */}
             {gridData.map((carouselData, index) => (
             

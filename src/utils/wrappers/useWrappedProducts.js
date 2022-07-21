@@ -22,7 +22,7 @@ export default function useWrappedProducts({ productId, pageNumber =1}) {
     let products = []; 
     let totalPages=1;
     if (productsDataFiltered.results !== undefined) {
-    console.log(productsDataFiltered);
+    //console.log(productsDataFiltered);
       totalPages=productsDataFiltered.total_pages;
       products = productsDataFiltered.results.map((item, index) => {
         return {
@@ -36,7 +36,7 @@ export default function useWrappedProducts({ productId, pageNumber =1}) {
           uniqueId:item.id
         };
       })
-        console.log('products',products);
+        //console.log('products',products);
 
       setProducts({ totalPages,products, isProductsLoading: isLoading });
     }
