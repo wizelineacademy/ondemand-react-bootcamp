@@ -5,7 +5,7 @@ import Store from "../../contexts/Store";
 import "./cartitem.css";
 import Counter from "../Counter";
 
-const CartItem = ({ carItem }) => {
+const CartItem = ({ cartItem }) => {
   const [isHover, setIsHover] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const handlerOnMouseEnter = () => {
@@ -14,7 +14,7 @@ const CartItem = ({ carItem }) => {
   const handlerOnMouseLeave = () => {
     setIsHover((prevIsHover) => false);
   };
-  const { name, id, price, image, numItems, stock, balance } = carItem;
+  const { name, id, price, image, numItems, stock, balance } = cartItem;
   const subtotal = Number(price) * Number(numItems);
   return (
     <Store.Consumer>

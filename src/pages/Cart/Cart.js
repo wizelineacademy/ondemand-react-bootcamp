@@ -3,11 +3,29 @@ import Layout from "../../components/layout/Layout";
 import Store from "../../contexts/Store";
 import "./cart.css";
 import CartItem from "../../components/CartItem/CartItem";
+import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   return (
     <Store.Consumer>
       {({ cart }) => {
+        const goToCheckout = () => {
+          navigate({
+            pathname: "/checkout"
+          })
+        }
+        let disabled=true;
+        const total =
+          cart.reduce(
+            (previousValue, carItem) =>
+              previousValue + Number(carItem.price) * Number(carItem.numItems),
+            0
+          ) || 0;
+        if (total > 0) {
+          disabled = false;
+        }
         return (
           <Layout type="withoutNav">
             <div className="cart-container">
@@ -20,11 +38,19 @@ const Cart = () => {
                 <div className="cart-title-items">Remove</div>
               </div>
               {cart &&
-                cart.map((carItem, key) => {
-                  return (
-                    <CartItem key={key} carItem={carItem}/>
-                  );
+                cart.map((cartItem, key) => {
+                  return <CartItem key={key} cartItem={cartItem} />;
                 })}
+              <div className="cart-total">
+                <div className="cart-total-items-text">
+                  Total ${total.toFixed(2)}
+                </div>
+                <div className="cart-total-items-button">
+                  <Button classname="cart-button" onclick={goToCheckout} disabled={disabled}>
+                    Checkout
+                  </Button>
+                </div>
+              </div>
             </div>
           </Layout>
         );

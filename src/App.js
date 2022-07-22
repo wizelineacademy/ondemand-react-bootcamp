@@ -5,6 +5,7 @@ import ProductList from "./pages/ProductList";
 import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
 import Store from "./contexts/Store";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -80,6 +81,7 @@ const App = () => {
           <Route exact path="/search" element={<ProductList />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/product" element={<ProductDetail />} />
+          <Route exact path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
