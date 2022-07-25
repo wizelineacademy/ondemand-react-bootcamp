@@ -28,10 +28,12 @@ const ProductView = ({ data, disabledItem }) => {
       label: "Tags",
       value: data.results[0].tags ? data.results[0].tags.join(", ") : "",
     },
+  ];
+  const notes = [
     {
       label: "Description",
       value: description[0].text ? description[0].text : "",
-    },
+    }
   ];
   const specifications = specs.map((spec) => {
     return { label: spec.spec_name, value: spec.spec_value };
@@ -89,8 +91,9 @@ const ProductView = ({ data, disabledItem }) => {
                 showNav={false}
               />
             </div>
-            <Table data={basics} cells={2} title="BASICS" />
-            <Table data={specifications} cells={2} title="SPECS" />
+            <Table data={basics} numCells={2} title="BASICS" />
+            <Table data={notes} numCells={1} title="DESCRIPTION" cellLabel={false}/>
+            <Table data={specifications} numCells={2} title="SPECS"/>
             <div className="productview-button-container">
               {errorMessage && <div><span>{errorMessage}</span></div>}
               <Counter handler={handler} numItems={numItems}/>

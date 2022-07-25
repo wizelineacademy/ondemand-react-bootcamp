@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Store from "../../contexts/Store";
 
-const Product = ({ data, extendedCard, disabledItem }) => {
+const Product = ({ data, extendedCard=false, disabledItem }) => {
   const [disabled, setDisabled]  = useState(disabledItem);
   const {
     url,
@@ -41,9 +41,9 @@ const Product = ({ data, extendedCard, disabledItem }) => {
           getDisabled(cart, product.id, 1);
         };
         return (
-          <div className={`product ${extendedCard && "extended"}`}>
-            <div>
-              <img src={url} alt={alt} className="product-img" />
+          <div className={`product ${extendedCard?"extended":""}`}>
+            <div className="product-img">
+              <img src={url} alt={alt}/>
             </div>
             <div className="product-label" onClick={goToProductDetail}>
               <ul>

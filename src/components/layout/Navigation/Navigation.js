@@ -17,7 +17,10 @@ const Navigation = ({ handlerEvent, checkedItems }) => {
       <div className="navigation">
         {isLoading && <div>Loading...</div>}
         <div className="navigation-items">
+          <div>
           <h2>Categories</h2>
+          </div>
+          <div className="navigation-content">
           {data.results &&
             data.results.map((row) => {
               let checked = checkedItems.includes(row.id);
@@ -28,6 +31,7 @@ const Navigation = ({ handlerEvent, checkedItems }) => {
               handlerEvent={handlerToggleSwitch}
               checked={checked}/>;
             })}
+          </div>
         </div>
         <div className="navigation-button-container">
           { checkedItems.length > 0 &&

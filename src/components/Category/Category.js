@@ -9,8 +9,8 @@ const Category = ({ data, handlerEvent }) => {
   }
   return (
     <div className="category" onClick={handlerOnClick}>
-      <div>
-        <img src={url} alt={alt} className="category-img"/>
+      <div className="category-img">
+        <img src={url} alt={alt}/>
       </div>
       <div className="category-label">
         <label>{name}</label>

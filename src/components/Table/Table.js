@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./table.css";
 
-const Table = ({ data, title = "" }) => {
-  const cells = 2;
+const Table = ({ data, title = "", numCells, cellLabel=true}) => {
+  const cells = numCells?numCells:2;
   const chunk = (data, cells) => {
     const res = [];
     if (data !== undefined) {
@@ -25,8 +25,8 @@ const Table = ({ data, title = "" }) => {
             <div key={`row-${rid}`} className="row">
               {row &&
                 row.map((cell, cid) => {
-                  return <div key={`row-${rid}-${cid}`}className="cell">
-                    <div className="cell-label">{cell.label}:</div>
+                  return <div key={`row-${rid}-${cid}`} className={`cell ${numCells ===1 ? "cell-complete": ""}`}>
+                    {cellLabel && <div className="cell-label">{cell.label}:</div>}
                     <div className="cell-value">{cell.value}</div>
                   </div>;
                 })}

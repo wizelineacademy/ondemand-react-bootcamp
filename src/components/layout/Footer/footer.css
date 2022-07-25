@@ -3,9 +3,26 @@
   height: 10%;
   justify-content: center;
   min-height: 5vh;
-  background-color:#EC1666;
+  background-color: #ec1666;
   align-items: center;
-  border-top-style:solid;
+  border-top-style: solid;
   border-color: lightgray;
-  color:white;
+  color: white;
+}
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 844px)
+and (orientation: portrait) {
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 844px)
+and (orientation: landscape) {
+  .footer {
+    padding: 10px;
+  }
 }
