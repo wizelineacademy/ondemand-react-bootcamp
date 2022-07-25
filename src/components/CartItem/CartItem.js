@@ -43,7 +43,7 @@ const CartItem = ({ cartItem }) => {
               <Counter handler={handler} numItems={numItems}/>
               {errorMessage && <div><span>{errorMessage}</span></div>}</div>
             <div className="cart-detail-items">${subtotal.toFixed(2)}</div>
-            <div className="cart-detail-items">
+            <div className="cart-detail-items-icon">
               <img
                 src={isHover ? trashImg_active : trashImg}
                 alt="cart"

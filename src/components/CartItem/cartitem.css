@@ -12,6 +12,24 @@
   width: 10%;
 }
 
+
 .cart-detail-items span {
   color: #EC1666;
+}
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 390px)
+and (orientation: portrait) {
+  .cart-detail {
+    font-size: 1vh;
+  }
+  .cart-detail-items img {
+    height: 50px !important;
+  }
+
+  .cart-detail-items .counter .counter-text{
+    font-size: 2vh;
+  }.cart-detail-items .counter .counter-button{
+    margin: 5px;
+  }
 }

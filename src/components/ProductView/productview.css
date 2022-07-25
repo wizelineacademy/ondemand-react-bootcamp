@@ -86,3 +86,11 @@
 .productview-button-container span {
   color: #EC1666;
 }
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 844px)
+and (orientation: landscape) {
+  .productview-label {
+    font-size: 4vh;
+  }
+}

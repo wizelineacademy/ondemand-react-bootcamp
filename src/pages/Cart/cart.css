@@ -68,3 +68,25 @@
   align-items: center;
   justify-content:flex-start;
 }
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 844px)
+and (orientation: landscape) {
+  .cart-total {
+    font-size: 4vh;
+  }
+}
+
+@media only screen and (min-device-width: 320px)
+and (max-device-width: 390px)
+and (orientation: portrait) {
+  .cart-title {
+    font-size: 1vh;
+  }
+  .cart-total-items-text {
+    width: 70%;
+  }
+  .cart-total-items-button {
+    width: 30%;
+  }
+}
