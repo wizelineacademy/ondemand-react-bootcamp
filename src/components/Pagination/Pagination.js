@@ -1,6 +1,8 @@
 import React from 'react';
 import { usePagination, DOTS } from '../../utils/hooks/usePagination'
 import './pagination.css';
+import PropTypes from "prop-types";
+
 const Pagination = props => {
   const {
     onPageChange,
@@ -74,4 +76,11 @@ const Pagination = props => {
   );
 };
 
+Pagination.propTypes = {
+  onPageChange: PropTypes.func.isRequired,
+  totalCount: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired
+};
 export default Pagination;

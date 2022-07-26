@@ -1,5 +1,6 @@
 import React from "react";
 import "./toggleswitch.css";
+import PropTypes from "prop-types";
 
 const ToggleSwitch = ({ label, handlerEvent, value, checked=false }) => {
   const handlerOnChange = (e)=>{
@@ -17,6 +18,12 @@ const ToggleSwitch = ({ label, handlerEvent, value, checked=false }) => {
       </div>
     </div>
   );
+};
+
+ToggleSwitch.propTypes = {
+  label: PropTypes.string.isRequired,
+  handlerEvent: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 };
 
 export default ToggleSwitch;

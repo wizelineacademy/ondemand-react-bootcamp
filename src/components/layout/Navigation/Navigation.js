@@ -3,6 +3,7 @@ import "./navigation.css";
 import { useProductCategories } from "../../../utils/hooks/useProductCategories";
 import Button from '../../Button';
 import ToggleSwitch from "../../ToggleSwitch";
+import PropTypes from "prop-types";
 
 const Navigation = ({ handlerEvent, checkedItems }) => {
   const { data, isLoading } = useProductCategories();
@@ -44,4 +45,8 @@ const Navigation = ({ handlerEvent, checkedItems }) => {
   );
 };
 
+Navigation.propTypes = {
+  handlerEvent: PropTypes.func.isRequired,
+  checkedItems: PropTypes.array.isRequired
+};
 export default Navigation;

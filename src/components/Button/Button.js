@@ -9,5 +9,6 @@ const Button = ({ children, classname, onclick, type='button', disabled=false}) 
 
 Button.propTypes = {
   children: PropTypes.any.isRequired,
+  classname: PropTypes.string.isRequired
 };
 export default Button;

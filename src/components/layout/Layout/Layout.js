@@ -6,7 +6,7 @@ import Navigation from '../Navigation';
 import Body from '../Body/Body';
 import PropTypes from 'prop-types';
 
-const Layout = ({ type, navHandlerEvent, contentData, contentIsLoading, navCheckedItems, children }) => {
+const Layout = ({ type, navHandlerEvent, navCheckedItems, children }) => {
   const handlerEvent = (e) => {
     return navHandlerEvent(e);
   }

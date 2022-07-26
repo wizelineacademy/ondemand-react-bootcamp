@@ -21,5 +21,6 @@ const Category = ({ data, handlerEvent }) => {
 
 Category.propTypes = {
   data: PropTypes.object.isRequired,
+  handlerEvent: PropTypes.func.isRequired
 };
 export default Category;

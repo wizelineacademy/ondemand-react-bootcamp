@@ -38,6 +38,6 @@ const CartIcon = ({ onclick }) => {
 };
 
 CartIcon.propTypes = {
-  onclick: PropTypes.any.isRequired,
+  onclick: PropTypes.func.isRequired,
 };
 export default CartIcon;

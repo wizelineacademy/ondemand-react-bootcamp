@@ -109,6 +109,7 @@ const ProductView = ({ data, disabledItem }) => {
 };
 
 ProductView.propTypes = {
-  data: PropTypes.any.isRequired,
+  data: PropTypes.object.isRequired,
+  disabledItem: PropTypes.bool.isRequired
 };
 export default ProductView;

@@ -39,5 +39,6 @@ const Table = ({ data, title = "", numCells, cellLabel=true}) => {
 
 Table.propTypes = {
   data: PropTypes.array.isRequired,
+  numCells: PropTypes.number.isRequired
 };
 export default Table;

@@ -2,6 +2,7 @@ import React from "react";
 import "./products.css";
 import Product from "../Product/Product";
 import Store from "../../contexts/Store";
+import PropTypes from "prop-types";
 
 const Products = ({ data, isLoading, isSearcResult }) => {
   if (data.results === undefined) {
@@ -55,4 +56,8 @@ const Products = ({ data, isLoading, isSearcResult }) => {
   );
 };
 
+Products.propTypes = {
+  data: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 export default Products;

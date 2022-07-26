@@ -4,6 +4,7 @@ import trashImg_active from "../../assets/images/trash-active.png";
 import Store from "../../contexts/Store";
 import "./cartitem.css";
 import Counter from "../Counter";
+import PropTypes from "prop-types";
 
 const CartItem = ({ cartItem }) => {
   const [isHover, setIsHover] = useState(false);
@@ -60,4 +61,7 @@ const CartItem = ({ cartItem }) => {
   );
 };
 
+CartItem.propTypes = {
+  cartItem: PropTypes.object.isRequired
+};
 export default CartItem;

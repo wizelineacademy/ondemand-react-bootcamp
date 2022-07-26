@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "../Button/Button";
 import "./counter.css";
+import PropTypes from "prop-types";
 
 function Counter({ handler, numItems }) {
 
@@ -22,4 +23,8 @@ function Counter({ handler, numItems }) {
   );
 }
 
+Counter.propTypes = {
+  handler: PropTypes.func.isRequired,
+  numItems: PropTypes.number.isRequired
+};
 export default Counter;

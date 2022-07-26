@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const [searchParams] = useSearchParams();
   useEffect(() => {
     setProductQuery(prevProductQuery => ({...prevProductQuery, productId:searchParams.get("productId")}));
-  }, []);
+  }, [searchParams]);
   return (
     <Layout type="withoutNav">
        {isLoading && <div>Loading...</div>}
