@@ -10,6 +10,7 @@ export function useProductCategories() {
   }));
 
   useEffect(() => {
+    let cancel = false;
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
@@ -18,7 +19,7 @@ export function useProductCategories() {
 
     async function getProductCategories() {
       try {
-        setProductCategories({ data: {}, isLoading: true });
+        !cancel && setProductCategories({ data: {}, isLoading: true });
 
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
@@ -30,9 +31,9 @@ export function useProductCategories() {
         );
         const data = await response.json();
 
-        setProductCategories({ data, isLoading: false });
+        !cancel && setProductCategories({ data, isLoading: false });
       } catch (err) {
-        setProductCategories({ data: {}, isLoading: false });
+        !cancel && setProductCategories({ data: {}, isLoading: false });
         console.error(err);
       }
     }
@@ -40,6 +41,7 @@ export function useProductCategories() {
     getProductCategories();
 
     return () => {
+      cancel = true;
       controller.abort();
     };
   }, [apiRef, isApiMetadataLoading]);

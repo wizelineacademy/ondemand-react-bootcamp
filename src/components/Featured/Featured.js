@@ -13,9 +13,8 @@ const Featured = () => {
     <div className="featured">
       <h3>Featured Products</h3>
       {isLoading && <div>Loading...</div>}
-      <div className="featured-items">
-        {data.results &&
-          data.results.map((row) => {
+        {data.results && <div data-testid="featured-items" className="featured-items">
+          {data.results.map((row) => {
             return (
               <Store.Consumer key={row.id}>
                 {({ cart, getCartItem }) => {
@@ -43,7 +42,8 @@ const Featured = () => {
               </Store.Consumer>
             );
           })}
-      </div>
+          </div>
+        }
       <div className="featured-div">
         <NavLink to="/productlist">
           <Button classname="featured-button">View all products</Button>

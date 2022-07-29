@@ -41,7 +41,7 @@ const Product = ({ data, extendedCard=false, disabledItem }) => {
           getDisabled(cart, product.id, 1);
         };
         return (
-          <div className={`product ${extendedCard?"extended":""}`}>
+          <div data-testid="product-item" className={`product ${extendedCard?"extended":""}`}>
             <div className="product-img">
               <img src={url} alt={alt}/>
             </div>

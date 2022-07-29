@@ -10,7 +10,7 @@ const ToggleSwitch = ({ label, handlerEvent, value, checked=false }) => {
   return (
     <div className="container">
       <div className="toggle-label">{label} </div>
-      <div className="toggle-switch">
+      <div data-testid="toggle-item" className="toggle-switch">
         <input type="checkbox" className="checkbox" name={label} id={label} value={value} onChange={handlerOnChange} checked={checked}/>
         <label className="label" htmlFor={label}>
           <span className="inner" />

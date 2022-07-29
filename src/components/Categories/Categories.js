@@ -11,8 +11,8 @@ const Categories = () => {
     <div className="categories">
       <h3>Categories</h3>
       {isLoading && <div>Loading...</div>}
-      <div className="categories-items">
-        {data.results && data.results.map((row) => {
+      {data.results && <div data-testid="categories-items" className="categories-items">
+        {data.results.map((row) => {
           const goToProductList = () =>
           navigate({
             pathname: '/productlist',
@@ -30,7 +30,7 @@ const Categories = () => {
           />
           );
         })}
-      </div>
+      </div>}
     </div>
   );
 };

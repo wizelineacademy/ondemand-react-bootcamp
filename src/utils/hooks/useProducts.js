@@ -10,6 +10,7 @@ export function useProducts(query) {
   }));
 
   useEffect(() => {
+    let cancel = false
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
@@ -54,9 +55,9 @@ export function useProducts(query) {
         );
         const data = await response.json();
 
-        setProducts({ data, isLoading: false });
+        !cancel && setProducts({ data, isLoading: false });
       } catch (err) {
-        setProducts({ data: {}, isLoading: false });
+        !cancel && setProducts({ data: {}, isLoading: false });
         console.error(err);
       }
     }
@@ -64,6 +65,7 @@ export function useProducts(query) {
     getProducts();
 
     return () => {
+      cancel = true;
       controller.abort();
     };
   }, [apiRef, isApiMetadataLoading, query]);
