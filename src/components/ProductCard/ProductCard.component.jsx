@@ -31,7 +31,13 @@ const ProductCard = ({
 
   return (
     <ProductSection onClick={handleProductDetails}>
-      <ProductImage src={imageUrl} width={208} height={308} alt={imageAlt} />
+      <ProductImage
+        src={imageUrl}
+        width={208}
+        height={308}
+        alt={imageAlt}
+        data-testid="product-image"
+      />
       <ProductInfo>
         <ProductName>{name}</ProductName>
         <div>{category}</div>

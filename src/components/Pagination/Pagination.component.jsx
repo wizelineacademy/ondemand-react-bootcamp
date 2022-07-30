@@ -8,7 +8,7 @@ import {
 } from './Pagination.style';
 const Pagination = () => {
   const dispatch = useDispatch();
-  const { page } = useSelector((state) => state.pages);
+  const { page, totalPages } = useSelector((state) => state.pages);
   const handleIncrement = () => {
     dispatch(incrementPage(page));
   };
@@ -18,11 +18,19 @@ const Pagination = () => {
   };
   return (
     <PaginationContainer>
-      <ButtonLeft onClick={handleDecrement} disabled={page === 1}>
+      <ButtonLeft
+        data-testid="prev"
+        onClick={handleDecrement}
+        disabled={page === 1}
+      >
         <i className="fas fa-arrow-left"></i>
       </ButtonLeft>
-      <Index>{page}</Index>
-      <ButtonRight onClick={handleIncrement}>
+      <Index data-testid="page">{page}</Index>
+      <ButtonRight
+        data-testid="next"
+        onClick={handleIncrement}
+        disabled={page === totalPages}
+      >
         <i className="fas fa-arrow-right"></i>
       </ButtonRight>
     </PaginationContainer>

@@ -15,7 +15,7 @@ const CategorySidebar = () => {
     dispatch(clearFilteredProducts());
   };
   return (
-    <Categories data-testid="products">
+    <Categories>
       Category
       {categories.map((category) => (
         <Category

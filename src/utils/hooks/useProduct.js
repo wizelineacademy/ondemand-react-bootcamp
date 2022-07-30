@@ -19,8 +19,11 @@ export function useProduct(productId) {
     const controller = new AbortController();
     async function getProduct() {
       try {
+        const filter = `[[at(document.id, "${productId}")]]`;
         const response = await fetch(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${productId}%22%29+%5D%5D`,
+          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+            filter
+          )}`,
           {
             signal: controller.signal,
           }

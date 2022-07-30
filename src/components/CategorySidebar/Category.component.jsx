@@ -16,11 +16,9 @@ const Category = ({ id, category, isActive }) => {
   const dispatch = useDispatch();
   const handleAdd = () => {
     dispatch(startLoadingCategories());
-    setTimeout(() => {
-      dispatch(finishLoadingCategories());
-      dispatch(activeCategory(id));
-      dispatch(setProductsByCategory(id));
-    }, 2000);
+    dispatch(finishLoadingCategories());
+    dispatch(activeCategory(id));
+    dispatch(setProductsByCategory(id));
   };
 
   const handleRemove = () => {
@@ -28,9 +26,16 @@ const Category = ({ id, category, isActive }) => {
     dispatch(removeProductsByCategory(id));
   };
   return isActive ? (
-    <CategoryActive onClick={handleRemove}>{category}</CategoryActive>
+    <CategoryActive
+      data-testid="category-sidebar-active"
+      onClick={handleRemove}
+    >
+      {category}
+    </CategoryActive>
   ) : (
-    <CategoryNotActive onClick={handleAdd}>{category}</CategoryNotActive>
+    <CategoryNotActive data-testid="category-sidebar" onClick={handleAdd}>
+      {category}
+    </CategoryNotActive>
   );
 };
 

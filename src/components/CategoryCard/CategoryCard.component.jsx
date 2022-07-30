@@ -23,7 +23,13 @@ const CategoryCard = ({ id, name, url, alt }) => {
 
   return (
     <Category onClick={handleAdd} to={`/products/${id}`}>
-      <ImageSection src={url} width={400} height={200} alt={alt} />
+      <ImageSection
+        data-testid="category-image"
+        src={url}
+        width={400}
+        height={200}
+        alt={alt}
+      />
       <Title>{name}</Title>
     </Category>
   );
