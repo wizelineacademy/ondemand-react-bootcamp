@@ -45,7 +45,7 @@ const Products = ({ data, isLoading, isSearcResult }) => {
             );
           })
         ) : isSearcResult ? (
-          <div className="product-error">
+          <div data-testid="product-error" className="product-error">
             There are no products for the search term
           </div>
         ) : (

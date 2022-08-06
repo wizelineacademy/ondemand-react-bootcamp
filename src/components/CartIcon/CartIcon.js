@@ -21,6 +21,7 @@ const CartIcon = ({ onclick }) => {
           <div className="carticon-container">
             <div>
               <img
+                data-testid="carticon-container-image"
                 src={isHover ? cartImg_active : cartImg}
                 alt="cart"
                 style={{ height: 60 }}
@@ -29,7 +30,7 @@ const CartIcon = ({ onclick }) => {
                 onClick={onclick}
               />
             </div>
-            {items > 0 && <div className="carticon-badge">{items}</div>}
+            {items > 0 && <div data-testid="carticon-badge" className="carticon-badge">{items}</div>}
           </div>
         );
       }}

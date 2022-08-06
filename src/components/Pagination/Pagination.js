@@ -40,10 +40,12 @@ const Pagination = props => {
   return (
     <div className="pagination-element">
       <ul
+      data-testid="pagination-container"
       className={`pagination-container ${className}`}
     >
       <li
         key={1}
+        data-testid="pagination-container-prev"
         className={`pagination-item${currentPage === 1 ? ` disabled` : ''}`}
         onClick={onPrevious}
       >
@@ -66,6 +68,7 @@ const Pagination = props => {
       })}
       <li
         key={paginationRange.length + 1}
+        data-testid="pagination-container-next"
         className={`pagination-item${currentPage === lastPage ? ` disabled` : ''}`}
         onClick={onNext}
       >

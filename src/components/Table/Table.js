@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./table.css";
 
-const Table = ({ data, title = "", numCells, cellLabel=true}) => {
+const Table = ({ data, title = "", numCells, cellLabel=true, testid=""}) => {
   const cells = numCells?numCells:2;
   const chunk = (data, cells) => {
     const res = [];
@@ -17,7 +17,7 @@ const Table = ({ data, title = "", numCells, cellLabel=true}) => {
 
   const rows = chunk(data, cells);
   return (
-    <div className="table">
+    <div data-testid={testid} className="table">
       <div className="table-title">{title}</div>
       {rows &&
         rows.map((row, rid) => {

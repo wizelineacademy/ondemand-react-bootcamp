@@ -13,10 +13,10 @@ const Cart = () => {
       {({ cart }) => {
         const goToCheckout = () => {
           navigate({
-            pathname: "/checkout"
-          })
-        }
-        let disabled=true;
+            pathname: "/checkout",
+          });
+        };
+        let disabled = true;
         const total =
           cart.reduce(
             (previousValue, carItem) =>
@@ -37,16 +37,25 @@ const Cart = () => {
                 <div className="cart-title-items">Subtotal</div>
                 <div className="cart-title-items">Remove</div>
               </div>
-              {cart &&
+              {cart.length > 0 ? (
                 cart.map((cartItem, key) => {
                   return <CartItem key={key} cartItem={cartItem} />;
-                })}
+                })
+              ) : (
+                <div data-testid="cart-error" className="cart-error">
+                  There are no items in the cart
+                </div>
+              )}
               <div className="cart-total">
-                <div className="cart-total-items-text">
+                <div data-testid="cart-total-items-text" className="cart-total-items-text">
                   Total ${total.toFixed(2)}
                 </div>
                 <div className="cart-total-items-button">
-                  <Button classname="cart-button" onclick={goToCheckout} disabled={disabled}>
+                  <Button
+                    classname="cart-button"
+                    onclick={goToCheckout}
+                    disabled={disabled}
+                  >
                     Checkout
                   </Button>
                 </div>

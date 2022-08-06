@@ -14,10 +14,10 @@ function Counter({ handler, numItems }) {
   }
 
   return (
-    <div className="counter">
-      <Button classname="counter-button" onclick={handleDecrement}>-</Button>
+    <div data-testid="counter" className="counter">
+      <Button testid="counter-decrement" classname="counter-button" onclick={handleDecrement}>-</Button>
       <span className="counter-text">{numItems}</span>
-      <Button classname="counter-button" onclick={handleIncrement}>+</Button>
+      <Button testid="counter-increment" classname="counter-button" onclick={handleIncrement}>+</Button>
       <br />
     </div>
   );

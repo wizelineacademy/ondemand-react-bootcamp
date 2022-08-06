@@ -34,7 +34,7 @@ const CartItem = ({ cartItem }) => {
           removeCartItem(cart, id);
         };
         return (
-          <div className="cart-detail">
+          <div data-testid="cart-detail" className="cart-detail">
             <div className="cart-detail-items">
               <img src={image} alt={name} style={{ height: 150 }}></img>
             </div>
@@ -42,10 +42,11 @@ const CartItem = ({ cartItem }) => {
             <div className="cart-detail-items">${price}</div>
             <div className="cart-detail-items">
               <Counter handler={handler} numItems={numItems}/>
-              {errorMessage && <div><span>{errorMessage}</span></div>}</div>
+              {errorMessage && <div data-testid="cart-error-mesagge"><span>{errorMessage}</span></div>}</div>
             <div className="cart-detail-items">${subtotal.toFixed(2)}</div>
             <div className="cart-detail-items-icon">
               <img
+                data-testid="cart-detail-items-icon"
                 src={isHover ? trashImg_active : trashImg}
                 alt="cart"
                 style={{ height: 30 }}

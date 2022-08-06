@@ -45,7 +45,7 @@ const Product = ({ data, extendedCard=false, disabledItem }) => {
             <div className="product-img">
               <img src={url} alt={alt}/>
             </div>
-            <div className="product-label" onClick={goToProductDetail}>
+            <div data-testid="product-label" className="product-label" onClick={goToProductDetail}>
               <ul>
                 <li>
                   <b>Name:</b> {name}
@@ -66,6 +66,7 @@ const Product = ({ data, extendedCard=false, disabledItem }) => {
             </div>
             <div className="product-button-container">
               <Button
+                testid="product-button"
                 classname="product-button"
                 disabled={disabled}
                 onclick={addToCart}

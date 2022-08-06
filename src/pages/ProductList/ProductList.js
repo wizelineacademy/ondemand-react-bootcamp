@@ -17,7 +17,6 @@ const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const searchTerm = searchParams.get("searchTerm");
   const [isSearcResult, setIsSearcResult] = useState(false);
-
   useEffect(() => {
     const queryCategory = searchParams.get("category");
     if (queryCategory !== null) {

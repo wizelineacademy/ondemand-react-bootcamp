@@ -23,10 +23,10 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-logo">
-        <NavLink to="/"><img src={logo} alt="logo"style={{height:120}}/></NavLink>
+        <NavLink to="/"><img data-testid="header-logo" src={logo} alt="logo"style={{height:120}}/></NavLink>
       </div>
       <div className="header-right">
-        <input type="text" placeholder="Search item" onKeyDown={goToProductList} ref={searchTerm}></input>
+        <input data-testid="search-item" type="text" placeholder="Search item" onKeyDown={goToProductList} ref={searchTerm}></input>
         <CartIcon onclick={addToCart}/>
       </div>
     </div>

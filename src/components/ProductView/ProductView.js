@@ -79,7 +79,7 @@ const ProductView = ({ data, disabledItem }) => {
            }
         };
         return (
-          <div className="productview">
+          <div data-testid="product-view" className="productview">
             <div className="productview-label">
               {data.results && data.results[0].data.name}
             </div>
@@ -91,13 +91,13 @@ const ProductView = ({ data, disabledItem }) => {
                 showNav={false}
               />
             </div>
-            <Table data={basics} numCells={2} title="BASICS" />
-            <Table data={notes} numCells={1} title="DESCRIPTION" cellLabel={false}/>
-            <Table data={specifications} numCells={2} title="SPECS"/>
+            <Table testid="product-view-basics" data={basics} numCells={2} title="BASICS" />
+            <Table testid="product-view-description" data={notes} numCells={1} title="DESCRIPTION" cellLabel={false}/>
+            <Table testid="product-view-specs" data={specifications} numCells={2} title="SPECS"/>
             <div className="productview-button-container">
               {errorMessage && <div><span>{errorMessage}</span></div>}
               <Counter handler={handler} numItems={numItems}/>
-              <Button classname="productview-button" onclick={addToCart} disabled={disabled}>
+              <Button testid="product-view-add-button" classname="productview-button" onclick={addToCart} disabled={disabled}>
                 Add to cart
               </Button>
             </div>
