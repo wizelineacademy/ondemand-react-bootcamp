@@ -1,57 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import mockData1 from '../utils/mock/featured_banners.json';
 import mockData2 from '../utils/mock/product-categories.json';
 import mockData3 from '../utils/mock/featured_products.json';
-
+import Slider from '../components/Slider/Slider.component'
 import Card from '../components/Card/Card.component';
-import { Cards, Button, Title, ButtonContainer, ButtonBox } from './Home.style'
+import { Cards,Title } from './Home.style'
 
 export default function MainView() { 
-    const [nextSlide, setNextSlide] = useState(0);
-    const clickNextSlide = () => {
-        if (nextSlide === mockData1.results.length -1)
-            return;
-        else {
-            setNextSlide(nextSlide + 1);
-        }
-    };
-
-    const clickPrevSlide = () => {
-        if (nextSlide === 0)
-            return;
-        else {
-            setNextSlide(nextSlide - 1);
-        }
-        console.log(mockData1.results[nextSlide]?.id);
-    };
-
     return (
-        <div>
-            <div >
-                <Title> Slider </Title>
-            </div>
-            <Cards>
-                {mockData1.results.map(image => (
-                    mockData1.results[nextSlide]?.id === image.id && 
-                    <Card
-                        id={image.data.id}
-                        key={image.id}
-                        name={image.data.title}
-                        description={image.data.description[0].text}
-                        image={image.data.main_image.url}
-                    />
-                    ))    
-                }
-            </Cards>
-            <ButtonBox>
-                <ButtonContainer>
-                    <Button onClick={clickPrevSlide} > Prev </Button>
-                    <Button onClick={clickNextSlide}> Next </Button>
-                </ButtonContainer>
-            </ButtonBox>
-            <div >
-                <Title> Grid </Title>
-            </div>
+        <>
+            <Title> Slider </Title>
+            <Slider data={mockData1}/>
+            <Title> Grid </Title>
             <Cards>
                 {mockData2.results.map(image => (
                     <Card
@@ -64,9 +24,7 @@ export default function MainView() {
                     ))    
                 }
             </Cards>
-            <div >
-                <Title> Grid </Title>
-            </div>
+            <Title> Grid </Title>
             <Cards>
                 {mockData3.results.map(image => (
                     <Card
@@ -79,6 +37,6 @@ export default function MainView() {
                     ))    
                 }
             </Cards>
-        </ div>
+        </ >
     );
 }
