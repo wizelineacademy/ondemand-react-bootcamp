@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 999;
-  height: 80px;
+  height: 110px;
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -14,8 +14,7 @@ export const Nav = styled.nav`
 
 export const NavbarContainer = styled(Container)`
   display: flex;
-  justify-content: space-between;
-  height: 80px;
+  margin-left: auto;
   ${Container};
 `;
 
@@ -25,8 +24,7 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  align: right;
-  margin: auto;
+  margin: 1em;
   width: 100%;
   font-size: 20px;
   font-family: "Lucida Console", "Courier New", monospace;
@@ -34,10 +32,12 @@ export const MenuItem = styled.li`
 `;
 
 export const MenuItemRight = styled.li`
-  list-style: none;
-  margin-top: 10px;
-  height: 80px;
   float: right;
+  margin: 1em;
+  width: 100%;
+  font-size: 20px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  list-style: none;
 `;
 
 export const MenuLink = styled.a`
@@ -68,6 +68,17 @@ export const Input = styled.input.attrs({
   outline: none;
   transition: 0.15s;
   text-align: center;
+  &:active {
+    background-color: #f1ac15;
+  }
+`;
+
+export const Icon = styled.i.attrs({
+  className : 'fa fa-shopping-cart fa-2x'
+})`
+  width: px;
+  display: block;
+  cursor: pointer;
   &:active {
     background-color: #f1ac15;
   }
