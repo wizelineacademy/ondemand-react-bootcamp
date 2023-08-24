@@ -1,23 +1,22 @@
-import { useState } from "react";
+import Card from "../Card/Card";
 
-const FeaturedProducts = ({ items }) => {
-  console.log(items);
-
+const FeaturedProducts = ({ items , handleViewChange}) => {
   return (
     <>
-      <h1>Grid Section</h1>
+      <h1>Featured Products</h1>
+      <button id="show-products-btn" onClick={() => handleViewChange(false, true)}>View all products</button>
       <article className="grid-columns">
         {items.map((item) => {
           return (
-            <section className="grid-section" key={item.id}>
-              <h5>Name {item.data.name}</h5>
-              <h5>Price {item.data.price}</h5>
-              <h5>Category {item.data.category.slug}</h5>
-              <img
-                src={item.data.mainimage.url}
-                alt={item.data.mainimage.alt}
-              />
-            </section>
+            <Card
+              key={item.id}
+              name={item.data.name}
+              price={item.data.price}
+              category={item.data.category.slug}
+              url={item.data.mainimage.url}
+              alt={item.data.category.slug}
+              classSection="grid-section"
+            />
           );
         })}
       </article>

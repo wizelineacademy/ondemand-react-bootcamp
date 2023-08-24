@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../Card/Card";
 
 const Slider = ({ items }) => {
   const [showItems, setShowItems] = useState(items);
@@ -21,17 +22,15 @@ const Slider = ({ items }) => {
     <>
       <h1>Slider Section</h1>
       <article className="slider-columns">
-        {showItems.map((item) => {
-          return (
-            <section className="slider_section" key={item.id}>
-              <h3>{item.data.title}</h3>
-              <img
-                src={item.data.main_image.url}
-                alt={item.data.main_image.alt}
-              />
-            </section>
-          );
-        })}
+        {showItems.map((item) => (
+          <Card
+            key={item.id}
+            name={item.data.title}
+            url={item.data.main_image.url}
+            alt={item.data.main_image.alt}
+            classSection="slider_section"
+          />
+        ))}
       </article>
       <section className="slider_controls">
         <button onClick={handledClickPrevious}>Previous</button>

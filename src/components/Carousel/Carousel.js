@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../Card/Card";
 
 const Carousel = ({ items }) => {
   const [currentItem, setCurrentItem] = useState(0);
@@ -12,21 +13,17 @@ const Carousel = ({ items }) => {
 
   return (
     <>
-      <h1>Carousel Section</h1>
-      <article>
-        <section className="carousel_main">
-          <h3>{items[currentItem].data.name}</h3>
-          <img
-            src={items[currentItem].data.main_image.url}
-            alt={items[currentItem].data.main_image.alt}
-          />
-        </section>
-
-        <section className="carousel_controls">
-          <button onClick={handledClickPrevious}>Previous</button>
-          <button onClick={handledClickNext}>Next</button>
-        </section>
-      </article>
+      <Card
+        key={items[currentItem].id}
+        name={items[currentItem].data.name}
+        url={items[currentItem].data.main_image.url}
+        alt={items[currentItem].data.main_image.alt}
+        classSection="carousel_main"
+      />
+      <section className="carousel_controls">
+        <button onClick={handledClickPrevious}>Previous</button>
+        <button onClick={handledClickNext}>Next</button>
+      </section>
     </>
   );
 };
