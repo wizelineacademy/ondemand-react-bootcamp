@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Container } from '../../Global.styles';
+import styled from "styled-components";
+import { Container } from "../../Global.styles";
 
 export const Nav = styled.nav`
   font-size: 18px;
@@ -19,7 +19,6 @@ export const NavbarContainer = styled(Container)`
   height: 80px;
   ${Container};
 `;
-
 
 export const Menu = styled.ul`
   display: flex;

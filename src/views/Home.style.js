@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Title = styled.h1`
   font-size: 40px;
@@ -8,14 +8,13 @@ export const Title = styled.h1`
 `;
 
 export const Cards = styled.div`
-  align: center ;
+  align: center;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 1x;
   margin-right: 10px;
 `;
-
 
 export const Button = styled.button`
   background: #00aec9;
@@ -33,7 +32,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonBox = styled.div`
-  align: center ;
+  align: center;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
