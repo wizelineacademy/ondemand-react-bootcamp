@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Cards, Button, ButtonContainer, ButtonBox } from "./Slider.style";
+import { Cards, Button, ButtonBox, ButtonContainer } from "../../Global.styles";
 import Card from "../Card/Card.component";
 export default function Slider({ data }) {
   const [nextSlide, setNextSlide] = useState(0);

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink as Link } from "react-router-dom";
 import { Container } from "../../Global.styles";
 
 export const Nav = styled.nav`
@@ -39,7 +40,7 @@ export const MenuItemRight = styled.li`
   list-style: none;
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled(Link)`
   margin : auto
   text-decoration: none;
   font-weight: bold;

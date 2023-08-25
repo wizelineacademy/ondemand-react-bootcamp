@@ -20,16 +20,16 @@ export default function Header() {
       <NavbarContainer>
         <Menu>
           <MenuItem>
-            <MenuLink>{NAME_STORE}</MenuLink>
+            <MenuLink to="/">{NAME_STORE}</MenuLink>
           </MenuItem>
           <MenuItem>
-            <MenuLink href="">HOME</MenuLink>
+            <MenuLink to="/">HOME</MenuLink>
           </MenuItem>
           <MenuItem>
-            <MenuLink href="">INFO</MenuLink>
+            <MenuLink to="/info">INFO</MenuLink>
           </MenuItem>
           <MenuItem>
-            <MenuLink href="">ABOUT</MenuLink>
+            <MenuLink to="/about">ABOUT</MenuLink>
           </MenuItem>
           <MenuItem>
             <Icon></Icon>

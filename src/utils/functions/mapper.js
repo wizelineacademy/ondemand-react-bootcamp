@@ -21,3 +21,15 @@ export function featuredProductsToCard(data) {
     };
   });
 }
+
+export function allProductsToCard(data) {
+  return data.results.map((image) => {
+    return {
+      id: image.id,
+      key: image.id,
+      name: image.data.name,
+      description: image.data.description[0].text,
+      image: image.data.mainimage.url,
+    };
+  });
+}

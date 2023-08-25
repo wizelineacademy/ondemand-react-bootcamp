@@ -1,9 +1,15 @@
 import React from "react";
-import { Nav, Menu, MenuItem, NavbarContainer } from "./Footer.style";
+import {
+  Nav,
+  Menu,
+  MenuItem,
+  NavbarContainer,
+  ContainerFooter,
+} from "./Footer.style";
 
 export default function Footer() {
   return (
-    <footer>
+    <ContainerFooter>
       <Nav>
         <NavbarContainer>
           <Menu>
@@ -11,6 +17,6 @@ export default function Footer() {
           </Menu>
         </NavbarContainer>
       </Nav>
-    </footer>
+    </ContainerFooter>
   );
 }

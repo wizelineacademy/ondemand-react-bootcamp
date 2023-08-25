@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Home from "./Home.page";
-import mockData1 from "../utils/mock/featured_banners.json";
+import mockData1 from "../../utils/mock/featured_banners.json";
 
 test("renders home page view", () => {
   render(<Home />);

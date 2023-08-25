@@ -112,3 +112,30 @@ export const OutlineButton = styled.button`
     }
   }
 `;
+
+export const ButtonBox = styled.div`
+  align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1x;
+  margin-right: 10px;
+`;
+export const ButtonContainer = styled.div`
+  overflow: hidden;
+  padding: 0 0 32px;
+  margin: 48px auto 0;
+  width: 400px;
+  font-family: Quicksand, arial, sans-serif;
+  border-radius: 5px;
+  text-align: center;
+`;
+
+export const Cards = styled.div`
+  align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1x;
+  margin-right: 10px;
+`;

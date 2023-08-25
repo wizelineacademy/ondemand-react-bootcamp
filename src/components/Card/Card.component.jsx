@@ -13,9 +13,7 @@ export default function Card({ name, description, image, id }) {
   return (
     <CardWrapper>
       <CardHeader>
-        <a href={`/video/${id}/${name}/${description}`}>
-          <CardImage src={image} alt="NO IMAGE" />
-        </a>
+        <CardImage src={image} alt="NO IMAGE" />
       </CardHeader>
       <CardBody>
         <CardFieldset>
