@@ -52,3 +52,12 @@ export const CardImage = styled.img`
   width: 250px;
   display: block;
 `;
+
+export const Cards = styled.div`
+  align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1x;
+  margin-right: 10px;
+`;
