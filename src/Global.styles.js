@@ -47,6 +47,10 @@ export const Container = styled.div`
   }
 `;
 
+export const ContentWrap = styled.div`
+  padding-bottom: 2.5rem;
+`;
+
 export const Button = styled.button`
   border-radius: ${({ bigRadius }) => (bigRadius ? "30px" : "20px")};
   background-color: ${({ primary }) => (primary ? "#E38B06" : "#000")};
@@ -57,6 +61,10 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   transition: all 0.5s ease;
+  &.active {
+    background-color: #04aa6d;
+    color: white;
+  }
   &:hover {
     background-color: ${({ primary }) => (primary ? "#fff" : "#E38B06")};
     transform: translateY(-0.5rem) scale(1.02);
@@ -115,16 +123,17 @@ export const OutlineButton = styled.button`
 
 export const ButtonBox = styled.div`
   align: center;
-  display: flex;
-  flex-wrap: wrap;
+  display: wrap;
+  padding-bottom: 30px;
   margin: 0 auto;
   padding: 1x;
   margin-right: 10px;
 `;
 export const ButtonContainer = styled.div`
   overflow: hidden;
-  padding: 0 0 32px;
-  margin: 48px auto 0;
+  display: block;
+  padding: 0 0 0px;
+  margin: 10px auto 0;
   width: 400px;
   font-family: Quicksand, arial, sans-serif;
   border-radius: 5px;
@@ -138,4 +147,11 @@ export const Cards = styled.div`
   margin: 0 auto;
   padding: 1x;
   margin-right: 10px;
+`;
+
+export const Title = styled.h1`
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Quicksand, arial, sans-serif;
 `;

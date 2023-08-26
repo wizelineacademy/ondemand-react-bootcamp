@@ -25,7 +25,9 @@ export default function MainView() {
       <Grid data={featuredProductsToCard(mockData3)} />
       <ButtonBox>
         <ButtonContainer>
-          <OutlineButton onClick={() => navigate("/product")}>
+          <OutlineButton
+            onClick={() => navigate("/product", { replace: true })}
+          >
             View All Products
           </OutlineButton>
         </ButtonContainer>

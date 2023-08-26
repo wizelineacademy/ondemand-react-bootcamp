@@ -12,25 +12,17 @@ export const Sidebar = styled.div`
   overflow: auto;
 `;
 
-export const Option = styled.a`
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  &.active {
-    background-color: #04aa6d;
-    color: white;
-  }
-  &:hover:not(.active) {
-    background-color: ${({ primary }) => (primary ? "#fff" : "#E38B06")};
-    transform: translateY(-0.5rem) scale(1.02);
-    color: white;
-  }
-`;
-
 export const Content = styled.div`
   top: 0;
   z-index: 999;
   margin-left: 200px;
   padding: 1px 16px;
+  min-height: 80vh;
+`;
+
+export const Title = styled.h1`
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Quicksand, arial, sans-serif;
 `;
