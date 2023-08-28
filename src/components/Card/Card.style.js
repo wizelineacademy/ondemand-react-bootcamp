@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -51,4 +51,13 @@ export const CardImage = styled.img`
   margin: auto;
   width: 250px;
   display: block;
+`;
+
+export const Cards = styled.div`
+  align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1x;
+  margin-right: 10px;
 `;
