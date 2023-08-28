@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 
 const AppContext = React.createContext();
 
@@ -11,7 +11,7 @@ function useAppContext() {
 }
 
 function Layout({ children }) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   return (
     <AppContext.Provider value={{ input, setInput }}>
       <div className="container">{children}</div>

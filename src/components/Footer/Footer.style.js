@@ -1,15 +1,15 @@
-import styled from 'styled-components';
-import { Container } from '../../Global.styles';
+import styled from "styled-components";
+import { Container } from "../../Global.styles";
 
+export const ContainerFooter = styled.footer``;
 export const Nav = styled.nav`
   font-size: 18px;
   position: sticky;
-  top: 0;
-  z-index: 999;
   height: 110px;
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   display: block;
+  margin-top: auto;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -19,7 +19,6 @@ export const NavbarContainer = styled(Container)`
   height: 80px;
   ${Container};
 `;
-
 
 export const Menu = styled.ul`
   display: flex;

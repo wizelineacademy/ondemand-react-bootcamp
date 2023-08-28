@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { Container } from '../../Global.styles';
+import styled from "styled-components";
+import { NavLink as Link } from "react-router-dom";
+import { Container } from "../../Global.styles";
 
 export const Nav = styled.nav`
   font-size: 18px;
@@ -17,7 +18,6 @@ export const NavbarContainer = styled(Container)`
   margin-left: auto;
   ${Container};
 `;
-
 
 export const Menu = styled.ul`
   display: flex;
@@ -40,7 +40,7 @@ export const MenuItemRight = styled.li`
   list-style: none;
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled(Link)`
   margin : auto
   text-decoration: none;
   font-weight: bold;
@@ -50,10 +50,9 @@ export const MenuLink = styled.a`
   height: 105%;
 `;
 
-
 export const Input = styled.input.attrs({
-  type: 'text', 
-  placeholder: 'Search'
+  type: "text",
+  placeholder: "Search",
 })`
   background: #00aec9;
   color: #fff;
@@ -74,7 +73,7 @@ export const Input = styled.input.attrs({
 `;
 
 export const Icon = styled.i.attrs({
-  className : 'fa fa-shopping-cart fa-2x'
+  className: "fa fa-shopping-cart fa-2x",
 })`
   width: px;
   display: block;
