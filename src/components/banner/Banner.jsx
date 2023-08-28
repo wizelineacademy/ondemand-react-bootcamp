@@ -1,15 +1,25 @@
 import React from "react";
+import styled from "@emotion/styled";
+
+const BannerContainer = styled.div`
+  transition: opacity 1s ease-in-out;
+  &.fade-out {
+    opacity: 0;
+  }
+  &.fade-in {
+    opacity: 1;
+  }
+`;
 
 const Banner = (props) => {
-    if (!props.bans) return null;
-    const ban = props.bans[props.element].data;
-    console.log(ban);
+    if (!props.bann) return null;
+    const bann = props.bann.data;
     return (
-        <div>
-            <img src={ban.main_image.url} alt="logo" width={200}></img>
-            <h4>{ban.title}</h4>
-            <span>{ban.description[0].text}</span>
-        </div>
+        <BannerContainer className={props.className} onTransitionEnd={props.onTransitionEnd}>
+            <img src={bann.main_image.url} alt="logo" width={200}></img>
+            <h4>{bann.title}</h4>
+            <span>{bann.description[0].text}</span>
+        </BannerContainer>
     );
 };
 

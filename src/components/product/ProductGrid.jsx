@@ -3,39 +3,36 @@ import styled from "@emotion/styled";
 import productJson from "../../data/featured-products.json"
 import Product from "./Product";
 
-const Div = styled.div`
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-`
-const Th = styled.th`
-    border: 1px solid;
-`
+const Grid = styled.div`
+  margin: 16px auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 8px;
+  row-gap: 8px;
+`;
 
-const Products = props => {
-    const products = productJson.results;
-    
+const Products = ({ categoriesFilter }) => {
+    const allProducts = productJson.results;
+    const [ products, setProducts ] = useState(allProducts);
+
     useEffect(() => {
-        console.log(productJson.results);
-    }, []);
+        if (categoriesFilter && categoriesFilter.length > 0) {
+            setProducts(allProducts.filter(product => categoriesFilter.includes( product.data.category.slug)));
+        } else {
+            setProducts(allProducts);
+        }
+    }, [allProducts, categoriesFilter]);
     
+    if ( !products ) return null;
+
     return (
-        <Div>
-            <table>
-                <th></th>
-                <Th>Desc</Th>
-                <Th>Category</Th>
-                <Th>Price</Th>
-                <tbody>
+        <Grid>
             {products.map((prod, index) => {
-                console.log(index);
                 return (
                     <Product key={index} prod={prod}></Product>
                 );
             })}
-            </tbody>
-            </table>
-        </Div>
+        </Grid>
     );
 };
 

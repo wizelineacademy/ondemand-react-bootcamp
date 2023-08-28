@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
+import ContentContainer from "../ContentContainer.styled";
 
 const Foot = styled.footer`
-    line-height: 40px;
-    height: 40px;
+    background-color: cyan;
+    padding: 1em;
     text-align: center;
+    bottom: 0;
 `
 
 const Footer = props => {
     return (
         <Foot>
-            Ecommerce created during Wizeline’s Academy React Bootcamp
+            <ContentContainer>
+                Ecommerce created during Wizeline’s Academy React Bootcamp
+            </ContentContainer>
         </Foot>
     );
 };
