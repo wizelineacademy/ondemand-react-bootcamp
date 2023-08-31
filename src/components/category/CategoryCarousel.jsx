@@ -1,43 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import categoryJson from "../../data/product-categories.json";
-import './CategoryCarousel.css';
+import CategorySlider from "./CategoryCarousel.styled";
 
 const CategoryCarousel = props => {
-    const [current, setCurrent] = useState(0);
+    const [currentIdx, setCurrent] = useState(0);
+    const [backImage, setBackImage] = useState(null);
+    const [frontImage, setFrontImage] = useState(null);
+    const [disableNav, setDisableNav] = useState(false);
     const slides = categoryJson.results;
     const length = slides.length;
+
+    const frontContainer = useRef();
+
+    const productSlides = useMemo(() => {
+        const slidesArr = slides.map((slide) => (
+          <img
+            id={slide.id}
+            key={slide.id}
+            src={slide.data.main_image.url}
+            alt={slide.data.main_image.alt}
+            width={200}
+          />
+        ));
+    
+        setBackImage(slidesArr[0]);
+        setFrontImage(slidesArr[1]);
+        return slidesArr;
+      }, [slides]);
 
     useEffect(() => {
         console.log(categoryJson.results);
     }, [slides]);
 
     const nextSlide = () => {
-        document.getElementById(current).className="child covering";
-        let newVal = current === length - 1 ? 0 : current + 1;
-        document.getElementById(newVal).className="child covered"; 
+        let newVal = currentIdx === length - 1 ? 0 : currentIdx + 1;
+        moveSlide("covering", newVal);
         setCurrent(newVal);
     };
 
     const prevSlide = () => {
-        document.getElementById(current).className="child covering-pre";
-        let newVal = current === 0 ? length - 1 : current - 1;
-        document.getElementById(newVal).className="child covered"; 
+        let newVal = currentIdx === 0 ? length - 1 : currentIdx - 1;
+        moveSlide("covering-pre", newVal);
         setCurrent(newVal);
     };
 
+    const resetClassName = (event) => {
+        frontContainer.current.className = "child";
+        setDisableNav(false);
+    };
+
+    const moveSlide = (side, newVal) => {
+        setDisableNav(true);
+        setBackImage(productSlides[newVal]);
+        setFrontImage(productSlides[currentIdx]);
+        frontContainer.current.className = `child ${side}`;
+    };
+
     return (
-        <div>
-        <button className="leftArrow" onClick={prevSlide}>previous</button>
-        <button className="rightArrow" onClick={nextSlide}>next</button>
-        <div className="parent">
-        {slides.map((slide, index) => {
-            console.log(index);
-            return (
-                index === 0 ? <img id={index} className="child covered" src={slide.data.main_image.url} alt={slide.data.main_image.alt} width={200}/> : <img id={index} className="child covering" src={slide.data.main_image.url} alt={slide.data.main_image.alt} width={30}/>
-            );
-        })}
-        </div>
-        </div>
+        <CategorySlider>
+            <div className='parent'>
+                <div
+                    className='child'
+                    ref={frontContainer}
+                    onTransitionEnd={resetClassName}
+                >
+                    {frontImage}
+                </div>
+                <div className='child'>{backImage}</div>
+            </div>
+            <div className='slider-nav'>
+                <button className='leftArrow' onClick={prevSlide} disabled={disableNav}>
+                    previous
+                </button>
+                <button
+                    className='rightArrow'
+                    onClick={nextSlide}
+                    disabled={disableNav}
+                >
+                    next
+                </button>
+            </div>
+        </CategorySlider>
     );
 };
 
