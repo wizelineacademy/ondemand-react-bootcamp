@@ -1,4 +1,3 @@
-import "./components/Header/Header.component";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./views/Home/Home.page";
 import InfoPage from "./views/Info/Info.page";

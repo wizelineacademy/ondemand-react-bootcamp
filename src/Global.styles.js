@@ -67,7 +67,6 @@ export const Button = styled.button`
   }
   &:hover {
     background-color: ${({ primary }) => (primary ? "#fff" : "#E38B06")};
-    transform: translateY(-0.5rem) scale(1.02);
     color: #000;
   }
   &:active {
@@ -96,7 +95,6 @@ export const OutlineButton = styled.button`
     background-color: #333;
     color: #fff;
     border: none;
-    transform: translateY(-0.5rem) scale(1.02);
   }
   &:active {
     transform: translateY(0.5rem);
