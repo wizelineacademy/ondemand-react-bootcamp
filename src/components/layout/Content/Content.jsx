@@ -1,21 +1,22 @@
-import React, {useContext} from "react";
+import React from "react";
 import Banners from "../../banner/BannerSlider";
 import CategoryCarousel from "../../category/CategoryCarousel";
-import Products from "../../product/ProductGrid";
-import AppContext from "../../../AppContext";
+import { useNavigate } from "react-router";
+import FeaturedProducts from "../../product/FeaturedProductGrid";
+
 
 const Content = props => {
-    const { setShowPage } = useContext(AppContext);
+    const navigate = useNavigate();
 
     const showAll = () => {
-        setShowPage("ProductList");
+        navigate('../products');
     };
 
     return (
         <div>
             <Banners></Banners>
             <CategoryCarousel></CategoryCarousel>
-            <Products></Products>
+            <FeaturedProducts/>
             <button onClick={showAll}>View all products</button>
         </div>
     );

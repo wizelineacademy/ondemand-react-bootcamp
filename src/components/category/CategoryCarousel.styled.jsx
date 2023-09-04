@@ -46,6 +46,12 @@ const CategorySlider = styled.div`
   .covered {
     transform: translateX(0%);
   }
+
+  .hidden {
+    a {
+      display: none;
+    }
+  }
 `
 
 export default CategorySlider;

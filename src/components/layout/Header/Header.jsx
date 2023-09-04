@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
+import React, { useRef } from "react";
 import styled from "@emotion/styled";
 import logo from "../../../logo.svg";
 import cart from "./cart.png";
 import ContentContainer from "../ContentContainer.styled";
-import AppContext from "../../../AppContext";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const MainHeader = styled.header`
   background-color: #EEE;
@@ -26,7 +27,7 @@ const HeaderNav = styled.div`
   }
 `;
 
-const MainLogo = styled.a`
+const MainLogo = styled.div`
   float: left;
   width: 4em;
   height: 4em;
@@ -38,23 +39,39 @@ const MainLogo = styled.a`
 `
 
 const Header = (props) => {
-    const { setShowPage } = useContext(AppContext);
+    const navigate = useNavigate();
+    const searchTerm = useRef();
 
     const goHome = () => {
-        setShowPage("Home");
+        navigate('home');
+    };
+
+    const search = () => {
+      navigate({
+        pathname: '../search',
+        search: `?q=${searchTerm.current.value}`
+      });
+      searchTerm.current.value="";
     };
 
     return (
         <MainHeader>
             <ContentContainer>
                 <MainLogo>
+                  <Link to={{
+                            pathname: `/`
+                    }}>
                     <img src={logo} alt="E-commerce.com" onClick={goHome}></img>
+                  </Link>
                 </MainLogo>
                 <HeaderNav>
-                    <input type="text" placeholder="Search.."/>
-                <a href='/cart'>
-                    <img src={cart} alt="cart" width={30}></img>
-                </a>
+                    <input ref={searchTerm} type="text" placeholder="Search.."/>
+                    <button onClick={search}>buscar</button>
+                    <Link to={{
+                            pathname: `/cart`
+                    }}>
+                      <img src={cart} alt="cart" width={30}></img>
+                    </Link>
                 </HeaderNav>
             </ContentContainer>
         </MainHeader>

@@ -1,9 +1,8 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import Product from "./Product";
-import { useProducts } from "../../utils/hooks/useProducts";
 import { useLocation } from "react-router";
-import Pagination from "../../utils/Pagination";
+import { useFeaturedProducts } from "../../utils/hooks/useFeaturedProducts";
 
 const Grid = styled.div`
   margin: 16px auto;
@@ -13,11 +12,9 @@ const Grid = styled.div`
   row-gap: 8px;
 `;
 
-const Products = ({ categoriesFilter, setCategoriesFilter }) => {
-    const pageSize = 12;
+const FeaturedProducts = ({ categoriesFilter, setCategoriesFilter }) => {
     const { search } = useLocation();
-    const [currentPage, setCurrentPage] = useState(1);
-    const { data } = useProducts(currentPage);
+    const { data } = useFeaturedProducts(16);
     const [ products, setProducts ] = useState([]);
 
     useEffect(() => {
@@ -35,33 +32,18 @@ const Products = ({ categoriesFilter, setCategoriesFilter }) => {
             setProducts(data.results);
         }
     }, [data, categoriesFilter]);
-
-    const currentPageProds = useMemo(() => {
-        if(!products) return null;
-        const firstIndex = (currentPage - 1) * pageSize;
-        const lastIndex = firstIndex + pageSize;
-        return products.slice(firstIndex, lastIndex);
-    }, [currentPage, products]);
     
-    if ( !currentPageProds ) return null;
+    if ( !products ) return null;
+
     return (
-        <>
         <Grid>
-            {currentPageProds.map((prod, index) => {
+            {products.map((prod, index) => {
                 return (
                     <Product key={index} prod={prod}></Product>
                 );
             })}
         </Grid>
-        <Pagination 
-            className="pagination-bar"
-            currentPage={currentPage}
-            totalPageCount={Math.ceil(products.length / pageSize)}
-            pageSize={pageSize}
-            onPageChange={page => setCurrentPage(page)}
-        />
-    </>
     );
 };
 
-export default Products;
+export default FeaturedProducts;

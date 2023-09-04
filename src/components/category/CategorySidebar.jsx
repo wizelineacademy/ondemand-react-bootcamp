@@ -1,9 +1,14 @@
-import React from "react";
-import categoryJson from "../../data/product-categories.json";
+import React, { useEffect, useState } from "react";
 import CategorySidebarList from "./CategorySidebar.styled";
+import { useProductCategories } from "../../utils/hooks/useProductCategories";
 
 const CategorySidebar = ({ categoriesFilter, setCategoriesFilter}) => {
-    const categories = categoryJson.results;
+    const { data } = useProductCategories();
+    const [ categories, setCategories ] = useState([]);
+
+    useEffect(() => {
+        setCategories(data.results && data.results);
+    }, [data]);
 
     const handleClick = (event) => {
         const slugs = event.target.value.split(',');
@@ -14,22 +19,29 @@ const CategorySidebar = ({ categoriesFilter, setCategoriesFilter}) => {
         }
     };
 
+    const clearCategoriesFilter = () => {
+        setCategoriesFilter([]);
+    };
+
     return (
         <CategorySidebarList>
             <div className='sidebar s-bar-block s-light-gray s-card'>
                 <h2>Categories</h2>
-                {categories.map((cat, index) => {
+                {categories && categories.map((cat, index) => {
                     return (
                         <div 
                             data-filter={cat.slugs} 
                             id={cat.id} key={cat.id} 
                             className={categoriesFilter.includes(cat.slugs[0]) ? "s-bar-item selected" : "s-bar-item"}
                         >
-                            <input value={cat.slugs} type="checkbox" onChange={handleClick} />
+                            <input value={cat.slugs} type="checkbox" onChange={handleClick} checked={categoriesFilter.includes(cat.slugs[0])}/>
                             <span>{cat.data.name}</span>
                         </div>
                     );
                 })}
+                {categoriesFilter.length>0 &&
+                    <button onClick={clearCategoriesFilter}>Clear</button>
+                }
             </div>
         </CategorySidebarList>
     );
