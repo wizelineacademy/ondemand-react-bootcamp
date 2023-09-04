@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import Product from "./Product";
-import { useProducts } from "../../utils/hooks/useProducts";
 import { useLocation } from "react-router";
+import { useFeaturedProducts } from "../../utils/hooks/useFeaturedProducts";
 
 const Grid = styled.div`
   margin: 16px auto;
@@ -12,9 +12,9 @@ const Grid = styled.div`
   row-gap: 8px;
 `;
 
-const Products = ({ categoriesFilter, setCategoriesFilter }) => {
+const FeaturedProducts = ({ categoriesFilter, setCategoriesFilter }) => {
     const { search } = useLocation();
-    const { data } = useProducts([]);
+    const { data } = useFeaturedProducts([]);
     const [ products, setProducts ] = useState([]);
 
     useEffect(() => {
@@ -34,6 +34,7 @@ const Products = ({ categoriesFilter, setCategoriesFilter }) => {
     }, [data, categoriesFilter]);
     
     if ( !products ) return null;
+
     return (
         <Grid>
             {products.map((prod, index) => {
@@ -45,4 +46,4 @@ const Products = ({ categoriesFilter, setCategoriesFilter }) => {
     );
 };
 
-export default Products;
+export default FeaturedProducts;

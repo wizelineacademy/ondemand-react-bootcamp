@@ -13,7 +13,7 @@ export function useFeaturedBanners() {
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
-
+    
     const controller = new AbortController();
 
     async function getFeaturedBanners() {

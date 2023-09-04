@@ -20,6 +20,7 @@ const ProductList = props => {
             <Div>
             <Products
                 categoriesFilter={categoriesFilter}
+                setCategoriesFilter={setCategoriesFilter}
             />
             </Div>
             <Pagination></Pagination>

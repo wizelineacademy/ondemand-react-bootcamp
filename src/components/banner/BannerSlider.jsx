@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from "react";
 import ContentContainer from "../layout/ContentContainer.styled";
-import bannerJson from "../../data/featured-banners.json"
+import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
 import Banner from "./Banner";
 
 const Banners = props => {
     const [count, setCount] = useState(0);
-    const [banner, setBanner] = useState(bannerJson.results[0]);
+    const { data, isLoading } = useFeaturedBanners();
     const [currentClassName, setCurrentClassName] = useState("fade-in");
-    const bannersLength = bannerJson.results.length - 1;
+    const bannersLength = isLoading ? 0 : data.results.length - 1;
+    const [banner, setBanner] = useState();
+
+    useEffect(() => {
+        setBanner(data.results && data.results[0]);
+    }, [data]);
     
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -18,7 +23,7 @@ const Banners = props => {
     }, [banner]);
 
     const handleTransition = (event) => {
-        if (event.target.classList.contains("fade-out")) {
+        if ( !isLoading && event.target.classList.contains("fade-out")) {
             let nextCount;
             if (count + 1 > bannersLength) {
                 nextCount = 0;
@@ -26,18 +31,20 @@ const Banners = props => {
                 nextCount = count + 1;
             }
             setCount(nextCount);
-            setBanner(bannerJson.results[nextCount]);
+            setBanner(data.results[nextCount]);
             setCurrentClassName("fade-in");
         }
       };
 
     return (  
         <ContentContainer>
-        <Banner 
-            bann={banner} 
-            className={currentClassName} 
-            onTransitionEnd={handleTransition}
-        ></Banner>
+            {isLoading ? (<span>Is Loading . . .</span>) : (
+                <Banner 
+                    bann={banner} 
+                    className={currentClassName} 
+                    onTransitionEnd={handleTransition}
+                ></Banner>
+            )}
         </ContentContainer>
     );
 };

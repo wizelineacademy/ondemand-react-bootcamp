@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const ProductContainer = styled.div`
     border: solid 1px #DDD;
@@ -30,17 +31,31 @@ const ProductContainer = styled.div`
         &-price {
             font-weight: bold;
         }
+        &-action {
+            padding: 12px;
+            display: flex;
+            column-gap: 5px;
+        }
     }
 `
 
 const Product = props => {
-    const prod = props.prod.data;
+    const prod = props.prod;
+
     return (
         <ProductContainer>
-            <img src={prod.mainimage.url} alt="" width={30}></img>
-            <span className="product-grid-title">{prod.name}</span>
+            <img src={prod.data.mainimage.url} alt="" width={30}></img>
+            <span className="product-grid-title">{prod.data.name}</span>
             <div className="product-grid-info">
-                <span className="product-grid-type">{prod.category.slug}</span>: <span className="product-grid-price">${prod.price}</span>
+                <span className="product-grid-type">{prod.data.category.slug}</span>: <span className="product-grid-price">${prod.data.price}</span>
+                <div className="product-grid-action">
+                    <button>Add to car</button>
+                    <Link to={{
+                            pathname: `../product/${prod.id}`
+                    }}>
+                        Details
+                    </Link>
+                </div>
             </div>
         </ProductContainer>
     );

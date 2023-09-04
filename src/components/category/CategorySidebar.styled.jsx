@@ -5,9 +5,7 @@ const CategorySidebar= styled.div`
     height:100%;
     width:200px;
     background-color:#fff;
-    //float: left;
     position:fixed!important;
-    //position:relative;
     z-index:1;overflow:auto
   }
 
