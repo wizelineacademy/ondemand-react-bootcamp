@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Content, Title } from "./ProductList.style";
 import { BuildSidebar } from "../../components/Sidebar/Sidebar.component";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.component";
-import allProducts from "../../utils/mock/products.json";
 import { filterProducts } from "../../utils/functions/mapper";
-import categories from "../../utils/mock/product-categories.json";
-
+import { useProductCategories } from "../../utils/hooks/useProductCategories";
+import { useProductList } from "../../utils/hooks/useProductList";
 import Grid from "../../components/Grid/Grid.component";
 export default function ProductList() {
-  const [sidebar, categoriesSelected] = BuildSidebar(categories);
+  const categories = useProductCategories();
+  const [sidebar, categoriesSelected] = BuildSidebar(categories.data);
   const [isLoading, setLoading] = useState(false);
-  const products = filterProducts(allProducts, categoriesSelected);
+  const allProducts = useProductList();
+  const products = filterProducts(allProducts.data, categoriesSelected);
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   useEffect(() => {
     async function mockRequest() {
-      await delay(2000); // Mock fetch request time
+      await delay(2000);
       setLoading(false);
     }
     setLoading(true);

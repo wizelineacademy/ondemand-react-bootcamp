@@ -1,4 +1,5 @@
 export function productCategoryToCard(data) {
+  console.log(data);
   return data.results.map((image) => {
     return {
       id: image.id,
@@ -23,6 +24,7 @@ export function featuredProductsToCard(data) {
 }
 
 export function filterProducts(data, categoriesSelected) {
+  if (Object.keys(data).length === 0) return [];
   return data.results
     .filter(
       (product) =>
@@ -38,4 +40,8 @@ export function filterProducts(data, categoriesSelected) {
         image: product.data.mainimage.url,
       };
     });
+}
+
+export function imageFromProductToCard(data) {
+  return data;
 }

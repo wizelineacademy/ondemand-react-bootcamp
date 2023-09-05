@@ -1,8 +1,16 @@
-import React from "react";
 import Card from "../Card/Card.component";
+import React, { useEffect } from "react";
 import { Cards } from "../Card/Card.style";
-import { Button, ButtonBox, ButtonContainer } from "../../Global.styles";
+import Pagination from "../Pagination/Pagination.component";
 export default function Grid({ data }) {
+  const [actualPage, pagination] = Pagination(10);
+  console.log(data);
+  useEffect(() => {
+    const controller = new AbortController();
+    return () => {
+      controller.abort();
+    };
+  }, [actualPage]);
   return (
     <>
       <Cards>
@@ -16,18 +24,7 @@ export default function Grid({ data }) {
           />
         ))}
       </Cards>
-      <ButtonBox>
-        <ButtonContainer>
-          <Button className="active"> 1 </Button>
-          <Button> 2 </Button>
-          <Button> 3 </Button>
-          <Button> 4 </Button>
-        </ButtonContainer>
-        <ButtonContainer>
-          <Button> Prev </Button>
-          <Button> Next </Button>
-        </ButtonContainer>
-      </ButtonBox>
+      {pagination}
     </>
   );
 }

@@ -3,20 +3,12 @@ import { Cards, Button, ButtonBox, ButtonContainer } from "../../Global.styles";
 import Card from "../Card/Card.component";
 export default function Slider({ data }) {
   const [nextSlide, setNextSlide] = useState(0);
-  const N = data.results.length;
-  var image = data.results[nextSlide];
-  var info = image.data;
-  var id = image.id;
+  const N = data.length;
+  var image = data[nextSlide];
   return (
     <>
       <Cards>
-        <Card
-          id={info.id}
-          key={id}
-          name={info.title}
-          description={info.description[0].text}
-          image={info.main_image.url}
-        />
+        <Card image={image.image.url} />
       </Cards>
       <ButtonBox>
         <ButtonContainer>

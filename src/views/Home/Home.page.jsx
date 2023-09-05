@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import mockData1 from "../../utils/mock/featured_banners.json";
-import mockData2 from "../../utils/mock/product-categories.json";
-import mockData3 from "../../utils/mock/featured_products.json";
-
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.component";
+import { useProductCategories } from "../../utils/hooks/useProductCategories";
+import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
+import { useProductList } from "../../utils/hooks/useProductList";
 import Slider from "../../components/Slider/Slider.component";
 import Grid from "../../components/Grid/Grid.component";
 import { Title } from "./Home.style";
@@ -15,18 +15,32 @@ import {
 
 export default function MainView() {
   const navigate = useNavigate();
+  const featuredBanners = useFeaturedBanners();
+  const productCategories = useProductCategories();
+  const productList = useProductList();
   return (
     <>
-      <Title> Featured banners - Slider</Title>
-      <Slider data={mockData1} />
       <Title> Product Categories - Grid</Title>
-      <Grid data={productCategoryToCard(mockData2)} />
+      {productCategories.isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <Grid
+          data={productCategoryToCard(productCategories.data)}
+          update={useProductCategories}
+        />
+      )}
+
       <Title> Featured Products - Grid</Title>
-      <Grid data={featuredProductsToCard(mockData3)} />
+      {productList.isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <Grid data={featuredProductsToCard(productList.data)} />
+      )}
+
       <ButtonBox>
         <ButtonContainer>
           <OutlineButton
-            onClick={() => navigate("/product", { replace: true })}
+            onClick={() => navigate("/products", { replace: true })}
           >
             View All Products
           </OutlineButton>
